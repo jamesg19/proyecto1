@@ -5,6 +5,8 @@
  */
 package gc.tiendaipc2;
 
+import gc.tiendaipc2.FRAME.MENU;
+
 /**
  *
  * @author james
@@ -16,6 +18,8 @@ public class Main {
      */
     public static void main(String[] args) {
         // TODO code application logic here
+        MENU Menu=new MENU();
+        Menu.setVisible(true);
     }
     
 }
