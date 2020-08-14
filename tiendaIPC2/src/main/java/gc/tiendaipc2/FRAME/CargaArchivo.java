@@ -8,6 +8,7 @@ package gc.tiendaipc2.FRAME;
 import java.io.File;
 import java.io.FileReader;
 import java.io.IOException;
+import java.util.Arrays;
 import javax.swing.JFileChooser;
 import javax.swing.filechooser.FileNameExtensionFilter;
 
@@ -36,8 +37,11 @@ public class CargaArchivo extends javax.swing.JFrame {
         contentPane = new javax.swing.JPanel();
         BotonSeleccionar = new javax.swing.JButton();
         jScrollPane = new javax.swing.JScrollPane();
-        textArea = new java.awt.TextArea();
+        jTextArea1 = new javax.swing.JTextArea();
         jTextField = new javax.swing.JTextField();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        jTextArea2 = new javax.swing.JTextArea();
+        Aceptar = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -50,13 +54,25 @@ public class CargaArchivo extends javax.swing.JFrame {
             }
         });
 
-        textArea.setEditable(false);
-        jScrollPane.setViewportView(textArea);
+        jTextArea1.setColumns(20);
+        jTextArea1.setRows(5);
+        jScrollPane.setViewportView(jTextArea1);
 
         jTextField.setBackground(new java.awt.Color(177, 177, 177));
         jTextField.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jTextFieldActionPerformed(evt);
+            }
+        });
+
+        jTextArea2.setColumns(20);
+        jTextArea2.setRows(5);
+        jScrollPane1.setViewportView(jTextArea2);
+
+        Aceptar.setText("Aceptar");
+        Aceptar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                AceptarActionPerformed(evt);
             }
         });
 
@@ -74,6 +90,14 @@ public class CargaArchivo extends javax.swing.JFrame {
                 .addContainerGap()
                 .addComponent(jScrollPane)
                 .addContainerGap())
+            .addGroup(contentPaneLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jScrollPane1)
+                .addContainerGap())
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, contentPaneLayout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(Aceptar, javax.swing.GroupLayout.PREFERRED_SIZE, 111, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
         );
         contentPaneLayout.setVerticalGroup(
             contentPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -83,8 +107,12 @@ public class CargaArchivo extends javax.swing.JFrame {
                     .addComponent(BotonSeleccionar)
                     .addComponent(jTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(25, 25, 25)
-                .addComponent(jScrollPane, javax.swing.GroupLayout.PREFERRED_SIZE, 257, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(65, Short.MAX_VALUE))
+                .addComponent(jScrollPane, javax.swing.GroupLayout.PREFERRED_SIZE, 209, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(42, 42, 42)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 137, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 36, Short.MAX_VALUE)
+                .addComponent(Aceptar, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(24, 24, 24))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -104,15 +132,18 @@ public class CargaArchivo extends javax.swing.JFrame {
     private void BotonSeleccionarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotonSeleccionarActionPerformed
         // TODO add your handling code here:
         
-            //Creamos el objeto JFileChooser
+        // TODO add your handling code here:
+       
+                //Creamos el objeto JFileChooser
                 JFileChooser fc=new JFileChooser();
+                
                 //Creamos el filtro
                 FileNameExtensionFilter filtro = new FileNameExtensionFilter("*.TXT", "txt");
 
                 //Le indicamos el filtro
                 fc.setFileFilter(filtro);
 
-                //Abrimos la ventana, guardamos la opcion seleccionada por el usuario
+                //Abrimos la ventana, guardamos la opcion seleccionada por el empleado
                 int seleccion=fc.showOpenDialog(contentPane);
 
                 //Si el usuario, pincha en aceptar
@@ -120,42 +151,110 @@ public class CargaArchivo extends javax.swing.JFrame {
 
                     //Seleccionamos el fichero
                     File fichero=fc.getSelectedFile();
-//                    Seleccionamos el fichero
-//                    File[] ficheros=eligeArchivo.getSelectedFiles();
+
                     //Ecribe la ruta del fichero seleccionado en el campo de texto
                     jTextField.setText(fichero.getAbsolutePath());
+                     
                     
                     
                     
                     try(FileReader fr=new FileReader(fichero)){
+                                            
                         String cadena="";
                         int valor=fr.read();
                         while(valor!=-1){
                             cadena=cadena+(char)valor;
                             valor=fr.read();
                         }
-                        textArea.setText(cadena);
+                        jTextArea1.setText(cadena);
+                                              
+                        
                     } catch (IOException e1) {
                         e1.printStackTrace();
-                    }
+                    } 
                 }
-
-
-
-
     }//GEN-LAST:event_BotonSeleccionarActionPerformed
 
     private void jTextFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jTextFieldActionPerformed
 
+    private void AceptarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AceptarActionPerformed
+        // TODO add your handling code here:
+        
+                String texto = jTextArea1.getText();
+                String[] linea = texto.split("\n");
+                AgregarDatos(linea);
+                
+    }//GEN-LAST:event_AceptarActionPerformed
+    
+    //METODO QUE DETERMINA QUE TIPO DE INFORMACION LEE
+    public void AgregarDatos(String [] linea){
+        
+        for(int i=0;i<linea.length;i++){
+            
+            String texto=linea[i];
+            //las palabras separadas por coma las guarda en arreglo de palabras  
+            String[] TipoLinea = texto.split(",");
+            
+
+
+                if(TipoLinea[0].equalsIgnoreCase("TIENDA")){
+                    String nombre=TipoLinea[1];
+                    String direccion=TipoLinea[2];
+                    String codT=TipoLinea[3];
+                    String tel1=TipoLinea[4];
+                    System.out.println(nombre);
+                }
+                if(TipoLinea[0].equalsIgnoreCase("TIEMPO")){
+                    String nombre=TipoLinea[1];
+                    String direccion=TipoLinea[2];
+                    String codT=TipoLinea[3];
+
+                }
+                if(TipoLinea[0].equalsIgnoreCase("PRODUCTO")){
+                    String nombre=TipoLinea[1];
+                    String direccion=TipoLinea[2];
+                    String codT=TipoLinea[3];
+
+                }
+                if(TipoLinea[0].equalsIgnoreCase("EMPLEADO")){
+                    String nombre=TipoLinea[1];
+                    String direccion=TipoLinea[2];
+                    String codT=TipoLinea[3];
+
+                }
+                if(TipoLinea[0].equalsIgnoreCase("CLIENTE")){
+                    String nombre=TipoLinea[1];
+                    String direccion=TipoLinea[2];
+                    String codT=TipoLinea[3];
+
+                }
+                if(TipoLinea[0].equalsIgnoreCase("PEDIDO")){
+                    String nombre=TipoLinea[1];
+                    String direccion=TipoLinea[2];
+                    String codT=TipoLinea[3];
+
+                }
+                
+                
+            
+            
+        }
+        
+        
+
+    }
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton Aceptar;
     private javax.swing.JButton BotonSeleccionar;
     private javax.swing.JPanel contentPane;
     private javax.swing.JScrollPane jScrollPane;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JTextArea jTextArea1;
+    private javax.swing.JTextArea jTextArea2;
     private javax.swing.JTextField jTextField;
-    private java.awt.TextArea textArea;
     // End of variables declaration//GEN-END:variables
 }
