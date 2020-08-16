@@ -130,36 +130,24 @@ public class CargaArchivo extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void BotonSeleccionarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotonSeleccionarActionPerformed
-        // TODO add your handling code here:
-        
-        // TODO add your handling code here:
+   // TODO add your handling code here:
        
                 //Creamos el objeto JFileChooser
                 JFileChooser fc=new JFileChooser();
-                
                 //Creamos el filtro
                 FileNameExtensionFilter filtro = new FileNameExtensionFilter("*.TXT", "txt");
-
                 //Le indicamos el filtro
                 fc.setFileFilter(filtro);
-
                 //Abrimos la ventana, guardamos la opcion seleccionada por el empleado
                 int seleccion=fc.showOpenDialog(contentPane);
-
                 //Si el usuario, pincha en aceptar
                 if(seleccion==JFileChooser.APPROVE_OPTION){
-
                     //Seleccionamos el fichero
                     File fichero=fc.getSelectedFile();
-
                     //Ecribe la ruta del fichero seleccionado en el campo de texto
                     jTextField.setText(fichero.getAbsolutePath());
-                     
                     
-                    
-                    
-                    try(FileReader fr=new FileReader(fichero)){
-                                            
+                    try(FileReader fr=new FileReader(fichero)){                    
                         String cadena="";
                         int valor=fr.read();
                         while(valor!=-1){
@@ -167,8 +155,7 @@ public class CargaArchivo extends javax.swing.JFrame {
                             valor=fr.read();
                         }
                         jTextArea1.setText(cadena);
-                                              
-                        
+ 
                     } catch (IOException e1) {
                         e1.printStackTrace();
                     } 
@@ -181,42 +168,34 @@ public class CargaArchivo extends javax.swing.JFrame {
 
     private void AceptarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AceptarActionPerformed
         // TODO add your handling code here:
-        
                 String texto = jTextArea1.getText();
                 String[] linea = texto.split("\n");
-                AgregarDatos(linea);
-                
+                AgregarDatos(linea);     
     }//GEN-LAST:event_AceptarActionPerformed
     
     //METODO QUE DETERMINA QUE TIPO DE INFORMACION LEE
-    public void AgregarDatos(String [] linea){
-        
+    public void AgregarDatos(String [] linea){       
         for(int i=0;i<linea.length;i++){
-            
             String texto=linea[i];
             //las palabras separadas por coma las guarda en arreglo de palabras  
             String[] TipoLinea = texto.split(",");
-            
-
 
                 if(TipoLinea[0].equalsIgnoreCase("TIENDA")){
                     String nombre=TipoLinea[1];
                     String direccion=TipoLinea[2];
                     String codT=TipoLinea[3];
                     String tel1=TipoLinea[4];
-                    System.out.println(nombre);
+                    System.out.println(nombre+" "+direccion+" "+codT+" "+tel1);
                 }
                 if(TipoLinea[0].equalsIgnoreCase("TIEMPO")){
                     String nombre=TipoLinea[1];
                     String direccion=TipoLinea[2];
                     String codT=TipoLinea[3];
-
                 }
                 if(TipoLinea[0].equalsIgnoreCase("PRODUCTO")){
                     String nombre=TipoLinea[1];
                     String direccion=TipoLinea[2];
                     String codT=TipoLinea[3];
-
                 }
                 if(TipoLinea[0].equalsIgnoreCase("EMPLEADO")){
                     String nombre=TipoLinea[1];
@@ -241,9 +220,6 @@ public class CargaArchivo extends javax.swing.JFrame {
             
             
         }
-        
-        
-
     }
 
 

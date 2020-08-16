@@ -52,6 +52,11 @@ public class MENU extends javax.swing.JFrame {
         });
 
         jButton2.setText("Empledo");
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
 
         CargaArchivo.setText("Carga Archivo");
         CargaArchivo.addActionListener(new java.awt.event.ActionListener() {
@@ -118,10 +123,15 @@ public class MENU extends javax.swing.JFrame {
 
     private void CargaArchivoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CargaArchivoActionPerformed
         // TODO add your handling code here:
-        CargaArchivo Texto = new CargaArchivo();
-        Texto.setVisible(true);
+        //        CargaArchivo Texto = new CargaArchivo();
+        //        Texto.setVisible(true);
     }//GEN-LAST:event_CargaArchivoActionPerformed
 
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        // TODO add your handling code here:
+        EmpleadoJFrame empleado = new EmpleadoJFrame();
+        empleado.setVisible(true);
+    }//GEN-LAST:event_jButton2ActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton CargaArchivo;
@@ -131,4 +141,5 @@ public class MENU extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel2;
     private javax.swing.JPanel jPanel1;
     // End of variables declaration//GEN-END:variables
+
 }
