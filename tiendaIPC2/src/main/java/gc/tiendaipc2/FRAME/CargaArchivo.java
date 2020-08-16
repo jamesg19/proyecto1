@@ -8,6 +8,7 @@ package gc.tiendaipc2.FRAME;
 import java.io.File;
 import java.io.FileReader;
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.Arrays;
 import javax.swing.JFileChooser;
 import javax.swing.filechooser.FileNameExtensionFilter;
@@ -17,7 +18,9 @@ import javax.swing.filechooser.FileNameExtensionFilter;
  * @author james
  */
 public class CargaArchivo extends javax.swing.JFrame {
-
+    ArrayList<String> datoIncorrecto = new ArrayList<String>();
+    int cont=-1;
+    
     /**
      * Creates new form CargaArchivo
      */
@@ -42,6 +45,9 @@ public class CargaArchivo extends javax.swing.JFrame {
         jScrollPane1 = new javax.swing.JScrollPane();
         jTextArea2 = new javax.swing.JTextArea();
         Aceptar = new javax.swing.JButton();
+        jLabel1 = new javax.swing.JLabel();
+        jScrollPane2 = new javax.swing.JScrollPane();
+        jTextArea3 = new javax.swing.JTextArea();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -54,6 +60,7 @@ public class CargaArchivo extends javax.swing.JFrame {
             }
         });
 
+        jTextArea1.setEditable(false);
         jTextArea1.setColumns(20);
         jTextArea1.setRows(5);
         jScrollPane.setViewportView(jTextArea1);
@@ -69,12 +76,18 @@ public class CargaArchivo extends javax.swing.JFrame {
         jTextArea2.setRows(5);
         jScrollPane1.setViewportView(jTextArea2);
 
-        Aceptar.setText("Aceptar");
+        Aceptar.setText("Agregar");
         Aceptar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 AceptarActionPerformed(evt);
             }
         });
+
+        jLabel1.setForeground(new java.awt.Color(213, 45, 55));
+
+        jTextArea3.setColumns(20);
+        jTextArea3.setRows(5);
+        jScrollPane2.setViewportView(jTextArea3);
 
         javax.swing.GroupLayout contentPaneLayout = new javax.swing.GroupLayout(contentPane);
         contentPane.setLayout(contentPaneLayout);
@@ -82,7 +95,7 @@ public class CargaArchivo extends javax.swing.JFrame {
             contentPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, contentPaneLayout.createSequentialGroup()
                 .addGap(33, 33, 33)
-                .addComponent(jTextField, javax.swing.GroupLayout.DEFAULT_SIZE, 427, Short.MAX_VALUE)
+                .addComponent(jTextField, javax.swing.GroupLayout.DEFAULT_SIZE, 700, Short.MAX_VALUE)
                 .addGap(18, 18, 18)
                 .addComponent(BotonSeleccionar, javax.swing.GroupLayout.PREFERRED_SIZE, 107, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(80, 80, 80))
@@ -90,13 +103,20 @@ public class CargaArchivo extends javax.swing.JFrame {
                 .addContainerGap()
                 .addComponent(jScrollPane)
                 .addContainerGap())
-            .addGroup(contentPaneLayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jScrollPane1)
-                .addContainerGap())
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, contentPaneLayout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(Aceptar, javax.swing.GroupLayout.PREFERRED_SIZE, 111, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
+            .addGroup(contentPaneLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(contentPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(contentPaneLayout.createSequentialGroup()
+                        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 490, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(0, 0, Short.MAX_VALUE))
+                    .addGroup(contentPaneLayout.createSequentialGroup()
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 433, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(jScrollPane2)))
                 .addContainerGap())
         );
         contentPaneLayout.setVerticalGroup(
@@ -108,8 +128,12 @@ public class CargaArchivo extends javax.swing.JFrame {
                     .addComponent(jTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(25, 25, 25)
                 .addComponent(jScrollPane, javax.swing.GroupLayout.PREFERRED_SIZE, 209, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(42, 42, 42)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 137, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(contentPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 137, Short.MAX_VALUE)
+                    .addComponent(jScrollPane2))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 36, Short.MAX_VALUE)
                 .addComponent(Aceptar, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(24, 24, 24))
@@ -163,74 +187,100 @@ public class CargaArchivo extends javax.swing.JFrame {
     }//GEN-LAST:event_BotonSeleccionarActionPerformed
 
     private void jTextFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldActionPerformed
-        // TODO add your handling code here:
     }//GEN-LAST:event_jTextFieldActionPerformed
 
     private void AceptarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AceptarActionPerformed
         // TODO add your handling code here:
                 String texto = jTextArea1.getText();
                 String[] linea = texto.split("\n");
-                AgregarDatos(linea);     
+                DeterminaTipoLinea(linea);     
     }//GEN-LAST:event_AceptarActionPerformed
     
     //METODO QUE DETERMINA QUE TIPO DE INFORMACION LEE
-    public void AgregarDatos(String [] linea){       
+    public void DeterminaTipoLinea(String [] linea){ 
+        
         for(int i=0;i<linea.length;i++){
             String texto=linea[i];
-            //las palabras separadas por coma las guarda en arreglo de palabras  
-            String[] TipoLinea = texto.split(",");
-
-                if(TipoLinea[0].equalsIgnoreCase("TIENDA")){
-                    String nombre=TipoLinea[1];
-                    String direccion=TipoLinea[2];
-                    String codT=TipoLinea[3];
-                    String tel1=TipoLinea[4];
-                    System.out.println(nombre+" "+direccion+" "+codT+" "+tel1);
-                }
-                if(TipoLinea[0].equalsIgnoreCase("TIEMPO")){
-                    String nombre=TipoLinea[1];
-                    String direccion=TipoLinea[2];
-                    String codT=TipoLinea[3];
-                }
-                if(TipoLinea[0].equalsIgnoreCase("PRODUCTO")){
-                    String nombre=TipoLinea[1];
-                    String direccion=TipoLinea[2];
-                    String codT=TipoLinea[3];
-                }
-                if(TipoLinea[0].equalsIgnoreCase("EMPLEADO")){
-                    String nombre=TipoLinea[1];
-                    String direccion=TipoLinea[2];
-                    String codT=TipoLinea[3];
-
-                }
-                if(TipoLinea[0].equalsIgnoreCase("CLIENTE")){
-                    String nombre=TipoLinea[1];
-                    String direccion=TipoLinea[2];
-                    String codT=TipoLinea[3];
-
-                }
-                if(TipoLinea[0].equalsIgnoreCase("PEDIDO")){
-                    String nombre=TipoLinea[1];
-                    String direccion=TipoLinea[2];
-                    String codT=TipoLinea[3];
-
-                }
-                
-                
             
-            
+            if(texto.contains(",,")||texto.contains(", ,")){
+                cont++;
+                jLabel1.setText("Los siguientes datos no fueron cargados correctamente.");
+                datoIncorrecto.add(cont,texto);
+                jTextArea2.append(texto);
+                
+            }else {   
+                    //las palabras separadas por coma las guarda en arreglo de palabras  
+                    String[] TipoLinea = texto.split(",");
+                    
+                    if(TipoLinea[0].equalsIgnoreCase("TIENDA")){
+                        //verificaError(texto,TipoLinea);
+                        String nombre=TipoLinea[1];
+                        String direccion=TipoLinea[2];
+                        String codT=TipoLinea[3];
+                        String tel1=TipoLinea[4];
+                        jTextArea3.append(nombre+" "+direccion+" "+codT+" "+tel1+"\n");
+
+                }                
+            }
         }
     }
-
-
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton Aceptar;
     private javax.swing.JButton BotonSeleccionar;
     private javax.swing.JPanel contentPane;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JScrollPane jScrollPane;
     private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JTextArea jTextArea1;
     private javax.swing.JTextArea jTextArea2;
+    private javax.swing.JTextArea jTextArea3;
     private javax.swing.JTextField jTextField;
     // End of variables declaration//GEN-END:variables
+
+
+    
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+//                if(TipoLinea[0].equalsIgnoreCase("TIEMPO")){
+//                    String nombre=TipoLinea[1];
+//                    String direccion=TipoLinea[2];
+//                    String codT=TipoLinea[3];
+//                }
+//                if(TipoLinea[0].equalsIgnoreCase("PRODUCTO")){
+//                    String nombre=TipoLinea[1];
+//                    String direccion=TipoLinea[2];
+//                    String codT=TipoLinea[3];
+//                }
+//                if(TipoLinea[0].equalsIgnoreCase("EMPLEADO")){
+//                    String nombre=TipoLinea[1];
+//                    String direccion=TipoLinea[2];
+//                    String codT=TipoLinea[3];
+//
+//                }
+//                if(TipoLinea[0].equalsIgnoreCase("CLIENTE")){
+//                    String nombre=TipoLinea[1];
+//                    String direccion=TipoLinea[2];
+//                    String codT=TipoLinea[3];
+//
+//                }
+//                if(TipoLinea[0].equalsIgnoreCase("PEDIDO")){
+//                    String nombre=TipoLinea[1];
+//                    String direccion=TipoLinea[2];
+//                    String codT=TipoLinea[3];
+//
+//                }
