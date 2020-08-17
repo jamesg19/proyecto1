@@ -5,7 +5,7 @@
  */
 package gc.tiendaipc2;
 
-import gc.tiendaipc2.FRAME.MENU;
+import gc.tiendaipc2.Menu.MENU;
 
 /**
  *
