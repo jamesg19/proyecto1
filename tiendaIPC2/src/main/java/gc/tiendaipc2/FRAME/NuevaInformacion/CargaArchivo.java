@@ -16,9 +16,11 @@ public class CargaArchivo extends javax.swing.JFrame {
     ArrayList<String> ArraycodE = new ArrayList<>();
     ArrayList<String> ArraycodC = new ArrayList<>();
     int cont=-1;
+    
 
     public CargaArchivo() {
         initComponents();
+        AceptarButton.setVisible(false);
     }
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
@@ -31,11 +33,12 @@ public class CargaArchivo extends javax.swing.JFrame {
         jTextField = new javax.swing.JTextField();
         jScrollPane1 = new javax.swing.JScrollPane();
         jTextArea2 = new javax.swing.JTextArea();
-        Aceptar = new javax.swing.JButton();
+        AgregarButton = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
         jScrollPane2 = new javax.swing.JScrollPane();
         jTextArea3 = new javax.swing.JTextArea();
         CargaLabel = new javax.swing.JLabel();
+        AceptarButton = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -64,10 +67,11 @@ public class CargaArchivo extends javax.swing.JFrame {
         jTextArea2.setRows(5);
         jScrollPane1.setViewportView(jTextArea2);
 
-        Aceptar.setText("Agregar");
-        Aceptar.addActionListener(new java.awt.event.ActionListener() {
+        AgregarButton.setBackground(new java.awt.Color(140, 222, 94));
+        AgregarButton.setText("Agregar");
+        AgregarButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                AceptarActionPerformed(evt);
+                AgregarButtonActionPerformed(evt);
             }
         });
 
@@ -77,23 +81,21 @@ public class CargaArchivo extends javax.swing.JFrame {
         jTextArea3.setRows(5);
         jScrollPane2.setViewportView(jTextArea3);
 
+        AceptarButton.setText("Continuar");
+
         javax.swing.GroupLayout contentPaneLayout = new javax.swing.GroupLayout(contentPane);
         contentPane.setLayout(contentPaneLayout);
         contentPaneLayout.setHorizontalGroup(
             contentPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, contentPaneLayout.createSequentialGroup()
                 .addGap(33, 33, 33)
-                .addComponent(jTextField, javax.swing.GroupLayout.DEFAULT_SIZE, 676, Short.MAX_VALUE)
+                .addComponent(jTextField, javax.swing.GroupLayout.DEFAULT_SIZE, 678, Short.MAX_VALUE)
                 .addGap(18, 18, 18)
                 .addComponent(BotonSeleccionar, javax.swing.GroupLayout.PREFERRED_SIZE, 107, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(80, 80, 80))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, contentPaneLayout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jScrollPane)
-                .addContainerGap())
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, contentPaneLayout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(Aceptar, javax.swing.GroupLayout.PREFERRED_SIZE, 111, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
             .addGroup(contentPaneLayout.createSequentialGroup()
                 .addContainerGap()
@@ -105,7 +107,12 @@ public class CargaArchivo extends javax.swing.JFrame {
                     .addComponent(jScrollPane2)
                     .addGroup(contentPaneLayout.createSequentialGroup()
                         .addComponent(CargaLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 324, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(0, 0, Short.MAX_VALUE)))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(AgregarButton, javax.swing.GroupLayout.PREFERRED_SIZE, 111, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap())
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, contentPaneLayout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(AceptarButton, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
         contentPaneLayout.setVerticalGroup(
@@ -119,15 +126,16 @@ public class CargaArchivo extends javax.swing.JFrame {
                 .addComponent(jScrollPane, javax.swing.GroupLayout.PREFERRED_SIZE, 209, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(contentPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, 24, Short.MAX_VALUE)
-                    .addComponent(CargaLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(CargaLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(AgregarButton, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(contentPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 137, Short.MAX_VALUE)
                     .addComponent(jScrollPane2))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 36, Short.MAX_VALUE)
-                .addComponent(Aceptar, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(24, 24, 24))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 35, Short.MAX_VALUE)
+                .addComponent(AceptarButton)
+                .addGap(30, 30, 30))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -181,13 +189,13 @@ public class CargaArchivo extends javax.swing.JFrame {
     }//GEN-LAST:event_BotonSeleccionarActionPerformed
     private void jTextFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldActionPerformed
     }//GEN-LAST:event_jTextFieldActionPerformed
-    private void AceptarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AceptarActionPerformed
+    private void AgregarButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AgregarButtonActionPerformed
         // TODO add your handling code here:
+                AceptarButton.setVisible(true);
                 String texto = jTextArea1.getText();
                 String[] linea = texto.split("\n");
-                DeterminaTipoLinea(linea);     
-    }//GEN-LAST:event_AceptarActionPerformed
-  
+                DeterminaTipoLinea(linea);                                                                                                                                                                                                              
+    }//GEN-LAST:event_AgregarButtonActionPerformed
     //METODO QUE DETERMINA QUE TIPO DE INFORMACION LEE
     public void DeterminaTipoLinea(String [] linea){ 
         
@@ -209,7 +217,8 @@ public class CargaArchivo extends javax.swing.JFrame {
         }     
     }
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton Aceptar;
+    private javax.swing.JButton AceptarButton;
+    private javax.swing.JButton AgregarButton;
     private javax.swing.JButton BotonSeleccionar;
     private javax.swing.JLabel CargaLabel;
     private javax.swing.JPanel contentPane;
@@ -227,7 +236,7 @@ public class CargaArchivo extends javax.swing.JFrame {
         String[] TipoLinea = texto.split(",");
         
             if(TipoLinea.length==5){
-                if(ArraycodT.contains(TipoLinea[3])){
+                if(!ArraycodT.contains(TipoLinea[3])){
                     ArraycodT.add(TipoLinea[3]);
                     String nombre=TipoLinea[1];
                     String direccion=TipoLinea[2];
@@ -243,6 +252,38 @@ public class CargaArchivo extends javax.swing.JFrame {
                     AgregarLineaIncorrecta(texto);
                 }   
     }
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
     public void AgregarLineaIncorrecta(String texto){
         cont++;
         datoIncorrecto.add(cont,texto);
