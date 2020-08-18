@@ -14,7 +14,8 @@ public class CargaArchivo extends javax.swing.JFrame {
     ArrayList<String> datoIncorrecto = new ArrayList<>();
     ArrayList<String> ArraycodT = new ArrayList<>();
     ArrayList<String> ArraycodE = new ArrayList<>();
-    ArrayList<String> ArraycodC = new ArrayList<>();
+    ArrayList<String> ArraycodCli = new ArrayList<>();
+    ArrayList<String> ArraycodProd = new ArrayList<>();
     int cont=-1;
     
 
@@ -213,6 +214,21 @@ public class CargaArchivo extends javax.swing.JFrame {
                         if(TipoLinea[0].equalsIgnoreCase("TIENDA")){
                             verificaErrorT(texto);  
                         }
+                        if(TipoLinea[0].equalsIgnoreCase("TIEMPO")){
+                             verificaErrorTiempo(texto);
+                        }
+                        if(TipoLinea[0].equalsIgnoreCase("PRODUCTO")){
+                            verificaErrorProd(texto);
+                        }
+                        if(TipoLinea[0].equalsIgnoreCase("EMPLEADO")){
+                            verificaErrorE(texto);
+                        }
+                        if(TipoLinea[0].equalsIgnoreCase("CLIENTE")){
+                            verificaErrorCliente(texto);  
+                        }
+                        if(TipoLinea[0].equalsIgnoreCase("PEDIDO")){
+                            
+                        }
             }
         }     
     }
@@ -234,9 +250,8 @@ public class CargaArchivo extends javax.swing.JFrame {
 
     private void verificaErrorT(String texto) {
         String[] TipoLinea = texto.split(",");
-        
-            if(TipoLinea.length==5){
-                if(!ArraycodT.contains(TipoLinea[3])){
+  
+            if(TipoLinea.length==5&&(!ArraycodT.contains(TipoLinea[3]))){
                     ArraycodT.add(TipoLinea[3]);
                     String nombre=TipoLinea[1];
                     String direccion=TipoLinea[2];
@@ -245,14 +260,82 @@ public class CargaArchivo extends javax.swing.JFrame {
 
                     jTextArea3.append(nombre+" "+direccion+" "+codT+" "+tel1+"\n");
                     jLabel1.setText("Datos cargados correctamente");
-                    }else{
-                        AgregarLineaIncorrecta(texto);
-                    }
+
             }else{
                     AgregarLineaIncorrecta(texto);
                 }   
     }
     
+    private void verificaErrorE(String texto) {
+        String[] TipoLinea = texto.split(",");
+        
+            if(TipoLinea.length==5&&(!ArraycodE.contains(TipoLinea[2]))){
+                
+                    ArraycodE.add(TipoLinea[2]);
+                    String nombre=TipoLinea[1];
+                    String codEmpleado=TipoLinea[2];
+                    String tel=TipoLinea[3];
+                    String dpi=TipoLinea[4];
+
+                    jTextArea3.append(nombre+" "+codEmpleado+" "+tel+" "+dpi+"\n");
+                    jLabel1.setText("Datos cargados correctamente");
+                   
+            }else{
+                    AgregarLineaIncorrecta(texto);
+                }   
+    }
+    private void verificaErrorCliente(String texto) {
+        String[] TipoLinea = texto.split(",");
+        
+            if(TipoLinea.length==5&&(!ArraycodCli.contains(TipoLinea[2]))){
+                    ArraycodCli.add(TipoLinea[2]);
+                    String nombre=TipoLinea[1];
+                    String nit_empleado=TipoLinea[2];
+                    String tel=TipoLinea[3];
+                    double credito=Double.parseDouble(TipoLinea[4]);
+                    jTextArea3.append(nombre+" "+nit_empleado+" "+tel+" "+credito+"\n");
+                    jLabel1.setText("Datos cargados correctamente");
+                    
+            }else{
+                    AgregarLineaIncorrecta(texto);
+                }   
+    }
+    
+    private void verificaErrorProd(String texto) {
+        String[] TipoLinea = texto.split(",");
+        
+            if(TipoLinea.length==7&&(!ArraycodT.contains(TipoLinea[6]))){
+                
+                    ArraycodProd.add(TipoLinea[2]);
+                    String nombre=TipoLinea[1];
+                    String fabricante=TipoLinea[2];
+                    String cod_producto=TipoLinea[3];
+                    int cant=Integer.parseInt(TipoLinea[4]);
+                    double precio=Double.parseDouble(TipoLinea[5]);
+                    
+                    jTextArea3.append(nombre+" "+fabricante+" "+cod_producto+" "+cant+" "+precio+" "+ "\n");
+                    jLabel1.setText("Datos cargados correctamente");
+                    
+            }else{
+                    AgregarLineaIncorrecta(texto);
+                }   
+    }
+    
+    private void verificaErrorTiempo(String texto){
+            String[] TipoLinea = texto.split(",");
+        
+            if((TipoLinea.length==4)&&ArraycodT.contains(TipoLinea[1])&& ArraycodT.contains(TipoLinea[2]) ){
+                    String origen=TipoLinea[1];
+                    String destino=TipoLinea[2];
+                    int dias=Integer.parseInt(TipoLinea[3]);
+                   
+                    jTextArea3.append(origen+" "+destino+" "+dias+" "+"\n");
+                    jLabel1.setText("Datos cargados correctamente");
+                    
+            }else{
+                    AgregarLineaIncorrecta(texto);
+                }   
+    }
     
     
     
