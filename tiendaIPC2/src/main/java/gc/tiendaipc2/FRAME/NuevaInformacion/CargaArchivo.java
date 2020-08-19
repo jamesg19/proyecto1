@@ -11,6 +11,10 @@ import javax.swing.filechooser.FileNameExtensionFilter;
  * @author james
  */
 public class CargaArchivo extends javax.swing.JFrame {
+    public static final String USERNAME="root";
+    public static final String PASSWORD="Guatemala13.";
+    //public static final String URL="jdbc:mysql://localhost:3306/prueba2";
+    public static final String URL="jdbc:mysql://localhost:3306/prueba2?useTimezona=true&serverTimezone=CST";
     ArrayList<String> datoIncorrecto = new ArrayList<>();
     ArrayList<String> ArraycodT = new ArrayList<>();
     ArrayList<String> ArraycodE = new ArrayList<>();
@@ -18,7 +22,6 @@ public class CargaArchivo extends javax.swing.JFrame {
     ArrayList<String> ArraycodProd = new ArrayList<>();
     int cont=-1;
     
-
     public CargaArchivo() {
         initComponents();
         AceptarButton.setVisible(false);
@@ -191,7 +194,8 @@ public class CargaArchivo extends javax.swing.JFrame {
     private void jTextFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldActionPerformed
     }//GEN-LAST:event_jTextFieldActionPerformed
     private void AgregarButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AgregarButtonActionPerformed
-        // TODO add your handling code here:
+        //  obtiene el texto que se ha cargado y llama al metodo para la identificacion
+        //  de la linea 
                 AceptarButton.setVisible(true);
                 String texto = jTextArea1.getText();
                 String[] linea = texto.split("\n");
@@ -199,7 +203,7 @@ public class CargaArchivo extends javax.swing.JFrame {
     }//GEN-LAST:event_AgregarButtonActionPerformed
     //METODO QUE DETERMINA QUE TIPO DE INFORMACION LEE
     public void DeterminaTipoLinea(String [] linea){ 
-        
+        // for que va recorriendo todas las lineas del archivo de .txt
         for(int i=0;i<linea.length;i++){
             
                 String texto=linea[i];
@@ -304,7 +308,7 @@ public class CargaArchivo extends javax.swing.JFrame {
     private void verificaErrorProd(String texto) {
         String[] TipoLinea = texto.split(",");
         
-            if(TipoLinea.length==7&&(!ArraycodT.contains(TipoLinea[6]))){
+            if(TipoLinea.length==7&&(ArraycodT.contains(TipoLinea[6]))){
                 
                     ArraycodProd.add(TipoLinea[2]);
                     String nombre=TipoLinea[1];
@@ -324,7 +328,8 @@ public class CargaArchivo extends javax.swing.JFrame {
     private void verificaErrorTiempo(String texto){
             String[] TipoLinea = texto.split(",");
         
-            if((TipoLinea.length==4)&&ArraycodT.contains(TipoLinea[1])&& ArraycodT.contains(TipoLinea[2]) ){
+            if((TipoLinea.length==4)&&ArraycodT.contains(TipoLinea[1])&& ArraycodT.contains(TipoLinea[2])
+                    &&(!TipoLinea[1].equalsIgnoreCase(TipoLinea[2]))){
                     String origen=TipoLinea[1];
                     String destino=TipoLinea[2];
                     int dias=Integer.parseInt(TipoLinea[3]);
@@ -334,10 +339,30 @@ public class CargaArchivo extends javax.swing.JFrame {
                     
             }else{
                     AgregarLineaIncorrecta(texto);
-                }   
+                }
+            
     }
     
-    
+    private void verificaErrorPedido(String texto) {
+        String[] TipoLinea = texto.split(",");
+        
+            if(TipoLinea.length==10&&(ArraycodT.contains(TipoLinea[2])
+                    &&ArraycodT.contains(TipoLinea[3]))){
+
+                    ArraycodProd.add(TipoLinea[2]);
+                    String nombre=TipoLinea[1];
+                    String fabricante=TipoLinea[2];
+                    String cod_producto=TipoLinea[3];
+                    int cant=Integer.parseInt(TipoLinea[4]);
+                    double precio=Double.parseDouble(TipoLinea[5]);
+                    
+                    jTextArea3.append(nombre+" "+fabricante+" "+cod_producto+" "+cant+" "+precio+" "+ "\n");
+                    jLabel1.setText("Datos cargados correctamente");
+                    
+            }else{
+                    AgregarLineaIncorrecta(texto);
+                }   
+    }
     
     
     
