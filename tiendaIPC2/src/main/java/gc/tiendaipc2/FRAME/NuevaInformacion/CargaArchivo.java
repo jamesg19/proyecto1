@@ -1,10 +1,17 @@
 package gc.tiendaipc2.FRAME.NuevaInformacion;
 
+import ConexionMySQL.Conexion;
+import static ConexionMySQL.Conexion.getConnection;
 import java.io.File;
 import java.io.FileReader;
 import java.io.IOException;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.util.ArrayList;
 import javax.swing.JFileChooser;
+import javax.swing.JOptionPane;
 import javax.swing.filechooser.FileNameExtensionFilter;
 /**
  *
@@ -15,16 +22,18 @@ public class CargaArchivo extends javax.swing.JFrame {
     public static final String PASSWORD="Guatemala13.";
     //public static final String URL="jdbc:mysql://localhost:3306/prueba2";
     public static final String URL="jdbc:mysql://localhost:3306/prueba2?useTimezona=true&serverTimezone=CST";
+    //arraylist para la comprobacion de datos ingresados
     ArrayList<String> datoIncorrecto = new ArrayList<>();
     ArrayList<String> ArraycodT = new ArrayList<>();
     ArrayList<String> ArraycodE = new ArrayList<>();
     ArrayList<String> ArraycodCli = new ArrayList<>();
     ArrayList<String> ArraycodProd = new ArrayList<>();
+    Conexion conexion=new Conexion();
     int cont=-1;
     
     public CargaArchivo() {
         initComponents();
-        AceptarButton.setVisible(false);
+        AceptarButton.setVisible(false);  
     }
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
@@ -201,7 +210,26 @@ public class CargaArchivo extends javax.swing.JFrame {
                 String[] linea = texto.split("\n");
                 DeterminaTipoLinea(linea);                                                                                                                                                                                                              
     }//GEN-LAST:event_AgregarButtonActionPerformed
-    //METODO QUE DETERMINA QUE TIPO DE INFORMACION LEE
+    // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton AceptarButton;
+    private javax.swing.JButton AgregarButton;
+    private javax.swing.JButton BotonSeleccionar;
+    private javax.swing.JLabel CargaLabel;
+    private javax.swing.JPanel contentPane;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JScrollPane jScrollPane;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JScrollPane jScrollPane2;
+    private javax.swing.JTextArea jTextArea1;
+    private javax.swing.JTextArea jTextArea2;
+    private javax.swing.JTextArea jTextArea3;
+    private javax.swing.JTextField jTextField;
+    // End of variables declaration//GEN-END:variables
+        
+    /**
+     *METODO QUE DETERMINA QUE TIPO DE INFORMACION LEE
+     * @param linea
+     */
     public void DeterminaTipoLinea(String [] linea){ 
         // for que va recorriendo todas las lineas del archivo de .txt
         for(int i=0;i<linea.length;i++){
@@ -236,22 +264,11 @@ public class CargaArchivo extends javax.swing.JFrame {
             }
         }     
     }
-    // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton AceptarButton;
-    private javax.swing.JButton AgregarButton;
-    private javax.swing.JButton BotonSeleccionar;
-    private javax.swing.JLabel CargaLabel;
-    private javax.swing.JPanel contentPane;
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JScrollPane jScrollPane;
-    private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JScrollPane jScrollPane2;
-    private javax.swing.JTextArea jTextArea1;
-    private javax.swing.JTextArea jTextArea2;
-    private javax.swing.JTextArea jTextArea3;
-    private javax.swing.JTextField jTextField;
-    // End of variables declaration//GEN-END:variables
-
+    
+    /**
+     * metodo para verificar errores de estructura en TIENDA
+     * @param texto 
+     */
     private void verificaErrorT(String texto) {
         String[] TipoLinea = texto.split(",");
   
@@ -261,15 +278,18 @@ public class CargaArchivo extends javax.swing.JFrame {
                     String direccion=TipoLinea[2];
                     String codT=TipoLinea[3];
                     String tel1=TipoLinea[4];
-
                     jTextArea3.append(nombre+" "+direccion+" "+codT+" "+tel1+"\n");
                     jLabel1.setText("Datos cargados correctamente");
-
+                    AgregaTienda(nombre,direccion,codT,tel1);
             }else{
                     AgregarLineaIncorrecta(texto);
                 }   
     }
     
+    /**
+     * metodo para verificar errores de estructura en EMPLEADO
+     * @param texto 
+     */
     private void verificaErrorE(String texto) {
         String[] TipoLinea = texto.split(",");
         
@@ -288,113 +308,186 @@ public class CargaArchivo extends javax.swing.JFrame {
                     AgregarLineaIncorrecta(texto);
                 }   
     }
+    
+    /**
+     * metodo para verificar errores de estructura en CLIENTE
+     * @param texto 
+     */
     private void verificaErrorCliente(String texto) {
         String[] TipoLinea = texto.split(",");
         
             if(TipoLinea.length==5&&(!ArraycodCli.contains(TipoLinea[2]))){
-                    ArraycodCli.add(TipoLinea[2]);
+                //captura un error en un decimal
+                try{
+                 
                     String nombre=TipoLinea[1];
                     String nit_empleado=TipoLinea[2];
                     String tel=TipoLinea[3];
                     double credito=Double.parseDouble(TipoLinea[4]);
                     jTextArea3.append(nombre+" "+nit_empleado+" "+tel+" "+credito+"\n");
                     jLabel1.setText("Datos cargados correctamente");
+                    ArraycodCli.add(TipoLinea[2]);
+                } catch(NumberFormatException e){
+                    AgregarLineaIncorrecta(texto);
+                }
                     
             }else{
                     AgregarLineaIncorrecta(texto);
                 }   
     }
     
+    /**
+     * metodo para verificar errores de estructura en PRODUCTOS
+     * @param texto 
+     */        
     private void verificaErrorProd(String texto) {
         String[] TipoLinea = texto.split(",");
         
             if(TipoLinea.length==7&&(ArraycodT.contains(TipoLinea[6]))){
-                
-                    ArraycodProd.add(TipoLinea[2]);
+                //excepciones en caso de introducir un string en int
+                try {
                     String nombre=TipoLinea[1];
                     String fabricante=TipoLinea[2];
                     String cod_producto=TipoLinea[3];
                     int cant=Integer.parseInt(TipoLinea[4]);
                     double precio=Double.parseDouble(TipoLinea[5]);
-                    
+                    String tienda=TipoLinea[6];
                     jTextArea3.append(nombre+" "+fabricante+" "+cod_producto+" "+cant+" "+precio+" "+ "\n");
                     jLabel1.setText("Datos cargados correctamente");
+                    ArraycodProd.add(TipoLinea[3]);
+                    AgregaProducto( cod_producto,nombre, fabricante,
+             cant, precio, tienda,"", 0);
+
+                } catch (NumberFormatException e) {
+                    AgregarLineaIncorrecta(texto);
+                }
                     
             }else{
                     AgregarLineaIncorrecta(texto);
                 }   
     }
     
+    /**
+     * metodo para verificar errores de estructura en TIEMPO ENTRE TIENDAS
+     * @param texto 
+     */
     private void verificaErrorTiempo(String texto){
             String[] TipoLinea = texto.split(",");
         
             if((TipoLinea.length==4)&&ArraycodT.contains(TipoLinea[1])&& ArraycodT.contains(TipoLinea[2])
                     &&(!TipoLinea[1].equalsIgnoreCase(TipoLinea[2]))){
-                    String origen=TipoLinea[1];
-                    String destino=TipoLinea[2];
-                    int dias=Integer.parseInt(TipoLinea[3]);
-                   
-                    jTextArea3.append(origen+" "+destino+" "+dias+" "+"\n");
-                    jLabel1.setText("Datos cargados correctamente");
-                    
+                    //excepciones en caso de introducir un string en int                   
+                    try{
+                        String origen=TipoLinea[1];
+                        String destino=TipoLinea[2]; 
+                        int dias=Integer.parseInt(TipoLinea[3]);
+                        jTextArea3.append(origen+" "+destino+" "+dias+" "+"\n");
+                        jLabel1.setText("Datos cargados correctamente");
+                        AgregaTiempo(origen,destino,dias);
+                        } catch (NumberFormatException e) {
+                            AgregarLineaIncorrecta(texto);
+                        }
             }else{
                     AgregarLineaIncorrecta(texto);
                 }
             
     }
-    
+
+    /**
+     * metodo para verificar errores de estructura en PEDIDO
+     * @param texto 
+     */
     private void verificaErrorPedido(String texto) {
         String[] TipoLinea = texto.split(",");
         
             if(TipoLinea.length==10&&(ArraycodT.contains(TipoLinea[2])
                     &&ArraycodT.contains(TipoLinea[3]))){
-
-                    ArraycodProd.add(TipoLinea[2]);
+                    //excepciones en caso de introducir un string en int
+                    try{
                     String nombre=TipoLinea[1];
                     String fabricante=TipoLinea[2];
-                    String cod_producto=TipoLinea[3];
+                    String cod_producto=TipoLinea[3];    
                     int cant=Integer.parseInt(TipoLinea[4]);
                     double precio=Double.parseDouble(TipoLinea[5]);
                     
                     jTextArea3.append(nombre+" "+fabricante+" "+cod_producto+" "+cant+" "+precio+" "+ "\n");
                     jLabel1.setText("Datos cargados correctamente");
                     
+                    } catch(NumberFormatException e){
+                      AgregarLineaIncorrecta(texto);  
+                    }
             }else{
                     AgregarLineaIncorrecta(texto);
                 }   
     }
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
     
     public void AgregarLineaIncorrecta(String texto){
         cont++;
         datoIncorrecto.add(cont,texto);
         jTextArea2.append(texto+"\n");
     }
+    public static void AgregaTienda(String nombre, String direccion, String codT, String tel1){
+   
+        String query = "INSERT INTO tienda VALUES (?,?,?,?,?,?,?)";
+
+        try (PreparedStatement preSt = getConnection().prepareStatement(query)) {
+
+            preSt.setString(1, codT);
+            preSt.setString(2, nombre);
+            preSt.setString(3, direccion);
+            preSt.setString(4, tel1);
+            preSt.setString(5, "");
+            preSt.setString(6, "");
+            preSt.setString(7, "");
+            preSt.executeUpdate();
+            
+            preSt.close();
+        } catch (SQLException e) {
+            System.out.println("Error: " + e.getMessage());
+        }
+    }
+    
+    
+    
+    public static void AgregaTiempo(String origen, String destino, int dias){
+   
+        String query = "INSERT INTO tiempo_entre_tiendas VALUES (?,?,?,?)";
+
+        try (PreparedStatement preSt = getConnection().prepareStatement(query)) {
+
+            preSt.setString(2, origen);
+            preSt.setString(3, destino);
+            preSt.setInt(4, dias);
+     
+            preSt.executeUpdate();
+            
+            preSt.close();
+        } catch (SQLException e) {
+            System.out.println("Error: " + e.getMessage());
+        }
+    }
+    public static void AgregaProducto(String cod_producto,String nombre, String fabricante,
+            int cantidad, double precio, String cod_tienda_exist, String descripcion, int garantia){
+   
+        String query = "INSERT INTO productos VALUES (?,?,?,?,?,?,?,?)";
+
+        try (PreparedStatement preSt = getConnection().prepareStatement(query)) {
+
+            preSt.setString(1, cod_producto);
+            preSt.setString(3, nombre);
+            preSt.setString(4, fabricante);
+            preSt.setInt(4, cantidad);
+            preSt.setDouble(5, precio);
+            preSt.setString(6, cod_tienda_exist);
+            preSt.setString(7, descripcion);
+            preSt.setInt(8, garantia);
+     
+            preSt.executeUpdate();
+            
+            preSt.close();
+        } catch (SQLException e) {
+            System.out.println("Error: " + e.getMessage());
+        }
+    }
+                                                                                
 }
