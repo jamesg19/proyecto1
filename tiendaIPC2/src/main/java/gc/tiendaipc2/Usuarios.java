@@ -9,6 +9,6 @@ package gc.tiendaipc2;
  *
  * @author james
  */
-public class Cliente {
+public class Usuarios {
     
 }

@@ -17,12 +17,11 @@ public class Conexion {
     
     public static final String USERNAME="root";
     public static final String PASSWORD="Guatemala13.";
-    //public static final String URL="jdbc:mysql://localhost:3306/prueba2";
+    //public static final String URL="jdbc:mysql://localhost:3306/intelaf";
     public static final String URL="jdbc:mysql://localhost:3306/intelaf?useTimezona=true&serverTimezone=CST";
      
     
-    
-    
+
     public static Connection getConnection(){
     Connection con=null;
     try{
@@ -33,7 +32,7 @@ public class Conexion {
     //JOptionPane.showMessageDialog(null,"Conexion exitosa");
     
     } catch(Exception e){
-    System.out.println(e);
+    JOptionPane.showMessageDialog(null,"Conexion Fallida...  :( "+"\n"+e);
     
     
     }

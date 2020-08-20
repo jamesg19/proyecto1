@@ -1,17 +1,14 @@
-package gc.tiendaipc2.FRAME.NuevaInformacion;
+package gc.tiendaipc2.NuevaInformacion;
 
 import ConexionMySQL.Conexion;
 import static ConexionMySQL.Conexion.getConnection;
 import java.io.File;
 import java.io.FileReader;
 import java.io.IOException;
-import java.sql.Connection;
 import java.sql.PreparedStatement;
-import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import javax.swing.JFileChooser;
-import javax.swing.JOptionPane;
 import javax.swing.filechooser.FileNameExtensionFilter;
 /**
  *
@@ -33,7 +30,8 @@ public class CargaArchivo extends javax.swing.JFrame {
     
     public CargaArchivo() {
         initComponents();
-        AceptarButton.setVisible(false);  
+        AceptarButton.setVisible(false); 
+        AgregarButton.setVisible(false);
     }
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
@@ -94,7 +92,12 @@ public class CargaArchivo extends javax.swing.JFrame {
         jTextArea3.setRows(5);
         jScrollPane2.setViewportView(jTextArea3);
 
-        AceptarButton.setText("Continuar");
+        AceptarButton.setText("Salir");
+        AceptarButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                AceptarButtonActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout contentPaneLayout = new javax.swing.GroupLayout(contentPane);
         contentPane.setLayout(contentPaneLayout);
@@ -170,7 +173,7 @@ public class CargaArchivo extends javax.swing.JFrame {
 
     private void BotonSeleccionarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotonSeleccionarActionPerformed
    // TODO add your handling code here:
-       
+                
                 //Creamos el objeto JFileChooser
                 JFileChooser fc=new JFileChooser();
                 //Creamos el filtro
@@ -197,8 +200,10 @@ public class CargaArchivo extends javax.swing.JFrame {
  
                     } catch (IOException e1) {
                         e1.printStackTrace();
-                    } 
+                    }
+                    AgregarButton.setVisible(true);
                 }
+                
     }//GEN-LAST:event_BotonSeleccionarActionPerformed
     private void jTextFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldActionPerformed
     }//GEN-LAST:event_jTextFieldActionPerformed
@@ -210,6 +215,12 @@ public class CargaArchivo extends javax.swing.JFrame {
                 String[] linea = texto.split("\n");
                 DeterminaTipoLinea(linea);                                                                                                                                                                                                              
     }//GEN-LAST:event_AgregarButtonActionPerformed
+
+    private void AceptarButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AceptarButtonActionPerformed
+        // TODO add your handling code here:
+        setVisible(false);
+    }//GEN-LAST:event_AceptarButtonActionPerformed
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton AceptarButton;
     private javax.swing.JButton AgregarButton;
@@ -279,8 +290,8 @@ public class CargaArchivo extends javax.swing.JFrame {
                     String codT=TipoLinea[3];
                     String tel1=TipoLinea[4];
                     jTextArea3.append(nombre+" "+direccion+" "+codT+" "+tel1+"\n");
-                    jLabel1.setText("Datos cargados correctamente");
-                    AgregaTienda(nombre,direccion,codT,tel1);
+                    CargaLabel.setText("Datos cargados correctamente");
+                    AgregaTienda(nombre,direccion,codT,tel1,"","","");
             }else{
                     AgregarLineaIncorrecta(texto);
                 }   
@@ -302,7 +313,8 @@ public class CargaArchivo extends javax.swing.JFrame {
                     String dpi=TipoLinea[4];
 
                     jTextArea3.append(nombre+" "+codEmpleado+" "+tel+" "+dpi+"\n");
-                    jLabel1.setText("Datos cargados correctamente");
+                    CargaLabel.setText("Datos cargados correctamente");
+                    AgregaEmpleado(codEmpleado,nombre,tel,dpi,"","","");
                    
             }else{
                     AgregarLineaIncorrecta(texto);
@@ -321,12 +333,13 @@ public class CargaArchivo extends javax.swing.JFrame {
                 try{
                  
                     String nombre=TipoLinea[1];
-                    String nit_empleado=TipoLinea[2];
+                    String nit=TipoLinea[2];
                     String tel=TipoLinea[3];
                     double credito=Double.parseDouble(TipoLinea[4]);
-                    jTextArea3.append(nombre+" "+nit_empleado+" "+tel+" "+credito+"\n");
-                    jLabel1.setText("Datos cargados correctamente");
+                    jTextArea3.append(nombre+" "+nit+" "+tel+" "+credito+"\n");
+                    CargaLabel.setText("Datos cargados correctamente");
                     ArraycodCli.add(TipoLinea[2]);
+                    AgregaCliente(nombre, nit, tel, credito, "","", "");
                 } catch(NumberFormatException e){
                     AgregarLineaIncorrecta(texto);
                 }
@@ -352,11 +365,10 @@ public class CargaArchivo extends javax.swing.JFrame {
                     int cant=Integer.parseInt(TipoLinea[4]);
                     double precio=Double.parseDouble(TipoLinea[5]);
                     String tienda=TipoLinea[6];
-                    jTextArea3.append(nombre+" "+fabricante+" "+cod_producto+" "+cant+" "+precio+" "+ "\n");
-                    jLabel1.setText("Datos cargados correctamente");
+                    jTextArea3.append(nombre+" "+fabricante+" "+cod_producto+" "+cant+" "+precio+" "+tienda+ "\n");
+                    CargaLabel.setText("Datos cargados correctamente");
                     ArraycodProd.add(TipoLinea[3]);
-                    AgregaProducto( cod_producto,nombre, fabricante,
-             cant, precio, tienda,"", 0);
+                    AgregaProducto( cod_producto,nombre, fabricante,cant, precio, tienda,"", 0);
 
                 } catch (NumberFormatException e) {
                     AgregarLineaIncorrecta(texto);
@@ -382,7 +394,7 @@ public class CargaArchivo extends javax.swing.JFrame {
                         String destino=TipoLinea[2]; 
                         int dias=Integer.parseInt(TipoLinea[3]);
                         jTextArea3.append(origen+" "+destino+" "+dias+" "+"\n");
-                        jLabel1.setText("Datos cargados correctamente");
+                        CargaLabel.setText("Datos cargados correctamente");
                         AgregaTiempo(origen,destino,dias);
                         } catch (NumberFormatException e) {
                             AgregarLineaIncorrecta(texto);
@@ -400,33 +412,53 @@ public class CargaArchivo extends javax.swing.JFrame {
     private void verificaErrorPedido(String texto) {
         String[] TipoLinea = texto.split(",");
         
-            if(TipoLinea.length==10&&(ArraycodT.contains(TipoLinea[2])
-                    &&ArraycodT.contains(TipoLinea[3]))){
-                    //excepciones en caso de introducir un string en int
-                    try{
-                    String nombre=TipoLinea[1];
-                    String fabricante=TipoLinea[2];
-                    String cod_producto=TipoLinea[3];    
-                    int cant=Integer.parseInt(TipoLinea[4]);
-                    double precio=Double.parseDouble(TipoLinea[5]);
-                    
-                    jTextArea3.append(nombre+" "+fabricante+" "+cod_producto+" "+cant+" "+precio+" "+ "\n");
-                    jLabel1.setText("Datos cargados correctamente");
-                    
-                    } catch(NumberFormatException e){
-                      AgregarLineaIncorrecta(texto);  
-                    }
-            }else{
-                    AgregarLineaIncorrecta(texto);
-                }   
+        if(TipoLinea.length==10&&(ArraycodT.contains(TipoLinea[2])
+                &&ArraycodT.contains(TipoLinea[3]))){
+                //excepciones en caso de introducir un string en int
+                try{
+                String cod_pedido=TipoLinea[1];
+                String origen=TipoLinea[2];
+                String destino=TipoLinea[3];   
+                String fecha=TipoLinea[4];
+                String cod_cliente=TipoLinea[5]; 
+                String cod_articulo=TipoLinea[6];
+                int cant=Integer.parseInt(TipoLinea[7]);
+                double total=Double.parseDouble(TipoLinea[8]);
+                double anticipo=Double.parseDouble(TipoLinea[9]);
+
+                jTextArea3.append(cod_pedido+" "+origen+" "+destino+" "+fecha+" "+cod_cliente+" "+cod_articulo+" "+cant+" "+total+" "+anticipo+ "\n");
+                CargaLabel.setText("Datos cargados correctamente");
+                AgregaPedido(cod_pedido, origen,destino,fecha,cod_cliente,
+                        cod_articulo,cant, total,anticipo);
+
+                } catch(NumberFormatException e){
+                  AgregarLineaIncorrecta(texto);  
+                }
+        }else{
+                AgregarLineaIncorrecta(texto);
+            }   
     }
-    
+    /**
+     * Agrega la linea incorrecta a un Array para informar al empleado
+     * @param texto 
+     */
     public void AgregarLineaIncorrecta(String texto){
         cont++;
         datoIncorrecto.add(cont,texto);
         jTextArea2.append(texto+"\n");
     }
-    public static void AgregaTienda(String nombre, String direccion, String codT, String tel1){
+    /**
+     * Agrega una tienda a Mysql
+     * @param nombre
+     * @param direccion
+     * @param codT
+     * @param tel1 
+     * @param tel2 
+     * @param email 
+     * @param horario 
+     */
+    public static void AgregaTienda(String nombre, String direccion, String codT, String tel1,
+            String tel2, String email,String horario){
    
         String query = "INSERT INTO tienda VALUES (?,?,?,?,?,?,?)";
 
@@ -436,9 +468,9 @@ public class CargaArchivo extends javax.swing.JFrame {
             preSt.setString(2, nombre);
             preSt.setString(3, direccion);
             preSt.setString(4, tel1);
-            preSt.setString(5, "");
-            preSt.setString(6, "");
-            preSt.setString(7, "");
+            preSt.setString(5, tel2);
+            preSt.setString(6, email);
+            preSt.setString(7, horario);
             preSt.executeUpdate();
             
             preSt.close();
@@ -446,26 +478,41 @@ public class CargaArchivo extends javax.swing.JFrame {
             System.out.println("Error: " + e.getMessage());
         }
     }
-    
-    
-    
+
+    /**
+     * Agrega el tiempo que tarda un pedido de una tienda a otra a Mysql
+     * @param origen
+     * @param destino
+     * @param dias 
+     */
     public static void AgregaTiempo(String origen, String destino, int dias){
    
         String query = "INSERT INTO tiempo_entre_tiendas VALUES (?,?,?,?)";
 
         try (PreparedStatement preSt = getConnection().prepareStatement(query)) {
-
+            preSt.setInt(1, 0);
             preSt.setString(2, origen);
             preSt.setString(3, destino);
             preSt.setInt(4, dias);
      
             preSt.executeUpdate();
             
-            preSt.close();
+            //preSt.close();
         } catch (SQLException e) {
-            System.out.println("Error: " + e.getMessage());
+            System.out.println("Error: tiempo" + e.getMessage());
         }
     }
+    /**
+     * Agrega los productos a Mysql que cumplen los requisitos
+     * @param cod_producto
+     * @param nombre
+     * @param fabricante
+     * @param cantidad
+     * @param precio
+     * @param cod_tienda_exist
+     * @param descripcion
+     * @param garantia 
+     */
     public static void AgregaProducto(String cod_producto,String nombre, String fabricante,
             int cantidad, double precio, String cod_tienda_exist, String descripcion, int garantia){
    
@@ -474,13 +521,34 @@ public class CargaArchivo extends javax.swing.JFrame {
         try (PreparedStatement preSt = getConnection().prepareStatement(query)) {
 
             preSt.setString(1, cod_producto);
-            preSt.setString(3, nombre);
-            preSt.setString(4, fabricante);
+            preSt.setString(2, nombre);
+            preSt.setString(3, fabricante);
             preSt.setInt(4, cantidad);
             preSt.setDouble(5, precio);
             preSt.setString(6, cod_tienda_exist);
             preSt.setString(7, descripcion);
             preSt.setInt(8, garantia);
+            preSt.executeUpdate();
+            preSt.close();
+        } catch (SQLException e) {
+            System.out.println("Error: " + e.getMessage());
+        }
+    }
+    public static void AgregaEmpleado(String cod_empleado, String nombre, String tel,String dpi,
+            String nit, String email, String direccion){
+   
+        String query = "INSERT INTO empleados VALUES (?,?,?,?,?,?,?)";
+
+        try (PreparedStatement preSt = getConnection().prepareStatement(query)) {
+
+            preSt.setString(1, cod_empleado);
+            preSt.setString(2, nombre);
+            preSt.setString(3, tel);
+            preSt.setString(4, dpi);
+            preSt.setString(5, nit);
+            preSt.setString(6, email);
+            preSt.setString(7, direccion);
+            
      
             preSt.executeUpdate();
             
@@ -489,5 +557,77 @@ public class CargaArchivo extends javax.swing.JFrame {
             System.out.println("Error: " + e.getMessage());
         }
     }
-                                                                                
+    
+    /**
+     * Agrega los datos de un cliente a MySQL
+     * 
+     * @param nombre
+     * @param nit
+     * @param tel
+     * @param email
+     * @param credito
+     * @param direccion
+     * @param dpi
+     */
+    public static void AgregaCliente(String nombre,String nit,String tel,Double credito, 
+            String dpi,String email,String direccion){
+   
+        String query = "INSERT INTO clientes VALUES (?,?,?,?,?,?,?)";
+
+        try (PreparedStatement preSt = getConnection().prepareStatement(query)) {
+
+            preSt.setString(1, nombre);
+            preSt.setString(2, nit);
+            preSt.setString(3, tel);
+            preSt.setDouble(4, credito);
+            preSt.setString(5, dpi);
+            preSt.setString(6, email);
+            preSt.setString(7, direccion);
+            
+            preSt.executeUpdate();
+            
+            preSt.close();
+        } catch (SQLException e) {
+            System.out.println("Error: " + e.getMessage());
+        }
+    }
+        
+
+    /**
+     * Agregan un pedido a MySQL
+     * @param codPedido
+     * @param origen
+     * @param destino
+     * @param fecha
+     * @param cod_cliente
+     * @param cod_articulo
+     * @param cantidad
+     * @param total
+     * @param anticipo 
+     */
+    public static void AgregaPedido(String codPedido, String origen, String destino, 
+            String fecha, String cod_cliente,String cod_articulo,int cantidad, double total,
+            double anticipo){
+   
+        String query = "INSERT INTO pedido VALUES (?,?,?,?,?,?,?,?,?)";
+
+        try (PreparedStatement preSt = getConnection().prepareStatement(query)) {
+
+            preSt.setString(1, codPedido);
+            preSt.setString(2, origen);
+            preSt.setString(3, destino);
+            preSt.setString(4, fecha);
+            preSt.setString(5, cod_cliente);
+            preSt.setString(6, cod_articulo);
+            preSt.setInt(7, cantidad);
+            preSt.setDouble(8, total);
+            preSt.setDouble(9, anticipo);
+     
+            preSt.executeUpdate();
+            
+            preSt.close();
+        } catch (SQLException e) {
+            System.out.println("Error: " + e.getMessage());
+        }
+    }
 }
