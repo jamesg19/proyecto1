@@ -3,10 +3,11 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package gc.tiendaipc2.NuevaInformacion;
+package gc.tiendaipc2.FRAME.NuevaInformacion;
 
 import static ConexionMySQL.Conexion.getConnection;
-import static gc.tiendaipc2.NuevaInformacion.CargaArchivo.AgregaTienda;
+import static gc.tiendaipc2.FRAME.NuevaInformacion.CargaArchivo.AgregaTienda;
+import static gc.tiendaipc2.FRAME.NuevaInformacion.CargaArchivo.AgregaTiempo;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -19,14 +20,18 @@ import javax.swing.JOptionPane;
  */
 public class Nueva_Tienda extends javax.swing.JFrame {
     
-    String codigoTienda,cod;
+    String codigoTienda,cod,nom,dir;
     String NombreTienda;
     String direccion ;
     String tel1;
     String tel2;
     String email;
     String horario;
+    String dias;
+    int dia;
     ArrayList<String> ArraycodT = new ArrayList<>();
+    ArrayList<String> Arraynom = new ArrayList<>();
+    ArrayList<String> Arraydir = new ArrayList<>();
     /**
      * Creates new form Nueva_Tienda
      */
@@ -303,7 +308,23 @@ public class Nueva_Tienda extends javax.swing.JFrame {
     private javax.swing.JTextField tel1Field;
     private javax.swing.JTextField tel2Field;
     // End of variables declaration//GEN-END:variables
-
+    /**
+     * Comprueba el ingreso de datos obligatorios en el sistema
+     */
+    private void compruebaIngreso() {
+        if(codigoTiendaField.getText().length()>2&&NombreTiendaField.getText().length()>1
+                &&direccionField.getText().length()>=7&&tel1Field.getText().length()>=8){
+            
+            comprobarDupicado();
+            
+        }else{
+            JOptionPane.showMessageDialog(null,"Ingresa los campos obligatorios *");  
+        }
+    }
+    
+    /**
+     * Comprueba si no existe una tienda con el mismo codigo de tienda
+     */
     private void comprobarDupicado() {
         
         String query = "SELECT * FROM tienda";
@@ -316,7 +337,12 @@ public class Nueva_Tienda extends javax.swing.JFrame {
             while (result.next()) {
                 
                 cod=result.getString(1);
+                nom=result.getString(2);
+                dir=result.getString(3);
+                
                 ArraycodT.add(cod);
+                Arraynom.add(nom);
+                Arraydir.add(dir);
             }
 
             result.close();
@@ -329,6 +355,8 @@ public class Nueva_Tienda extends javax.swing.JFrame {
 
             AgregaTienda(NombreTienda,direccion,codigoTienda,tel1,tel2,email,horario);
             JOptionPane.showMessageDialog(null, "Tienda Agregada con exito... :) ");
+            AgregaDias(NombreTienda,direccion,codigoTienda);
+            
         }
         else{
             JOptionPane.showMessageDialog(null, "el codigo que has ingresado para la nueva tiena \n"
@@ -337,14 +365,28 @@ public class Nueva_Tienda extends javax.swing.JFrame {
         }
     }
     
-    private void compruebaIngreso() {
-        if(codigoTiendaField.getText().length()>2&&NombreTiendaField.getText().length()>1
-                &&direccionField.getText().length()>=7&&tel1Field.getText().length()>=8){
+    
+    /**
+     * Agrega el tiempo que tardara la nueva tienda para entregar pedidos
+     */
+    private void AgregaDias(String NombreTiendaN,String direccionN,String codigoTiendaN) {
+        
+        for(int i=0;i<ArraycodT.size();i++){
             
-            comprobarDupicado();
-        }else{
-            JOptionPane.showMessageDialog(null,"Ingresa los campos obligatorios *");  
+            try{
+            dias = JOptionPane.showInputDialog("Introduzca el numero de dias que tardara \n"
+                + " esta nueva tienda en entregar un pedido a la tienda: \n"
+                + Arraynom.get(i)+"\nubicada: "+Arraydir.get(i)+"\ncodigo: "+ArraycodT.get(i));
+            
+            dia=Integer.parseInt(dias);
+            
+            AgregaTiempo(codigoTienda,ArraycodT.get(i), dia);
+            }catch(NumberFormatException e){
+                JOptionPane.showMessageDialog(null, "Ingrese un numero valido");
+            }
         }
+            
+            
     }
 }
 

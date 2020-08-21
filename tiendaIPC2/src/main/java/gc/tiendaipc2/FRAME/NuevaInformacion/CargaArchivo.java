@@ -1,4 +1,4 @@
-package gc.tiendaipc2.NuevaInformacion;
+package gc.tiendaipc2.FRAME.NuevaInformacion;
 
 import ConexionMySQL.Conexion;
 import static ConexionMySQL.Conexion.getConnection;

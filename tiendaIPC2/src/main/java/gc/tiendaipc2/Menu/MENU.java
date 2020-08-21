@@ -6,8 +6,7 @@
 package gc.tiendaipc2.Menu;
 
 import static ConexionMySQL.Conexion.getConnection;
-import gc.tiendaipc2.NuevaInformacion.CargaArchivo;
-import static gc.tiendaipc2.NuevaInformacion.CargaArchivo.AgregaTienda;
+import gc.tiendaipc2.FRAME.NuevaInformacion.CargaArchivo;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -21,11 +20,14 @@ import javax.swing.JOptionPane;
 public class MENU extends javax.swing.JFrame {
     ArrayList<String> ArraycodT = new ArrayList<>();
     String cod;
+    
     /**
      * Creates new form MENU
      */
     public MENU() {
+        
         initComponents();
+        comprobarDupicado();
     }
 
     /**

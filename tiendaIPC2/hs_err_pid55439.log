@@ -1,0 +1,1292 @@
+#
+# A fatal error has been detected by the Java Runtime Environment:
+#
+#  SIGSEGV (0xb) at pc=0x00007f0ccb941408, pid=55439, tid=55477
+#
+# JRE version: OpenJDK Runtime Environment (11.0.8+10) (build 11.0.8+10-post-Ubuntu-0ubuntu120.04)
+# Java VM: OpenJDK 64-Bit Server VM (11.0.8+10-post-Ubuntu-0ubuntu120.04, mixed mode, sharing, tiered, compressed oops, g1 gc, linux-amd64)
+# Problematic frame:
+# V  [libjvm.so+0x750408]
+#
+# Core dump will be written. Default location: Core dumps may be processed with "/usr/share/apport/apport %p %s %c %d %P %E" (or dumping to /home/james/NetBeansProjects/proyecto1/tiendaIPC2/core.55439)
+#
+# If you would like to submit a bug report, please visit:
+#   https://bugs.launchpad.net/ubuntu/+source/openjdk-lts
+#
+
+---------------  S U M M A R Y ------------
+
+Command Line: -Dclassworlds.conf=/snap/netbeans/30/netbeans/java/maven/bin/m2.conf -Dmaven.home=/snap/netbeans/30/netbeans/java/maven -Dlibrary.jansi.path=/snap/netbeans/30/netbeans/java/maven/lib/jansi-native -Dmaven.multiModuleProjectDirectory=/home/james/NetBeansProjects/proyecto1/tiendaIPC2 org.codehaus.plexus.classworlds.launcher.Launcher -Dexec.args=-classpath %classpath gc.tiendaipc2.Main -Dexec.executable=/usr/lib/jvm/java-11-openjdk-amd64/bin/java -Dmaven.ext.class.path=/snap/netbeans/30/netbeans/java/maven-nblib/netbeans-eventspy.jar process-classes org.codehaus.mojo:exec-maven-plugin:1.5.0:exec
+
+Host: Intel(R) Core(TM) i5-7200U CPU @ 2.50GHz, 4 cores, 11G, Ubuntu 20.04.1 LTS
+Time: Thu Aug 20 21:49:34 2020 EDT elapsed time: 3 seconds (0d 0h 0m 3s)
+
+---------------  T H R E A D  ---------------
+
+Current thread (0x00007f0c90004000):  GCTaskThread "GC Thread#3" [stack: 0x00007f0c83020000,0x00007f0c83120000] [id=55477]
+
+Stack: [0x00007f0c83020000,0x00007f0c83120000],  sp=0x00007f0c8311d5d0,  free space=1013k
+Native frames: (J=compiled Java code, A=aot compiled Java code, j=interpreted, Vv=VM code, C=native code)
+V  [libjvm.so+0x750408]
+V  [libjvm.so+0x74e9a3]
+V  [libjvm.so+0x74c443]
+V  [libjvm.so+0xb77522]
+V  [libjvm.so+0x6f13cd]
+V  [libjvm.so+0xd1739e]
+V  [libjvm.so+0xd1d59f]
+V  [libjvm.so+0x76b212]
+V  [libjvm.so+0x76b85b]
+V  [libjvm.so+0x7145ec]
+V  [libjvm.so+0xdba84d]
+V  [libjvm.so+0xd1f430]
+V  [libjvm.so+0xb8f706]
+
+JavaThread 0x00007f0cc4016000 (nid = 55456) was being processed
+Java frames: (J=compiled Java code, j=interpreted, Vv=VM code)
+v  ~RuntimeStub::fast_new_instance Runtime1 stub
+J 4305 c1 com.sun.tools.javac.util.JCDiagnostic$Factory.normalize(Lcom/sun/tools/javac/util/JCDiagnostic$DiagnosticInfo;)Lcom/sun/tools/javac/util/JCDiagnostic$DiagnosticInfo; jdk.compiler@11.0.8 (39 bytes) @ 0x00007f0cad72b306 [0x00007f0cad72a3a0+0x0000000000000f66]
+J 4712 c1 com.sun.tools.javac.comp.Resolve$AbstractMethodCheck.reportMC(Lcom/sun/tools/javac/util/JCDiagnostic$DiagnosticPosition;Lcom/sun/tools/javac/comp/Resolve$MethodCheckDiag;Lcom/sun/tools/javac/comp/InferenceContext;[Ljava/lang/Object;)V jdk.compiler@11.0.8 (174 bytes) @ 0x00007f0cad86e09c [0x00007f0cad86d940+0x000000000000075c]
+J 4522 c1 com.sun.tools.javac.comp.Resolve$AbstractMethodCheck.argumentsAcceptable(Lcom/sun/tools/javac/comp/Env;Lcom/sun/tools/javac/comp/DeferredAttr$DeferredAttrContext;Lcom/sun/tools/javac/util/List;Lcom/sun/tools/javac/util/List;Lcom/sun/tools/javac/util/Warner;)V jdk.compiler@11.0.8 (288 bytes) @ 0x00007f0cad7cdc2c [0x00007f0cad7ccec0+0x0000000000000d6c]
+J 4482 c1 com.sun.tools.javac.comp.Resolve$4.argumentsAcceptable(Lcom/sun/tools/javac/comp/Env;Lcom/sun/tools/javac/comp/DeferredAttr$DeferredAttrContext;Lcom/sun/tools/javac/util/List;Lcom/sun/tools/javac/util/List;Lcom/sun/tools/javac/util/Warner;)V jdk.compiler@11.0.8 (69 bytes) @ 0x00007f0cad7c755c [0x00007f0cad7c74a0+0x00000000000000bc]
+J 4481 c1 com.sun.tools.javac.comp.Resolve.rawInstantiate(Lcom/sun/tools/javac/comp/Env;Lcom/sun/tools/javac/code/Type;Lcom/sun/tools/javac/code/Symbol;Lcom/sun/tools/javac/comp/Attr$ResultInfo;Lcom/sun/tools/javac/util/List;Lcom/sun/tools/javac/util/List;ZZLcom/sun/tools/javac/util/Warner;)Lcom/sun/tools/javac/code/Type; jdk.compiler@11.0.8 (508 bytes) @ 0x00007f0cad7a4814 [0x00007f0cad7a12c0+0x0000000000003554]
+J 4560 c1 com.sun.tools.javac.comp.Resolve.selectBest(Lcom/sun/tools/javac/comp/Env;Lcom/sun/tools/javac/code/Type;Lcom/sun/tools/javac/util/List;Lcom/sun/tools/javac/util/List;Lcom/sun/tools/javac/code/Symbol;Lcom/sun/tools/javac/code/Symbol;ZZ)Lcom/sun/tools/javac/code/Symbol; jdk.compiler@11.0.8 (339 bytes) @ 0x00007f0cad7ecdac [0x00007f0cad7ec4e0+0x00000000000008cc]
+J 4514 c1 com.sun.tools.javac.comp.Resolve.findMethodInScope(Lcom/sun/tools/javac/comp/Env;Lcom/sun/tools/javac/code/Type;Lcom/sun/tools/javac/util/Name;Lcom/sun/tools/javac/util/List;Lcom/sun/tools/javac/util/List;Lcom/sun/tools/javac/code/Scope;Lcom/sun/tools/javac/code/Symbol;ZZZ)Lcom/sun/tools/javac/code/Symbol; jdk.compiler@11.0.8 (71 bytes) @ 0x00007f0cad7c857c [0x00007f0cad7c7fc0+0x00000000000005bc]
+J 4722 c1 com.sun.tools.javac.comp.Resolve.findMethod(Lcom/sun/tools/javac/comp/Env;Lcom/sun/tools/javac/code/Type;Lcom/sun/tools/javac/util/Name;Lcom/sun/tools/javac/util/List;Lcom/sun/tools/javac/util/List;Lcom/sun/tools/javac/code/Type;Lcom/sun/tools/javac/code/Symbol;ZZ)Lcom/sun/tools/javac/code/Symbol; jdk.compiler@11.0.8 (428 bytes) @ 0x00007f0cad8736dc [0x00007f0cad873240+0x000000000000049c]
+J 4885 c1 com.sun.tools.javac.comp.Resolve$10.doLookup(Lcom/sun/tools/javac/comp/Env;Lcom/sun/tools/javac/comp/Resolve$MethodResolutionPhase;)Lcom/sun/tools/javac/code/Symbol; jdk.compiler@11.0.8 (33 bytes) @ 0x00007f0cad8e188c [0x00007f0cad8e15e0+0x00000000000002ac]
+J 4736 c1 com.sun.tools.javac.comp.Resolve$BasicLookupHelper.lookup(Lcom/sun/tools/javac/comp/Env;Lcom/sun/tools/javac/comp/Resolve$MethodResolutionPhase;)Lcom/sun/tools/javac/code/Symbol; jdk.compiler@11.0.8 (38 bytes) @ 0x00007f0cad885db4 [0x00007f0cad885c80+0x0000000000000134]
+J 4901 c1 com.sun.tools.javac.comp.Resolve.lookupMethod(Lcom/sun/tools/javac/comp/Env;Lcom/sun/tools/javac/util/JCDiagnostic$DiagnosticPosition;Lcom/sun/tools/javac/code/Symbol;Lcom/sun/tools/javac/comp/Resolve$MethodResolutionContext;Lcom/sun/tools/javac/comp/Resolve$LookupHelper;)Lcom/sun/tools/javac/code/Symbol; jdk.compiler@11.0.8 (174 bytes) @ 0x00007f0cad8f3f04 [0x00007f0cad8f3720+0x00000000000007e4]
+J 4370 c1 com.sun.tools.javac.comp.Attr.selectSym(Lcom/sun/tools/javac/tree/JCTree$JCFieldAccess;Lcom/sun/tools/javac/code/Symbol;Lcom/sun/tools/javac/code/Type;Lcom/sun/tools/javac/comp/Env;Lcom/sun/tools/javac/comp/Attr$ResultInfo;)Lcom/sun/tools/javac/code/Symbol; jdk.compiler@11.0.8 (453 bytes) @ 0x00007f0cad75e024 [0x00007f0cad75b480+0x0000000000002ba4]
+J 4251 c1 com.sun.tools.javac.comp.Attr.visitSelect(Lcom/sun/tools/javac/tree/JCTree$JCFieldAccess;)V jdk.compiler@11.0.8 (1277 bytes) @ 0x00007f0cad730304 [0x00007f0cad72e220+0x00000000000020e4]
+J 4381 c2 com.sun.tools.javac.tree.JCTree$JCFieldAccess.accept(Lcom/sun/tools/javac/tree/JCTree$Visitor;)V jdk.compiler@11.0.8 (6 bytes) @ 0x00007f0cb457e5f4 [0x00007f0cb457e5a0+0x0000000000000054]
+J 4445 c1 com.sun.tools.javac.comp.Attr.attribTree(Lcom/sun/tools/javac/tree/JCTree;Lcom/sun/tools/javac/comp/Env;Lcom/sun/tools/javac/comp/Attr$ResultInfo;)Lcom/sun/tools/javac/code/Type; jdk.compiler@11.0.8 (171 bytes) @ 0x00007f0cad78b28c [0x00007f0cad78af00+0x000000000000038c]
+J 4897 c1 com.sun.tools.javac.comp.Attr.visitApply(Lcom/sun/tools/javac/tree/JCTree$JCMethodInvocation;)V jdk.compiler@11.0.8 (824 bytes) @ 0x00007f0cad8ee7c4 [0x00007f0cad8e9c20+0x0000000000004ba4]
+J 4513 c1 com.sun.tools.javac.tree.JCTree$JCMethodInvocation.accept(Lcom/sun/tools/javac/tree/JCTree$Visitor;)V jdk.compiler@11.0.8 (6 bytes) @ 0x00007f0cad7d21f4 [0x00007f0cad7d20c0+0x0000000000000134]
+J 4445 c1 com.sun.tools.javac.comp.Attr.attribTree(Lcom/sun/tools/javac/tree/JCTree;Lcom/sun/tools/javac/comp/Env;Lcom/sun/tools/javac/comp/Attr$ResultInfo;)Lcom/sun/tools/javac/code/Type; jdk.compiler@11.0.8 (171 bytes) @ 0x00007f0cad78b28c [0x00007f0cad78af00+0x000000000000038c]
+J 4251 c1 com.sun.tools.javac.comp.Attr.visitSelect(Lcom/sun/tools/javac/tree/JCTree$JCFieldAccess;)V jdk.compiler@11.0.8 (1277 bytes) @ 0x00007f0cad72f6cc [0x00007f0cad72e220+0x00000000000014ac]
+J 4381 c2 com.sun.tools.javac.tree.JCTree$JCFieldAccess.accept(Lcom/sun/tools/javac/tree/JCTree$Visitor;)V jdk.compiler@11.0.8 (6 bytes) @ 0x00007f0cb457e5f4 [0x00007f0cb457e5a0+0x0000000000000054]
+J 4445 c1 com.sun.tools.javac.comp.Attr.attribTree(Lcom/sun/tools/javac/tree/JCTree;Lcom/sun/tools/javac/comp/Env;Lcom/sun/tools/javac/comp/Attr$ResultInfo;)Lcom/sun/tools/javac/code/Type; jdk.compiler@11.0.8 (171 bytes) @ 0x00007f0cad78b28c [0x00007f0cad78af00+0x000000000000038c]
+J 4897 c1 com.sun.tools.javac.comp.Attr.visitApply(Lcom/sun/tools/javac/tree/JCTree$JCMethodInvocation;)V jdk.compiler@11.0.8 (824 bytes) @ 0x00007f0cad8ee7c4 [0x00007f0cad8e9c20+0x0000000000004ba4]
+J 4513 c1 com.sun.tools.javac.tree.JCTree$JCMethodInvocation.accept(Lcom/sun/tools/javac/tree/JCTree$Visitor;)V jdk.compiler@11.0.8 (6 bytes) @ 0x00007f0cad7d21f4 [0x00007f0cad7d20c0+0x0000000000000134]
+J 4445 c1 com.sun.tools.javac.comp.Attr.attribTree(Lcom/sun/tools/javac/tree/JCTree;Lcom/sun/tools/javac/comp/Env;Lcom/sun/tools/javac/comp/Attr$ResultInfo;)Lcom/sun/tools/javac/code/Type; jdk.compiler@11.0.8 (171 bytes) @ 0x00007f0cad78b28c [0x00007f0cad78af00+0x000000000000038c]
+J 4251 c1 com.sun.tools.javac.comp.Attr.visitSelect(Lcom/sun/tools/javac/tree/JCTree$JCFieldAccess;)V jdk.compiler@11.0.8 (1277 bytes) @ 0x00007f0cad72f6cc [0x00007f0cad72e220+0x00000000000014ac]
+J 4381 c2 com.sun.tools.javac.tree.JCTree$JCFieldAccess.accept(Lcom/sun/tools/javac/tree/JCTree$Visitor;)V jdk.compiler@11.0.8 (6 bytes) @ 0x00007f0cb457e5f4 [0x00007f0cb457e5a0+0x0000000000000054]
+J 4445 c1 com.sun.tools.javac.comp.Attr.attribTree(Lcom/sun/tools/javac/tree/JCTree;Lcom/sun/tools/javac/comp/Env;Lcom/sun/tools/javac/comp/Attr$ResultInfo;)Lcom/sun/tools/javac/code/Type; jdk.compiler@11.0.8 (171 bytes) @ 0x00007f0cad78b28c [0x00007f0cad78af00+0x000000000000038c]
+J 4897 c1 com.sun.tools.javac.comp.Attr.visitApply(Lcom/sun/tools/javac/tree/JCTree$JCMethodInvocation;)V jdk.compiler@11.0.8 (824 bytes) @ 0x00007f0cad8ee7c4 [0x00007f0cad8e9c20+0x0000000000004ba4]
+J 4513 c1 com.sun.tools.javac.tree.JCTree$JCMethodInvocation.accept(Lcom/sun/tools/javac/tree/JCTree$Visitor;)V jdk.compiler@11.0.8 (6 bytes) @ 0x00007f0cad7d21f4 [0x00007f0cad7d20c0+0x0000000000000134]
+J 4445 c1 com.sun.tools.javac.comp.Attr.attribTree(Lcom/sun/tools/javac/tree/JCTree;Lcom/sun/tools/javac/comp/Env;Lcom/sun/tools/javac/comp/Attr$ResultInfo;)Lcom/sun/tools/javac/code/Type; jdk.compiler@11.0.8 (171 bytes) @ 0x00007f0cad78b28c [0x00007f0cad78af00+0x000000000000038c]
+J 4251 c1 com.sun.tools.javac.comp.Attr.visitSelect(Lcom/sun/tools/javac/tree/JCTree$JCFieldAccess;)V jdk.compiler@11.0.8 (1277 bytes) @ 0x00007f0cad72f6cc [0x00007f0cad72e220+0x00000000000014ac]
+J 4381 c2 com.sun.tools.javac.tree.JCTree$JCFieldAccess.accept(Lcom/sun/tools/javac/tree/JCTree$Visitor;)V jdk.compiler@11.0.8 (6 bytes) @ 0x00007f0cb457e5f4 [0x00007f0cb457e5a0+0x0000000000000054]
+J 4445 c1 com.sun.tools.javac.comp.Attr.attribTree(Lcom/sun/tools/javac/tree/JCTree;Lcom/sun/tools/javac/comp/Env;Lcom/sun/tools/javac/comp/Attr$ResultInfo;)Lcom/sun/tools/javac/code/Type; jdk.compiler@11.0.8 (171 bytes) @ 0x00007f0cad78b28c [0x00007f0cad78af00+0x000000000000038c]
+J 4897 c1 com.sun.tools.javac.comp.Attr.visitApply(Lcom/sun/tools/javac/tree/JCTree$JCMethodInvocation;)V jdk.compiler@11.0.8 (824 bytes) @ 0x00007f0cad8ee7c4 [0x00007f0cad8e9c20+0x0000000000004ba4]
+J 4513 c1 com.sun.tools.javac.tree.JCTree$JCMethodInvocation.accept(Lcom/sun/tools/javac/tree/JCTree$Visitor;)V jdk.compiler@11.0.8 (6 bytes) @ 0x00007f0cad7d21f4 [0x00007f0cad7d20c0+0x0000000000000134]
+J 4445 c1 com.sun.tools.javac.comp.Attr.attribTree(Lcom/sun/tools/javac/tree/JCTree;Lcom/sun/tools/javac/comp/Env;Lcom/sun/tools/javac/comp/Attr$ResultInfo;)Lcom/sun/tools/javac/code/Type; jdk.compiler@11.0.8 (171 bytes) @ 0x00007f0cad78b28c [0x00007f0cad78af00+0x000000000000038c]
+J 4251 c1 com.sun.tools.javac.comp.Attr.visitSelect(Lcom/sun/tools/javac/tree/JCTree$JCFieldAccess;)V jdk.compiler@11.0.8 (1277 bytes) @ 0x00007f0cad72f6cc [0x00007f0cad72e220+0x00000000000014ac]
+J 4381 c2 com.sun.tools.javac.tree.JCTree$JCFieldAccess.accept(Lcom/sun/tools/javac/tree/JCTree$Visitor;)V jdk.compiler@11.0.8 (6 bytes) @ 0x00007f0cb457e5f4 [0x00007f0cb457e5a0+0x0000000000000054]
+J 4445 c1 com.sun.tools.javac.comp.Attr.attribTree(Lcom/sun/tools/javac/tree/JCTree;Lcom/sun/tools/javac/comp/Env;Lcom/sun/tools/javac/comp/Attr$ResultInfo;)Lcom/sun/tools/javac/code/Type; jdk.compiler@11.0.8 (171 bytes) @ 0x00007f0cad78b28c [0x00007f0cad78af00+0x000000000000038c]
+J 4897 c1 com.sun.tools.javac.comp.Attr.visitApply(Lcom/sun/tools/javac/tree/JCTree$JCMethodInvocation;)V jdk.compiler@11.0.8 (824 bytes) @ 0x00007f0cad8ee7c4 [0x00007f0cad8e9c20+0x0000000000004ba4]
+J 4513 c1 com.sun.tools.javac.tree.JCTree$JCMethodInvocation.accept(Lcom/sun/tools/javac/tree/JCTree$Visitor;)V jdk.compiler@11.0.8 (6 bytes) @ 0x00007f0cad7d21f4 [0x00007f0cad7d20c0+0x0000000000000134]
+J 4445 c1 com.sun.tools.javac.comp.Attr.attribTree(Lcom/sun/tools/javac/tree/JCTree;Lcom/sun/tools/javac/comp/Env;Lcom/sun/tools/javac/comp/Attr$ResultInfo;)Lcom/sun/tools/javac/code/Type; jdk.compiler@11.0.8 (171 bytes) @ 0x00007f0cad78b28c [0x00007f0cad78af00+0x000000000000038c]
+J 4251 c1 com.sun.tools.javac.comp.Attr.visitSelect(Lcom/sun/tools/javac/tree/JCTree$JCFieldAccess;)V jdk.compiler@11.0.8 (1277 bytes) @ 0x00007f0cad72f6cc [0x00007f0cad72e220+0x00000000000014ac]
+J 4381 c2 com.sun.tools.javac.tree.JCTree$JCFieldAccess.accept(Lcom/sun/tools/javac/tree/JCTree$Visitor;)V jdk.compiler@11.0.8 (6 bytes) @ 0x00007f0cb457e5f4 [0x00007f0cb457e5a0+0x0000000000000054]
+J 4445 c1 com.sun.tools.javac.comp.Attr.attribTree(Lcom/sun/tools/javac/tree/JCTree;Lcom/sun/tools/javac/comp/Env;Lcom/sun/tools/javac/comp/Attr$ResultInfo;)Lcom/sun/tools/javac/code/Type; jdk.compiler@11.0.8 (171 bytes) @ 0x00007f0cad78b28c [0x00007f0cad78af00+0x000000000000038c]
+J 4897 c1 com.sun.tools.javac.comp.Attr.visitApply(Lcom/sun/tools/javac/tree/JCTree$JCMethodInvocation;)V jdk.compiler@11.0.8 (824 bytes) @ 0x00007f0cad8ee7c4 [0x00007f0cad8e9c20+0x0000000000004ba4]
+J 4513 c1 com.sun.tools.javac.tree.JCTree$JCMethodInvocation.accept(Lcom/sun/tools/javac/tree/JCTree$Visitor;)V jdk.compiler@11.0.8 (6 bytes) @ 0x00007f0cad7d21f4 [0x00007f0cad7d20c0+0x0000000000000134]
+J 4445 c1 com.sun.tools.javac.comp.Attr.attribTree(Lcom/sun/tools/javac/tree/JCTree;Lcom/sun/tools/javac/comp/Env;Lcom/sun/tools/javac/comp/Attr$ResultInfo;)Lcom/sun/tools/javac/code/Type; jdk.compiler@11.0.8 (171 bytes) @ 0x00007f0cad78b28c [0x00007f0cad78af00+0x000000000000038c]
+J 4251 c1 com.sun.tools.javac.comp.Attr.visitSelect(Lcom/sun/tools/javac/tree/JCTree$JCFieldAccess;)V jdk.compiler@11.0.8 (1277 bytes) @ 0x00007f0cad72f6cc [0x00007f0cad72e220+0x00000000000014ac]
+J 4381 c2 com.sun.tools.javac.tree.JCTree$JCFieldAccess.accept(Lcom/sun/tools/javac/tree/JCTree$Visitor;)V jdk.compiler@11.0.8 (6 bytes) @ 0x00007f0cb457e5f4 [0x00007f0cb457e5a0+0x0000000000000054]
+J 4445 c1 com.sun.tools.javac.comp.Attr.attribTree(Lcom/sun/tools/javac/tree/JCTree;Lcom/sun/tools/javac/comp/Env;Lcom/sun/tools/javac/comp/Attr$ResultInfo;)Lcom/sun/tools/javac/code/Type; jdk.compiler@11.0.8 (171 bytes) @ 0x00007f0cad78b28c [0x00007f0cad78af00+0x000000000000038c]
+J 4897 c1 com.sun.tools.javac.comp.Attr.visitApply(Lcom/sun/tools/javac/tree/JCTree$JCMethodInvocation;)V jdk.compiler@11.0.8 (824 bytes) @ 0x00007f0cad8ee7c4 [0x00007f0cad8e9c20+0x0000000000004ba4]
+J 4513 c1 com.sun.tools.javac.tree.JCTree$JCMethodInvocation.accept(Lcom/sun/tools/javac/tree/JCTree$Visitor;)V jdk.compiler@11.0.8 (6 bytes) @ 0x00007f0cad7d21f4 [0x00007f0cad7d20c0+0x0000000000000134]
+J 4445 c1 com.sun.tools.javac.comp.Attr.attribTree(Lcom/sun/tools/javac/tree/JCTree;Lcom/sun/tools/javac/comp/Env;Lcom/sun/tools/javac/comp/Attr$ResultInfo;)Lcom/sun/tools/javac/code/Type; jdk.compiler@11.0.8 (171 bytes) @ 0x00007f0cad78b28c [0x00007f0cad78af00+0x000000000000038c]
+J 4251 c1 com.sun.tools.javac.comp.Attr.visitSelect(Lcom/sun/tools/javac/tree/JCTree$JCFieldAccess;)V jdk.compiler@11.0.8 (1277 bytes) @ 0x00007f0cad72f6cc [0x00007f0cad72e220+0x00000000000014ac]
+J 4381 c2 com.sun.tools.javac.tree.JCTree$JCFieldAccess.accept(Lcom/sun/tools/javac/tree/JCTree$Visitor;)V jdk.compiler@11.0.8 (6 bytes) @ 0x00007f0cb457e5f4 [0x00007f0cb457e5a0+0x0000000000000054]
+J 4445 c1 com.sun.tools.javac.comp.Attr.attribTree(Lcom/sun/tools/javac/tree/JCTree;Lcom/sun/tools/javac/comp/Env;Lcom/sun/tools/javac/comp/Attr$ResultInfo;)Lcom/sun/tools/javac/code/Type; jdk.compiler@11.0.8 (171 bytes) @ 0x00007f0cad78b28c [0x00007f0cad78af00+0x000000000000038c]
+J 4897 c1 com.sun.tools.javac.comp.Attr.visitApply(Lcom/sun/tools/javac/tree/JCTree$JCMethodInvocation;)V jdk.compiler@11.0.8 (824 bytes) @ 0x00007f0cad8ee7c4 [0x00007f0cad8e9c20+0x0000000000004ba4]
+J 4513 c1 com.sun.tools.javac.tree.JCTree$JCMethodInvocation.accept(Lcom/sun/tools/javac/tree/JCTree$Visitor;)V jdk.compiler@11.0.8 (6 bytes) @ 0x00007f0cad7d21f4 [0x00007f0cad7d20c0+0x0000000000000134]
+J 4445 c1 com.sun.tools.javac.comp.Attr.attribTree(Lcom/sun/tools/javac/tree/JCTree;Lcom/sun/tools/javac/comp/Env;Lcom/sun/tools/javac/comp/Attr$ResultInfo;)Lcom/sun/tools/javac/code/Type; jdk.compiler@11.0.8 (171 bytes) @ 0x00007f0cad78b28c [0x00007f0cad78af00+0x000000000000038c]
+J 4251 c1 com.sun.tools.javac.comp.Attr.visitSelect(Lcom/sun/tools/javac/tree/JCTree$JCFieldAccess;)V jdk.compiler@11.0.8 (1277 bytes) @ 0x00007f0cad72f6cc [0x00007f0cad72e220+0x00000000000014ac]
+J 4381 c2 com.sun.tools.javac.tree.JCTree$JCFieldAccess.accept(Lcom/sun/tools/javac/tree/JCTree$Visitor;)V jdk.compiler@11.0.8 (6 bytes) @ 0x00007f0cb457e5f4 [0x00007f0cb457e5a0+0x0000000000000054]
+J 4445 c1 com.sun.tools.javac.comp.Attr.attribTree(Lcom/sun/tools/javac/tree/JCTree;Lcom/sun/tools/javac/comp/Env;Lcom/sun/tools/javac/comp/Attr$ResultInfo;)Lcom/sun/tools/javac/code/Type; jdk.compiler@11.0.8 (171 bytes) @ 0x00007f0cad78b28c [0x00007f0cad78af00+0x000000000000038c]
+J 4897 c1 com.sun.tools.javac.comp.Attr.visitApply(Lcom/sun/tools/javac/tree/JCTree$JCMethodInvocation;)V jdk.compiler@11.0.8 (824 bytes) @ 0x00007f0cad8ee7c4 [0x00007f0cad8e9c20+0x0000000000004ba4]
+J 4513 c1 com.sun.tools.javac.tree.JCTree$JCMethodInvocation.accept(Lcom/sun/tools/javac/tree/JCTree$Visitor;)V jdk.compiler@11.0.8 (6 bytes) @ 0x00007f0cad7d21f4 [0x00007f0cad7d20c0+0x0000000000000134]
+J 4445 c1 com.sun.tools.javac.comp.Attr.attribTree(Lcom/sun/tools/javac/tree/JCTree;Lcom/sun/tools/javac/comp/Env;Lcom/sun/tools/javac/comp/Attr$ResultInfo;)Lcom/sun/tools/javac/code/Type; jdk.compiler@11.0.8 (171 bytes) @ 0x00007f0cad78b28c [0x00007f0cad78af00+0x000000000000038c]
+J 4251 c1 com.sun.tools.javac.comp.Attr.visitSelect(Lcom/sun/tools/javac/tree/JCTree$JCFieldAccess;)V jdk.compiler@11.0.8 (1277 bytes) @ 0x00007f0cad72f6cc [0x00007f0cad72e220+0x00000000000014ac]
+J 4381 c2 com.sun.tools.javac.tree.JCTree$JCFieldAccess.accept(Lcom/sun/tools/javac/tree/JCTree$Visitor;)V jdk.compiler@11.0.8 (6 bytes) @ 0x00007f0cb457e5f4 [0x00007f0cb457e5a0+0x0000000000000054]
+J 4445 c1 com.sun.tools.javac.comp.Attr.attribTree(Lcom/sun/tools/javac/tree/JCTree;Lcom/sun/tools/javac/comp/Env;Lcom/sun/tools/javac/comp/Attr$ResultInfo;)Lcom/sun/tools/javac/code/Type; jdk.compiler@11.0.8 (171 bytes) @ 0x00007f0cad78b28c [0x00007f0cad78af00+0x000000000000038c]
+J 4897 c1 com.sun.tools.javac.comp.Attr.visitApply(Lcom/sun/tools/javac/tree/JCTree$JCMethodInvocation;)V jdk.compiler@11.0.8 (824 bytes) @ 0x00007f0cad8ee7c4 [0x00007f0cad8e9c20+0x0000000000004ba4]
+J 4513 c1 com.sun.tools.javac.tree.JCTree$JCMethodInvocation.accept(Lcom/sun/tools/javac/tree/JCTree$Visitor;)V jdk.compiler@11.0.8 (6 bytes) @ 0x00007f0cad7d21f4 [0x00007f0cad7d20c0+0x0000000000000134]
+J 4445 c1 com.sun.tools.javac.comp.Attr.attribTree(Lcom/sun/tools/javac/tree/JCTree;Lcom/sun/tools/javac/comp/Env;Lcom/sun/tools/javac/comp/Attr$ResultInfo;)Lcom/sun/tools/javac/code/Type; jdk.compiler@11.0.8 (171 bytes) @ 0x00007f0cad78b28c [0x00007f0cad78af00+0x000000000000038c]
+J 4251 c1 com.sun.tools.javac.comp.Attr.visitSelect(Lcom/sun/tools/javac/tree/JCTree$JCFieldAccess;)V jdk.compiler@11.0.8 (1277 bytes) @ 0x00007f0cad72f6cc [0x00007f0cad72e220+0x00000000000014ac]
+J 4381 c2 com.sun.tools.javac.tree.JCTree$JCFieldAccess.accept(Lcom/sun/tools/javac/tree/JCTree$Visitor;)V jdk.compiler@11.0.8 (6 bytes) @ 0x00007f0cb457e5f4 [0x00007f0cb457e5a0+0x0000000000000054]
+J 4445 c1 com.sun.tools.javac.comp.Attr.attribTree(Lcom/sun/tools/javac/tree/JCTree;Lcom/sun/tools/javac/comp/Env;Lcom/sun/tools/javac/comp/Attr$ResultInfo;)Lcom/sun/tools/javac/code/Type; jdk.compiler@11.0.8 (171 bytes) @ 0x00007f0cad78b28c [0x00007f0cad78af00+0x000000000000038c]
+J 4897 c1 com.sun.tools.javac.comp.Attr.visitApply(Lcom/sun/tools/javac/tree/JCTree$JCMethodInvocation;)V jdk.compiler@11.0.8 (824 bytes) @ 0x00007f0cad8ee7c4 [0x00007f0cad8e9c20+0x0000000000004ba4]
+J 4513 c1 com.sun.tools.javac.tree.JCTree$JCMethodInvocation.accept(Lcom/sun/tools/javac/tree/JCTree$Visitor;)V jdk.compiler@11.0.8 (6 bytes) @ 0x00007f0cad7d21f4 [0x00007f0cad7d20c0+0x0000000000000134]
+J 4445 c1 com.sun.tools.javac.comp.Attr.attribTree(Lcom/sun/tools/javac/tree/JCTree;Lcom/sun/tools/javac/comp/Env;Lcom/sun/tools/javac/comp/Attr$ResultInfo;)Lcom/sun/tools/javac/code/Type; jdk.compiler@11.0.8 (171 bytes) @ 0x00007f0cad78b28c [0x00007f0cad78af00+0x000000000000038c]
+j  com.sun.tools.javac.comp.DeferredAttr$4.complete(Lcom/sun/tools/javac/comp/DeferredAttr$DeferredType;Lcom/sun/tools/javac/comp/Attr$ResultInfo;Lcom/sun/tools/javac/comp/DeferredAttr$DeferredAttrContext;)Lcom/sun/tools/javac/code/Type;+126 jdk.compiler@11.0.8
+J 5097 c1 com.sun.tools.javac.comp.ArgumentAttr$ArgumentType.complete(Lcom/sun/tools/javac/comp/DeferredAttr$DeferredType;Lcom/sun/tools/javac/comp/Attr$ResultInfo;Lcom/sun/tools/javac/comp/DeferredAttr$DeferredAttrContext;)Lcom/sun/tools/javac/code/Type; jdk.compiler@11.0.8 (141 bytes) @ 0x00007f0cad97d024 [0x00007f0cad97cdc0+0x0000000000000264]
+J 5153 c1 com.sun.tools.javac.comp.DeferredAttr$DeferredType.check(Lcom/sun/tools/javac/comp/Attr$ResultInfo;Lcom/sun/tools/javac/comp/DeferredAttr$DeferredStuckPolicy;Lcom/sun/tools/javac/comp/DeferredAttr$DeferredTypeCompleter;)Lcom/sun/tools/javac/code/Type; jdk.compiler@11.0.8 (105 bytes) @ 0x00007f0cad9969ac [0x00007f0cad996820+0x000000000000018c]
+J 5041 c1 com.sun.tools.javac.comp.DeferredAttr$DeferredType.check(Lcom/sun/tools/javac/comp/Attr$ResultInfo;)Lcom/sun/tools/javac/code/Type; jdk.compiler@11.0.8 (109 bytes) @ 0x00007f0cad95b424 [0x00007f0cad95b0c0+0x0000000000000364]
+J 4551 c1 com.sun.tools.javac.comp.Resolve$MethodResultInfo.check(Lcom/sun/tools/javac/util/JCDiagnostic$DiagnosticPosition;Lcom/sun/tools/javac/code/Type;)Lcom/sun/tools/javac/code/Type; jdk.compiler@11.0.8 (95 bytes) @ 0x00007f0cad7e1eec [0x00007f0cad7e0fa0+0x0000000000000f4c]
+J 4534 c1 com.sun.tools.javac.comp.Resolve$4.checkArg(Lcom/sun/tools/javac/util/JCDiagnostic$DiagnosticPosition;ZLcom/sun/tools/javac/code/Type;Lcom/sun/tools/javac/code/Type;Lcom/sun/tools/javac/comp/DeferredAttr$DeferredAttrContext;Lcom/sun/tools/javac/util/Warner;)V jdk.compiler@11.0.8 (22 bytes) @ 0x00007f0cad7d624c [0x00007f0cad7d60e0+0x000000000000016c]
+J 4522 c1 com.sun.tools.javac.comp.Resolve$AbstractMethodCheck.argumentsAcceptable(Lcom/sun/tools/javac/comp/Env;Lcom/sun/tools/javac/comp/DeferredAttr$DeferredAttrContext;Lcom/sun/tools/javac/util/List;Lcom/sun/tools/javac/util/List;Lcom/sun/tools/javac/util/Warner;)V jdk.compiler@11.0.8 (288 bytes) @ 0x00007f0cad7ce284 [0x00007f0cad7ccec0+0x00000000000013c4]
+J 4482 c1 com.sun.tools.javac.comp.Resolve$4.argumentsAcceptable(Lcom/sun/tools/javac/comp/Env;Lcom/sun/tools/javac/comp/DeferredAttr$DeferredAttrContext;Lcom/sun/tools/javac/util/List;Lcom/sun/tools/javac/util/List;Lcom/sun/tools/javac/util/Warner;)V jdk.compiler@11.0.8 (69 bytes) @ 0x00007f0cad7c755c [0x00007f0cad7c74a0+0x00000000000000bc]
+J 4481 c1 com.sun.tools.javac.comp.Resolve.rawInstantiate(Lcom/sun/tools/javac/comp/Env;Lcom/sun/tools/javac/code/Type;Lcom/sun/tools/javac/code/Symbol;Lcom/sun/tools/javac/comp/Attr$ResultInfo;Lcom/sun/tools/javac/util/List;Lcom/sun/tools/javac/util/List;ZZLcom/sun/tools/javac/util/Warner;)Lcom/sun/tools/javac/code/Type; jdk.compiler@11.0.8 (508 bytes) @ 0x00007f0cad7a4814 [0x00007f0cad7a12c0+0x0000000000003554]
+J 4875 c1 com.sun.tools.javac.comp.Resolve.checkMethod(Lcom/sun/tools/javac/comp/Env;Lcom/sun/tools/javac/code/Type;Lcom/sun/tools/javac/code/Symbol;Lcom/sun/tools/javac/comp/Attr$ResultInfo;Lcom/sun/tools/javac/util/List;Lcom/sun/tools/javac/util/List;Lcom/sun/tools/javac/util/Warner;)Lcom/sun/tools/javac/code/Type; jdk.compiler@11.0.8 (150 bytes) @ 0x00007f0cad8df0a4 [0x00007f0cad8de7e0+0x00000000000008c4]
+J 4902 c1 com.sun.tools.javac.comp.Attr.checkMethod(Lcom/sun/tools/javac/code/Type;Lcom/sun/tools/javac/code/Symbol;Lcom/sun/tools/javac/comp/Attr$ResultInfo;Lcom/sun/tools/javac/comp/Env;Lcom/sun/tools/javac/util/List;Lcom/sun/tools/javac/util/List;Lcom/sun/tools/javac/util/List;)Lcom/sun/tools/javac/code/Type; jdk.compiler@11.0.8 (912 bytes) @ 0x00007f0cad8fabc4 [0x00007f0cad8f5c40+0x0000000000004f84]
+J 4255 c1 com.sun.tools.javac.comp.Attr.checkIdInternal(Lcom/sun/tools/javac/tree/JCTree;Lcom/sun/tools/javac/code/Type;Lcom/sun/tools/javac/code/Symbol;Lcom/sun/tools/javac/code/Type;Lcom/sun/tools/javac/comp/Env;Lcom/sun/tools/javac/comp/Attr$ResultInfo;)Lcom/sun/tools/javac/code/Type; jdk.compiler@11.0.8 (762 bytes) @ 0x00007f0cad7153bc [0x00007f0cad7142e0+0x00000000000010dc]
+J 4874 c1 com.sun.tools.javac.comp.Attr.checkMethodIdInternal(Lcom/sun/tools/javac/tree/JCTree;Lcom/sun/tools/javac/code/Type;Lcom/sun/tools/javac/code/Symbol;Lcom/sun/tools/javac/comp/Env;Lcom/sun/tools/javac/comp/Attr$ResultInfo;)Lcom/sun/tools/javac/code/Type; jdk.compiler@11.0.8 (130 bytes) @ 0x00007f0cad8dbadc [0x00007f0cad8db300+0x00000000000007dc]
+J 4562 c1 com.sun.tools.javac.comp.Attr.checkId(Lcom/sun/tools/javac/tree/JCTree;Lcom/sun/tools/javac/code/Type;Lcom/sun/tools/javac/code/Symbol;Lcom/sun/tools/javac/comp/Env;Lcom/sun/tools/javac/comp/Attr$ResultInfo;)Lcom/sun/tools/javac/code/Type; jdk.compiler@11.0.8 (59 bytes) @ 0x00007f0cad7e75dc [0x00007f0cad7e70a0+0x000000000000053c]
+J 4251 c1 com.sun.tools.javac.comp.Attr.visitSelect(Lcom/sun/tools/javac/tree/JCTree$JCFieldAccess;)V jdk.compiler@11.0.8 (1277 bytes) @ 0x00007f0cad73695c [0x00007f0cad72e220+0x000000000000873c]
+J 4381 c2 com.sun.tools.javac.tree.JCTree$JCFieldAccess.accept(Lcom/sun/tools/javac/tree/JCTree$Visitor;)V jdk.compiler@11.0.8 (6 bytes) @ 0x00007f0cb457e5f4 [0x00007f0cb457e5a0+0x0000000000000054]
+J 4445 c1 com.sun.tools.javac.comp.Attr.attribTree(Lcom/sun/tools/javac/tree/JCTree;Lcom/sun/tools/javac/comp/Env;Lcom/sun/tools/javac/comp/Attr$ResultInfo;)Lcom/sun/tools/javac/code/Type; jdk.compiler@11.0.8 (171 bytes) @ 0x00007f0cad78b28c [0x00007f0cad78af00+0x000000000000038c]
+J 4897 c1 com.sun.tools.javac.comp.Attr.visitApply(Lcom/sun/tools/javac/tree/JCTree$JCMethodInvocation;)V jdk.compiler@11.0.8 (824 bytes) @ 0x00007f0cad8ee7c4 [0x00007f0cad8e9c20+0x0000000000004ba4]
+J 4513 c1 com.sun.tools.javac.tree.JCTree$JCMethodInvocation.accept(Lcom/sun/tools/javac/tree/JCTree$Visitor;)V jdk.compiler@11.0.8 (6 bytes) @ 0x00007f0cad7d21f4 [0x00007f0cad7d20c0+0x0000000000000134]
+J 4445 c1 com.sun.tools.javac.comp.Attr.attribTree(Lcom/sun/tools/javac/tree/JCTree;Lcom/sun/tools/javac/comp/Env;Lcom/sun/tools/javac/comp/Attr$ResultInfo;)Lcom/sun/tools/javac/code/Type; jdk.compiler@11.0.8 (171 bytes) @ 0x00007f0cad78b28c [0x00007f0cad78af00+0x000000000000038c]
+J 4251 c1 com.sun.tools.javac.comp.Attr.visitSelect(Lcom/sun/tools/javac/tree/JCTree$JCFieldAccess;)V jdk.compiler@11.0.8 (1277 bytes) @ 0x00007f0cad72f6cc [0x00007f0cad72e220+0x00000000000014ac]
+J 4381 c2 com.sun.tools.javac.tree.JCTree$JCFieldAccess.accept(Lcom/sun/tools/javac/tree/JCTree$Visitor;)V jdk.compiler@11.0.8 (6 bytes) @ 0x00007f0cb457e5f4 [0x00007f0cb457e5a0+0x0000000000000054]
+J 4445 c1 com.sun.tools.javac.comp.Attr.attribTree(Lcom/sun/tools/javac/tree/JCTree;Lcom/sun/tools/javac/comp/Env;Lcom/sun/tools/javac/comp/Attr$ResultInfo;)Lcom/sun/tools/javac/code/Type; jdk.compiler@11.0.8 (171 bytes) @ 0x00007f0cad78b28c [0x00007f0cad78af00+0x000000000000038c]
+J 4897 c1 com.sun.tools.javac.comp.Attr.visitApply(Lcom/sun/tools/javac/tree/JCTree$JCMethodInvocation;)V jdk.compiler@11.0.8 (824 bytes) @ 0x00007f0cad8ee7c4 [0x00007f0cad8e9c20+0x0000000000004ba4]
+J 4513 c1 com.sun.tools.javac.tree.JCTree$JCMethodInvocation.accept(Lcom/sun/tools/javac/tree/JCTree$Visitor;)V jdk.compiler@11.0.8 (6 bytes) @ 0x00007f0cad7d21f4 [0x00007f0cad7d20c0+0x0000000000000134]
+J 4445 c1 com.sun.tools.javac.comp.Attr.attribTree(Lcom/sun/tools/javac/tree/JCTree;Lcom/sun/tools/javac/comp/Env;Lcom/sun/tools/javac/comp/Attr$ResultInfo;)Lcom/sun/tools/javac/code/Type; jdk.compiler@11.0.8 (171 bytes) @ 0x00007f0cad78b28c [0x00007f0cad78af00+0x000000000000038c]
+j  com.sun.tools.javac.comp.DeferredAttr$4.complete(Lcom/sun/tools/javac/comp/DeferredAttr$DeferredType;Lcom/sun/tools/javac/comp/Attr$ResultInfo;Lcom/sun/tools/javac/comp/DeferredAttr$DeferredAttrContext;)Lcom/sun/tools/javac/code/Type;+126 jdk.compiler@11.0.8
+J 5097 c1 com.sun.tools.javac.comp.ArgumentAttr$ArgumentType.complete(Lcom/sun/tools/javac/comp/DeferredAttr$DeferredType;Lcom/sun/tools/javac/comp/Attr$ResultInfo;Lcom/sun/tools/javac/comp/DeferredAttr$DeferredAttrContext;)Lcom/sun/tools/javac/code/Type; jdk.compiler@11.0.8 (141 bytes) @ 0x00007f0cad97d024 [0x00007f0cad97cdc0+0x0000000000000264]
+J 5153 c1 com.sun.tools.javac.comp.DeferredAttr$DeferredType.check(Lcom/sun/tools/javac/comp/Attr$ResultInfo;Lcom/sun/tools/javac/comp/DeferredAttr$DeferredStuckPolicy;Lcom/sun/tools/javac/comp/DeferredAttr$DeferredTypeCompleter;)Lcom/sun/tools/javac/code/Type; jdk.compiler@11.0.8 (105 bytes) @ 0x00007f0cad9969ac [0x00007f0cad996820+0x000000000000018c]
+J 5041 c1 com.sun.tools.javac.comp.DeferredAttr$DeferredType.check(Lcom/sun/tools/javac/comp/Attr$ResultInfo;)Lcom/sun/tools/javac/code/Type; jdk.compiler@11.0.8 (109 bytes) @ 0x00007f0cad95b424 [0x00007f0cad95b0c0+0x0000000000000364]
+J 4551 c1 com.sun.tools.javac.comp.Resolve$MethodResultInfo.check(Lcom/sun/tools/javac/util/JCDiagnostic$DiagnosticPosition;Lcom/sun/tools/javac/code/Type;)Lcom/sun/tools/javac/code/Type; jdk.compiler@11.0.8 (95 bytes) @ 0x00007f0cad7e1eec [0x00007f0cad7e0fa0+0x0000000000000f4c]
+J 4534 c1 com.sun.tools.javac.comp.Resolve$4.checkArg(Lcom/sun/tools/javac/util/JCDiagnostic$DiagnosticPosition;ZLcom/sun/tools/javac/code/Type;Lcom/sun/tools/javac/code/Type;Lcom/sun/tools/javac/comp/DeferredAttr$DeferredAttrContext;Lcom/sun/tools/javac/util/Warner;)V jdk.compiler@11.0.8 (22 bytes) @ 0x00007f0cad7d624c [0x00007f0cad7d60e0+0x000000000000016c]
+J 4522 c1 com.sun.tools.javac.comp.Resolve$AbstractMethodCheck.argumentsAcceptable(Lcom/sun/tools/javac/comp/Env;Lcom/sun/tools/javac/comp/DeferredAttr$DeferredAttrContext;Lcom/sun/tools/javac/util/List;Lcom/sun/tools/javac/util/List;Lcom/sun/tools/javac/util/Warner;)V jdk.compiler@11.0.8 (288 bytes) @ 0x00007f0cad7ce284 [0x00007f0cad7ccec0+0x00000000000013c4]
+J 4482 c1 com.sun.tools.javac.comp.Resolve$4.argumentsAcceptable(Lcom/sun/tools/javac/comp/Env;Lcom/sun/tools/javac/comp/DeferredAttr$DeferredAttrContext;Lcom/sun/tools/javac/util/List;Lcom/sun/tools/javac/util/List;Lcom/sun/tools/javac/util/Warner;)V jdk.compiler@11.0.8 (69 bytes) @ 0x00007f0cad7c755c [0x00007f0cad7c74a0+0x00000000000000bc]
+J 4481 c1 com.sun.tools.javac.comp.Resolve.rawInstantiate(Lcom/sun/tools/javac/comp/Env;Lcom/sun/tools/javac/code/Type;Lcom/sun/tools/javac/code/Symbol;Lcom/sun/tools/javac/comp/Attr$ResultInfo;Lcom/sun/tools/javac/util/List;Lcom/sun/tools/javac/util/List;ZZLcom/sun/tools/javac/util/Warner;)Lcom/sun/tools/javac/code/Type; jdk.compiler@11.0.8 (508 bytes) @ 0x00007f0cad7a4814 [0x00007f0cad7a12c0+0x0000000000003554]
+J 4875 c1 com.sun.tools.javac.comp.Resolve.checkMethod(Lcom/sun/tools/javac/comp/Env;Lcom/sun/tools/javac/code/Type;Lcom/sun/tools/javac/code/Symbol;Lcom/sun/tools/javac/comp/Attr$ResultInfo;Lcom/sun/tools/javac/util/List;Lcom/sun/tools/javac/util/List;Lcom/sun/tools/javac/util/Warner;)Lcom/sun/tools/javac/code/Type; jdk.compiler@11.0.8 (150 bytes) @ 0x00007f0cad8df0a4 [0x00007f0cad8de7e0+0x00000000000008c4]
+J 4902 c1 com.sun.tools.javac.comp.Attr.checkMethod(Lcom/sun/tools/javac/code/Type;Lcom/sun/tools/javac/code/Symbol;Lcom/sun/tools/javac/comp/Attr$ResultInfo;Lcom/sun/tools/javac/comp/Env;Lcom/sun/tools/javac/util/List;Lcom/sun/tools/javac/util/List;Lcom/sun/tools/javac/util/List;)Lcom/sun/tools/javac/code/Type; jdk.compiler@11.0.8 (912 bytes) @ 0x00007f0cad8fabc4 [0x00007f0cad8f5c40+0x0000000000004f84]
+J 4255 c1 com.sun.tools.javac.comp.Attr.checkIdInternal(Lcom/sun/tools/javac/tree/JCTree;Lcom/sun/tools/javac/code/Type;Lcom/sun/tools/javac/code/Symbol;Lcom/sun/tools/javac/code/Type;Lcom/sun/tools/javac/comp/Env;Lcom/sun/tools/javac/comp/Attr$ResultInfo;)Lcom/sun/tools/javac/code/Type; jdk.compiler@11.0.8 (762 bytes) @ 0x00007f0cad7153bc [0x00007f0cad7142e0+0x00000000000010dc]
+J 4874 c1 com.sun.tools.javac.comp.Attr.checkMethodIdInternal(Lcom/sun/tools/javac/tree/JCTree;Lcom/sun/tools/javac/code/Type;Lcom/sun/tools/javac/code/Symbol;Lcom/sun/tools/javac/comp/Env;Lcom/sun/tools/javac/comp/Attr$ResultInfo;)Lcom/sun/tools/javac/code/Type; jdk.compiler@11.0.8 (130 bytes) @ 0x00007f0cad8dbadc [0x00007f0cad8db300+0x00000000000007dc]
+J 4562 c1 com.sun.tools.javac.comp.Attr.checkId(Lcom/sun/tools/javac/tree/JCTree;Lcom/sun/tools/javac/code/Type;Lcom/sun/tools/javac/code/Symbol;Lcom/sun/tools/javac/comp/Env;Lcom/sun/tools/javac/comp/Attr$ResultInfo;)Lcom/sun/tools/javac/code/Type; jdk.compiler@11.0.8 (59 bytes) @ 0x00007f0cad7e75dc [0x00007f0cad7e70a0+0x000000000000053c]
+J 4251 c1 com.sun.tools.javac.comp.Attr.visitSelect(Lcom/sun/tools/javac/tree/JCTree$JCFieldAccess;)V jdk.compiler@11.0.8 (1277 bytes) @ 0x00007f0cad73695c [0x00007f0cad72e220+0x000000000000873c]
+J 4381 c2 com.sun.tools.javac.tree.JCTree$JCFieldAccess.accept(Lcom/sun/tools/javac/tree/JCTree$Visitor;)V jdk.compiler@11.0.8 (6 bytes) @ 0x00007f0cb457e5f4 [0x00007f0cb457e5a0+0x0000000000000054]
+J 4445 c1 com.sun.tools.javac.comp.Attr.attribTree(Lcom/sun/tools/javac/tree/JCTree;Lcom/sun/tools/javac/comp/Env;Lcom/sun/tools/javac/comp/Attr$ResultInfo;)Lcom/sun/tools/javac/code/Type; jdk.compiler@11.0.8 (171 bytes) @ 0x00007f0cad78b28c [0x00007f0cad78af00+0x000000000000038c]
+J 4897 c1 com.sun.tools.javac.comp.Attr.visitApply(Lcom/sun/tools/javac/tree/JCTree$JCMethodInvocation;)V jdk.compiler@11.0.8 (824 bytes) @ 0x00007f0cad8ee7c4 [0x00007f0cad8e9c20+0x0000000000004ba4]
+J 4513 c1 com.sun.tools.javac.tree.JCTree$JCMethodInvocation.accept(Lcom/sun/tools/javac/tree/JCTree$Visitor;)V jdk.compiler@11.0.8 (6 bytes) @ 0x00007f0cad7d21f4 [0x00007f0cad7d20c0+0x0000000000000134]
+J 4445 c1 com.sun.tools.javac.comp.Attr.attribTree(Lcom/sun/tools/javac/tree/JCTree;Lcom/sun/tools/javac/comp/Env;Lcom/sun/tools/javac/comp/Attr$ResultInfo;)Lcom/sun/tools/javac/code/Type; jdk.compiler@11.0.8 (171 bytes) @ 0x00007f0cad78b28c [0x00007f0cad78af00+0x000000000000038c]
+J 4251 c1 com.sun.tools.javac.comp.Attr.visitSelect(Lcom/sun/tools/javac/tree/JCTree$JCFieldAccess;)V jdk.compiler@11.0.8 (1277 bytes) @ 0x00007f0cad72f6cc [0x00007f0cad72e220+0x00000000000014ac]
+J 4381 c2 com.sun.tools.javac.tree.JCTree$JCFieldAccess.accept(Lcom/sun/tools/javac/tree/JCTree$Visitor;)V jdk.compiler@11.0.8 (6 bytes) @ 0x00007f0cb457e5f4 [0x00007f0cb457e5a0+0x0000000000000054]
+J 4445 c1 com.sun.tools.javac.comp.Attr.attribTree(Lcom/sun/tools/javac/tree/JCTree;Lcom/sun/tools/javac/comp/Env;Lcom/sun/tools/javac/comp/Attr$ResultInfo;)Lcom/sun/tools/javac/code/Type; jdk.compiler@11.0.8 (171 bytes) @ 0x00007f0cad78b28c [0x00007f0cad78af00+0x000000000000038c]
+J 4897 c1 com.sun.tools.javac.comp.Attr.visitApply(Lcom/sun/tools/javac/tree/JCTree$JCMethodInvocation;)V jdk.compiler@11.0.8 (824 bytes) @ 0x00007f0cad8ee7c4 [0x00007f0cad8e9c20+0x0000000000004ba4]
+J 4513 c1 com.sun.tools.javac.tree.JCTree$JCMethodInvocation.accept(Lcom/sun/tools/javac/tree/JCTree$Visitor;)V jdk.compiler@11.0.8 (6 bytes) @ 0x00007f0cad7d21f4 [0x00007f0cad7d20c0+0x0000000000000134]
+J 4445 c1 com.sun.tools.javac.comp.Attr.attribTree(Lcom/sun/tools/javac/tree/JCTree;Lcom/sun/tools/javac/comp/Env;Lcom/sun/tools/javac/comp/Attr$ResultInfo;)Lcom/sun/tools/javac/code/Type; jdk.compiler@11.0.8 (171 bytes) @ 0x00007f0cad78b28c [0x00007f0cad78af00+0x000000000000038c]
+j  com.sun.tools.javac.comp.DeferredAttr$4.complete(Lcom/sun/tools/javac/comp/DeferredAttr$DeferredType;Lcom/sun/tools/javac/comp/Attr$ResultInfo;Lcom/sun/tools/javac/comp/DeferredAttr$DeferredAttrContext;)Lcom/sun/tools/javac/code/Type;+126 jdk.compiler@11.0.8
+J 5097 c1 com.sun.tools.javac.comp.ArgumentAttr$ArgumentType.complete(Lcom/sun/tools/javac/comp/DeferredAttr$DeferredType;Lcom/sun/tools/javac/comp/Attr$ResultInfo;Lcom/sun/tools/javac/comp/DeferredAttr$DeferredAttrContext;)Lcom/sun/tools/javac/code/Type; jdk.compiler@11.0.8 (141 bytes) @ 0x00007f0cad97d024 [0x00007f0cad97cdc0+0x0000000000000264]
+J 5153 c1 com.sun.tools.javac.comp.DeferredAttr$DeferredType.check(Lcom/sun/tools/javac/comp/Attr$ResultInfo;Lcom/sun/tools/javac/comp/DeferredAttr$DeferredStuckPolicy;Lcom/sun/tools/javac/comp/DeferredAttr$DeferredTypeCompleter;)Lcom/sun/tools/javac/code/Type; jdk.compiler@11.0.8 (105 bytes) @ 0x00007f0cad9969ac [0x00007f0cad996820+0x000000000000018c]
+J 5041 c1 com.sun.tools.javac.comp.DeferredAttr$DeferredType.check(Lcom/sun/tools/javac/comp/Attr$ResultInfo;)Lcom/sun/tools/javac/code/Type; jdk.compiler@11.0.8 (109 bytes) @ 0x00007f0cad95b424 [0x00007f0cad95b0c0+0x0000000000000364]
+J 4551 c1 com.sun.tools.javac.comp.Resolve$MethodResultInfo.check(Lcom/sun/tools/javac/util/JCDiagnostic$DiagnosticPosition;Lcom/sun/tools/javac/code/Type;)Lcom/sun/tools/javac/code/Type; jdk.compiler@11.0.8 (95 bytes) @ 0x00007f0cad7e1eec [0x00007f0cad7e0fa0+0x0000000000000f4c]
+J 4534 c1 com.sun.tools.javac.comp.Resolve$4.checkArg(Lcom/sun/tools/javac/util/JCDiagnostic$DiagnosticPosition;ZLcom/sun/tools/javac/code/Type;Lcom/sun/tools/javac/code/Type;Lcom/sun/tools/javac/comp/DeferredAttr$DeferredAttrContext;Lcom/sun/tools/javac/util/Warner;)V jdk.compiler@11.0.8 (22 bytes) @ 0x00007f0cad7d624c [0x00007f0cad7d60e0+0x000000000000016c]
+J 4522 c1 com.sun.tools.javac.comp.Resolve$AbstractMethodCheck.argumentsAcceptable(Lcom/sun/tools/javac/comp/Env;Lcom/sun/tools/javac/comp/DeferredAttr$DeferredAttrContext;Lcom/sun/tools/javac/util/List;Lcom/sun/tools/javac/util/List;Lcom/sun/tools/javac/util/Warner;)V jdk.compiler@11.0.8 (288 bytes) @ 0x00007f0cad7ce284 [0x00007f0cad7ccec0+0x00000000000013c4]
+J 4482 c1 com.sun.tools.javac.comp.Resolve$4.argumentsAcceptable(Lcom/sun/tools/javac/comp/Env;Lcom/sun/tools/javac/comp/DeferredAttr$DeferredAttrContext;Lcom/sun/tools/javac/util/List;Lcom/sun/tools/javac/util/List;Lcom/sun/tools/javac/util/Warner;)V jdk.compiler@11.0.8 (69 bytes) @ 0x00007f0cad7c755c [0x00007f0cad7c74a0+0x00000000000000bc]
+J 4481 c1 com.sun.tools.javac.comp.Resolve.rawInstantiate(Lcom/sun/tools/javac/comp/Env;Lcom/sun/tools/javac/code/Type;Lcom/sun/tools/javac/code/Symbol;Lcom/sun/tools/javac/comp/Attr$ResultInfo;Lcom/sun/tools/javac/util/List;Lcom/sun/tools/javac/util/List;ZZLcom/sun/tools/javac/util/Warner;)Lcom/sun/tools/javac/code/Type; jdk.compiler@11.0.8 (508 bytes) @ 0x00007f0cad7a4814 [0x00007f0cad7a12c0+0x0000000000003554]
+J 4875 c1 com.sun.tools.javac.comp.Resolve.checkMethod(Lcom/sun/tools/javac/comp/Env;Lcom/sun/tools/javac/code/Type;Lcom/sun/tools/javac/code/Symbol;Lcom/sun/tools/javac/comp/Attr$ResultInfo;Lcom/sun/tools/javac/util/List;Lcom/sun/tools/javac/util/List;Lcom/sun/tools/javac/util/Warner;)Lcom/sun/tools/javac/code/Type; jdk.compiler@11.0.8 (150 bytes) @ 0x00007f0cad8df0a4 [0x00007f0cad8de7e0+0x00000000000008c4]
+J 4902 c1 com.sun.tools.javac.comp.Attr.checkMethod(Lcom/sun/tools/javac/code/Type;Lcom/sun/tools/javac/code/Symbol;Lcom/sun/tools/javac/comp/Attr$ResultInfo;Lcom/sun/tools/javac/comp/Env;Lcom/sun/tools/javac/util/List;Lcom/sun/tools/javac/util/List;Lcom/sun/tools/javac/util/List;)Lcom/sun/tools/javac/code/Type; jdk.compiler@11.0.8 (912 bytes) @ 0x00007f0cad8fabc4 [0x00007f0cad8f5c40+0x0000000000004f84]
+J 4255 c1 com.sun.tools.javac.comp.Attr.checkIdInternal(Lcom/sun/tools/javac/tree/JCTree;Lcom/sun/tools/javac/code/Type;Lcom/sun/tools/javac/code/Symbol;Lcom/sun/tools/javac/code/Type;Lcom/sun/tools/javac/comp/Env;Lcom/sun/tools/javac/comp/Attr$ResultInfo;)Lcom/sun/tools/javac/code/Type; jdk.compiler@11.0.8 (762 bytes) @ 0x00007f0cad7153bc [0x00007f0cad7142e0+0x00000000000010dc]
+J 4874 c1 com.sun.tools.javac.comp.Attr.checkMethodIdInternal(Lcom/sun/tools/javac/tree/JCTree;Lcom/sun/tools/javac/code/Type;Lcom/sun/tools/javac/code/Symbol;Lcom/sun/tools/javac/comp/Env;Lcom/sun/tools/javac/comp/Attr$ResultInfo;)Lcom/sun/tools/javac/code/Type; jdk.compiler@11.0.8 (130 bytes) @ 0x00007f0cad8dbadc [0x00007f0cad8db300+0x00000000000007dc]
+J 4562 c1 com.sun.tools.javac.comp.Attr.checkId(Lcom/sun/tools/javac/tree/JCTree;Lcom/sun/tools/javac/code/Type;Lcom/sun/tools/javac/code/Symbol;Lcom/sun/tools/javac/comp/Env;Lcom/sun/tools/javac/comp/Attr$ResultInfo;)Lcom/sun/tools/javac/code/Type; jdk.compiler@11.0.8 (59 bytes) @ 0x00007f0cad7e75dc [0x00007f0cad7e70a0+0x000000000000053c]
+J 4251 c1 com.sun.tools.javac.comp.Attr.visitSelect(Lcom/sun/tools/javac/tree/JCTree$JCFieldAccess;)V jdk.compiler@11.0.8 (1277 bytes) @ 0x00007f0cad73695c [0x00007f0cad72e220+0x000000000000873c]
+J 4381 c2 com.sun.tools.javac.tree.JCTree$JCFieldAccess.accept(Lcom/sun/tools/javac/tree/JCTree$Visitor;)V jdk.compiler@11.0.8 (6 bytes) @ 0x00007f0cb457e5f4 [0x00007f0cb457e5a0+0x0000000000000054]
+J 4445 c1 com.sun.tools.javac.comp.Attr.attribTree(Lcom/sun/tools/javac/tree/JCTree;Lcom/sun/tools/javac/comp/Env;Lcom/sun/tools/javac/comp/Attr$ResultInfo;)Lcom/sun/tools/javac/code/Type; jdk.compiler@11.0.8 (171 bytes) @ 0x00007f0cad78b28c [0x00007f0cad78af00+0x000000000000038c]
+J 4897 c1 com.sun.tools.javac.comp.Attr.visitApply(Lcom/sun/tools/javac/tree/JCTree$JCMethodInvocation;)V jdk.compiler@11.0.8 (824 bytes) @ 0x00007f0cad8ee7c4 [0x00007f0cad8e9c20+0x0000000000004ba4]
+J 4513 c1 com.sun.tools.javac.tree.JCTree$JCMethodInvocation.accept(Lcom/sun/tools/javac/tree/JCTree$Visitor;)V jdk.compiler@11.0.8 (6 bytes) @ 0x00007f0cad7d21f4 [0x00007f0cad7d20c0+0x0000000000000134]
+J 4445 c1 com.sun.tools.javac.comp.Attr.attribTree(Lcom/sun/tools/javac/tree/JCTree;Lcom/sun/tools/javac/comp/Env;Lcom/sun/tools/javac/comp/Attr$ResultInfo;)Lcom/sun/tools/javac/code/Type; jdk.compiler@11.0.8 (171 bytes) @ 0x00007f0cad78b28c [0x00007f0cad78af00+0x000000000000038c]
+j  com.sun.tools.javac.comp.DeferredAttr$4.complete(Lcom/sun/tools/javac/comp/DeferredAttr$DeferredType;Lcom/sun/tools/javac/comp/Attr$ResultInfo;Lcom/sun/tools/javac/comp/DeferredAttr$DeferredAttrContext;)Lcom/sun/tools/javac/code/Type;+126 jdk.compiler@11.0.8
+J 5097 c1 com.sun.tools.javac.comp.ArgumentAttr$ArgumentType.complete(Lcom/sun/tools/javac/comp/DeferredAttr$DeferredType;Lcom/sun/tools/javac/comp/Attr$ResultInfo;Lcom/sun/tools/javac/comp/DeferredAttr$DeferredAttrContext;)Lcom/sun/tools/javac/code/Type; jdk.compiler@11.0.8 (141 bytes) @ 0x00007f0cad97d024 [0x00007f0cad97cdc0+0x0000000000000264]
+J 5153 c1 com.sun.tools.javac.comp.DeferredAttr$DeferredType.check(Lcom/sun/tools/javac/comp/Attr$ResultInfo;Lcom/sun/tools/javac/comp/DeferredAttr$DeferredStuckPolicy;Lcom/sun/tools/javac/comp/DeferredAttr$DeferredTypeCompleter;)Lcom/sun/tools/javac/code/Type; jdk.compiler@11.0.8 (105 bytes) @ 0x00007f0cad9969ac [0x00007f0cad996820+0x000000000000018c]
+J 5041 c1 com.sun.tools.javac.comp.DeferredAttr$DeferredType.check(Lcom/sun/tools/javac/comp/Attr$ResultInfo;)Lcom/sun/tools/javac/code/Type; jdk.compiler@11.0.8 (109 bytes) @ 0x00007f0cad95b424 [0x00007f0cad95b0c0+0x0000000000000364]
+J 4551 c1 com.sun.tools.javac.comp.Resolve$MethodResultInfo.check(Lcom/sun/tools/javac/util/JCDiagnostic$DiagnosticPosition;Lcom/sun/tools/javac/code/Type;)Lcom/sun/tools/javac/code/Type; jdk.compiler@11.0.8 (95 bytes) @ 0x00007f0cad7e1eec [0x00007f0cad7e0fa0+0x0000000000000f4c]
+J 4534 c1 com.sun.tools.javac.comp.Resolve$4.checkArg(Lcom/sun/tools/javac/util/JCDiagnostic$DiagnosticPosition;ZLcom/sun/tools/javac/code/Type;Lcom/sun/tools/javac/code/Type;Lcom/sun/tools/javac/comp/DeferredAttr$DeferredAttrContext;Lcom/sun/tools/javac/util/Warner;)V jdk.compiler@11.0.8 (22 bytes) @ 0x00007f0cad7d624c [0x00007f0cad7d60e0+0x000000000000016c]
+J 4522 c1 com.sun.tools.javac.comp.Resolve$AbstractMethodCheck.argumentsAcceptable(Lcom/sun/tools/javac/comp/Env;Lcom/sun/tools/javac/comp/DeferredAttr$DeferredAttrContext;Lcom/sun/tools/javac/util/List;Lcom/sun/tools/javac/util/List;Lcom/sun/tools/javac/util/Warner;)V jdk.compiler@11.0.8 (288 bytes) @ 0x00007f0cad7ce284 [0x00007f0cad7ccec0+0x00000000000013c4]
+J 4482 c1 com.sun.tools.javac.comp.Resolve$4.argumentsAcceptable(Lcom/sun/tools/javac/comp/Env;Lcom/sun/tools/javac/comp/DeferredAttr$DeferredAttrContext;Lcom/sun/tools/javac/util/List;Lcom/sun/tools/javac/util/List;Lcom/sun/tools/javac/util/Warner;)V jdk.compiler@11.0.8 (69 bytes) @ 0x00007f0cad7c755c [0x00007f0cad7c74a0+0x00000000000000bc]
+J 4481 c1 com.sun.tools.javac.comp.Resolve.rawInstantiate(Lcom/sun/tools/javac/comp/Env;Lcom/sun/tools/javac/code/Type;Lcom/sun/tools/javac/code/Symbol;Lcom/sun/tools/javac/comp/Attr$ResultInfo;Lcom/sun/tools/javac/util/List;Lcom/sun/tools/javac/util/List;ZZLcom/sun/tools/javac/util/Warner;)Lcom/sun/tools/javac/code/Type; jdk.compiler@11.0.8 (508 bytes) @ 0x00007f0cad7a4814 [0x00007f0cad7a12c0+0x0000000000003554]
+J 4875 c1 com.sun.tools.javac.comp.Resolve.checkMethod(Lcom/sun/tools/javac/comp/Env;Lcom/sun/tools/javac/code/Type;Lcom/sun/tools/javac/code/Symbol;Lcom/sun/tools/javac/comp/Attr$ResultInfo;Lcom/sun/tools/javac/util/List;Lcom/sun/tools/javac/util/List;Lcom/sun/tools/javac/util/Warner;)Lcom/sun/tools/javac/code/Type; jdk.compiler@11.0.8 (150 bytes) @ 0x00007f0cad8df0a4 [0x00007f0cad8de7e0+0x00000000000008c4]
+J 4902 c1 com.sun.tools.javac.comp.Attr.checkMethod(Lcom/sun/tools/javac/code/Type;Lcom/sun/tools/javac/code/Symbol;Lcom/sun/tools/javac/comp/Attr$ResultInfo;Lcom/sun/tools/javac/comp/Env;Lcom/sun/tools/javac/util/List;Lcom/sun/tools/javac/util/List;Lcom/sun/tools/javac/util/List;)Lcom/sun/tools/javac/code/Type; jdk.compiler@11.0.8 (912 bytes) @ 0x00007f0cad8fabc4 [0x00007f0cad8f5c40+0x0000000000004f84]
+J 4255 c1 com.sun.tools.javac.comp.Attr.checkIdInternal(Lcom/sun/tools/javac/tree/JCTree;Lcom/sun/tools/javac/code/Type;Lcom/sun/tools/javac/code/Symbol;Lcom/sun/tools/javac/code/Type;Lcom/sun/tools/javac/comp/Env;Lcom/sun/tools/javac/comp/Attr$ResultInfo;)Lcom/sun/tools/javac/code/Type; jdk.compiler@11.0.8 (762 bytes) @ 0x00007f0cad7153bc [0x00007f0cad7142e0+0x00000000000010dc]
+J 4874 c1 com.sun.tools.javac.comp.Attr.checkMethodIdInternal(Lcom/sun/tools/javac/tree/JCTree;Lcom/sun/tools/javac/code/Type;Lcom/sun/tools/javac/code/Symbol;Lcom/sun/tools/javac/comp/Env;Lcom/sun/tools/javac/comp/Attr$ResultInfo;)Lcom/sun/tools/javac/code/Type; jdk.compiler@11.0.8 (130 bytes) @ 0x00007f0cad8dbadc [0x00007f0cad8db300+0x00000000000007dc]
+J 4562 c1 com.sun.tools.javac.comp.Attr.checkId(Lcom/sun/tools/javac/tree/JCTree;Lcom/sun/tools/javac/code/Type;Lcom/sun/tools/javac/code/Symbol;Lcom/sun/tools/javac/comp/Env;Lcom/sun/tools/javac/comp/Attr$ResultInfo;)Lcom/sun/tools/javac/code/Type; jdk.compiler@11.0.8 (59 bytes) @ 0x00007f0cad7e75dc [0x00007f0cad7e70a0+0x000000000000053c]
+J 4251 c1 com.sun.tools.javac.comp.Attr.visitSelect(Lcom/sun/tools/javac/tree/JCTree$JCFieldAccess;)V jdk.compiler@11.0.8 (1277 bytes) @ 0x00007f0cad73695c [0x00007f0cad72e220+0x000000000000873c]
+J 4381 c2 com.sun.tools.javac.tree.JCTree$JCFieldAccess.accept(Lcom/sun/tools/javac/tree/JCTree$Visitor;)V jdk.compiler@11.0.8 (6 bytes) @ 0x00007f0cb457e5f4 [0x00007f0cb457e5a0+0x0000000000000054]
+J 4445 c1 com.sun.tools.javac.comp.Attr.attribTree(Lcom/sun/tools/javac/tree/JCTree;Lcom/sun/tools/javac/comp/Env;Lcom/sun/tools/javac/comp/Attr$ResultInfo;)Lcom/sun/tools/javac/code/Type; jdk.compiler@11.0.8 (171 bytes) @ 0x00007f0cad78b28c [0x00007f0cad78af00+0x000000000000038c]
+J 4897 c1 com.sun.tools.javac.comp.Attr.visitApply(Lcom/sun/tools/javac/tree/JCTree$JCMethodInvocation;)V jdk.compiler@11.0.8 (824 bytes) @ 0x00007f0cad8ee7c4 [0x00007f0cad8e9c20+0x0000000000004ba4]
+J 4513 c1 com.sun.tools.javac.tree.JCTree$JCMethodInvocation.accept(Lcom/sun/tools/javac/tree/JCTree$Visitor;)V jdk.compiler@11.0.8 (6 bytes) @ 0x00007f0cad7d21f4 [0x00007f0cad7d20c0+0x0000000000000134]
+J 4445 c1 com.sun.tools.javac.comp.Attr.attribTree(Lcom/sun/tools/javac/tree/JCTree;Lcom/sun/tools/javac/comp/Env;Lcom/sun/tools/javac/comp/Attr$ResultInfo;)Lcom/sun/tools/javac/code/Type; jdk.compiler@11.0.8 (171 bytes) @ 0x00007f0cad78b28c [0x00007f0cad78af00+0x000000000000038c]
+J 5139 c1 com.sun.tools.javac.comp.Attr.visitExec(Lcom/sun/tools/javac/tree/JCTree$JCExpressionStatement;)V jdk.compiler@11.0.8 (25 bytes) @ 0x00007f0cad991734 [0x00007f0cad9915e0+0x0000000000000154]
+J 4622 c1 com.sun.tools.javac.tree.JCTree$JCExpressionStatement.accept(Lcom/sun/tools/javac/tree/JCTree$Visitor;)V jdk.compiler@11.0.8 (6 bytes) @ 0x00007f0cad81fd74 [0x00007f0cad81fc40+0x0000000000000134]
+J 4445 c1 com.sun.tools.javac.comp.Attr.attribTree(Lcom/sun/tools/javac/tree/JCTree;Lcom/sun/tools/javac/comp/Env;Lcom/sun/tools/javac/comp/Attr$ResultInfo;)Lcom/sun/tools/javac/code/Type; jdk.compiler@11.0.8 (171 bytes) @ 0x00007f0cad78b28c [0x00007f0cad78af00+0x000000000000038c]
+J 4930 c1 com.sun.tools.javac.comp.Attr.attribStat(Lcom/sun/tools/javac/tree/JCTree;Lcom/sun/tools/javac/comp/Env;)Lcom/sun/tools/javac/code/Type; jdk.compiler@11.0.8 (48 bytes) @ 0x00007f0cad912d9c [0x00007f0cad912ca0+0x00000000000000fc]
+j  com.sun.tools.javac.comp.Attr.attribStats(Lcom/sun/tools/javac/util/List;Lcom/sun/tools/javac/comp/Env;)V+18 jdk.compiler@11.0.8
+j  com.sun.tools.javac.comp.Attr.visitBlock(Lcom/sun/tools/javac/tree/JCTree$JCBlock;)V+312 jdk.compiler@11.0.8
+J 4686 c1 com.sun.tools.javac.tree.JCTree$JCBlock.accept(Lcom/sun/tools/javac/tree/JCTree$Visitor;)V jdk.compiler@11.0.8 (6 bytes) @ 0x00007f0cad85cc74 [0x00007f0cad85cb40+0x0000000000000134]
+J 4445 c1 com.sun.tools.javac.comp.Attr.attribTree(Lcom/sun/tools/javac/tree/JCTree;Lcom/sun/tools/javac/comp/Env;Lcom/sun/tools/javac/comp/Attr$ResultInfo;)Lcom/sun/tools/javac/code/Type; jdk.compiler@11.0.8 (171 bytes) @ 0x00007f0cad78b28c [0x00007f0cad78af00+0x000000000000038c]
+J 4930 c1 com.sun.tools.javac.comp.Attr.attribStat(Lcom/sun/tools/javac/tree/JCTree;Lcom/sun/tools/javac/comp/Env;)Lcom/sun/tools/javac/code/Type; jdk.compiler@11.0.8 (48 bytes) @ 0x00007f0cad912d9c [0x00007f0cad912ca0+0x00000000000000fc]
+j  com.sun.tools.javac.comp.Attr.visitMethodDef(Lcom/sun/tools/javac/tree/JCTree$JCMethodDecl;)V+1087 jdk.compiler@11.0.8
+J 4810 c1 com.sun.tools.javac.tree.JCTree$JCMethodDecl.accept(Lcom/sun/tools/javac/tree/JCTree$Visitor;)V jdk.compiler@11.0.8 (6 bytes) @ 0x00007f0cad8a45f4 [0x00007f0cad8a44c0+0x0000000000000134]
+J 4445 c1 com.sun.tools.javac.comp.Attr.attribTree(Lcom/sun/tools/javac/tree/JCTree;Lcom/sun/tools/javac/comp/Env;Lcom/sun/tools/javac/comp/Attr$ResultInfo;)Lcom/sun/tools/javac/code/Type; jdk.compiler@11.0.8 (171 bytes) @ 0x00007f0cad78b28c [0x00007f0cad78af00+0x000000000000038c]
+J 4930 c1 com.sun.tools.javac.comp.Attr.attribStat(Lcom/sun/tools/javac/tree/JCTree;Lcom/sun/tools/javac/comp/Env;)Lcom/sun/tools/javac/code/Type; jdk.compiler@11.0.8 (48 bytes) @ 0x00007f0cad912d9c [0x00007f0cad912ca0+0x00000000000000fc]
+j  com.sun.tools.javac.comp.Attr.attribClassBody(Lcom/sun/tools/javac/comp/Env;Lcom/sun/tools/javac/code/Symbol$ClassSymbol;)V+444 jdk.compiler@11.0.8
+j  com.sun.tools.javac.comp.Attr.attribClass(Lcom/sun/tools/javac/code/Symbol$ClassSymbol;)V+386 jdk.compiler@11.0.8
+j  com.sun.tools.javac.comp.Attr.attribClass(Lcom/sun/tools/javac/util/JCDiagnostic$DiagnosticPosition;Lcom/sun/tools/javac/code/Symbol$ClassSymbol;)V+9 jdk.compiler@11.0.8
+j  com.sun.tools.javac.comp.Attr.attrib(Lcom/sun/tools/javac/comp/Env;)V+111 jdk.compiler@11.0.8
+j  com.sun.tools.javac.main.JavaCompiler.attribute(Lcom/sun/tools/javac/comp/Env;)Lcom/sun/tools/javac/comp/Env;+176 jdk.compiler@11.0.8
+j  com.sun.tools.javac.main.JavaCompiler.compile(Ljava/util/Collection;Ljava/util/Collection;Ljava/lang/Iterable;Ljava/util/Collection;)V+524 jdk.compiler@11.0.8
+j  com.sun.tools.javac.api.JavacTaskImpl.lambda$doCall$0()Lcom/sun/tools/javac/main/Main$Result;+45 jdk.compiler@11.0.8
+j  com.sun.tools.javac.api.JavacTaskImpl$$Lambda$52.call()Ljava/lang/Object;+4 jdk.compiler@11.0.8
+j  com.sun.tools.javac.api.JavacTaskImpl.handleExceptions(Ljava/util/concurrent/Callable;Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;+17 jdk.compiler@11.0.8
+j  com.sun.tools.javac.api.JavacTaskImpl.doCall()Lcom/sun/tools/javac/main/Main$Result;+13 jdk.compiler@11.0.8
+j  com.sun.tools.javac.api.JavacTaskImpl.call()Ljava/lang/Boolean;+1 jdk.compiler@11.0.8
+j  org.codehaus.plexus.compiler.javac.JavaxToolsCompiler.compileInProcess([Ljava/lang/String;Lorg/codehaus/plexus/compiler/CompilerConfiguration;[Ljava/lang/String;)Lorg/codehaus/plexus/compiler/CompilerResult;+125
+j  org.codehaus.plexus.compiler.javac.JavacCompiler.performCompile(Lorg/codehaus/plexus/compiler/CompilerConfiguration;)Lorg/codehaus/plexus/compiler/CompilerResult;+216
+j  org.apache.maven.plugin.compiler.AbstractCompilerMojo.execute()V+2006
+j  org.apache.maven.plugin.compiler.CompilerMojo.execute()V+20
+j  org.apache.maven.plugin.DefaultBuildPluginManager.executeMojo(Lorg/apache/maven/execution/MavenSession;Lorg/apache/maven/plugin/MojoExecution;)V+152
+j  org.apache.maven.lifecycle.internal.MojoExecutor.execute(Lorg/apache/maven/execution/MavenSession;Lorg/apache/maven/plugin/MojoExecution;Lorg/apache/maven/lifecycle/internal/ProjectIndex;Lorg/apache/maven/lifecycle/internal/DependencyContext;)V+215
+j  org.apache.maven.lifecycle.internal.MojoExecutor.execute(Lorg/apache/maven/execution/MavenSession;Lorg/apache/maven/plugin/MojoExecution;Lorg/apache/maven/lifecycle/internal/ProjectIndex;Lorg/apache/maven/lifecycle/internal/DependencyContext;Lorg/apache/maven/lifecycle/internal/PhaseRecorder;)V+6
+j  org.apache.maven.lifecycle.internal.MojoExecutor.execute(Lorg/apache/maven/execution/MavenSession;Ljava/util/List;Lorg/apache/maven/lifecycle/internal/ProjectIndex;)V+60
+j  org.apache.maven.lifecycle.internal.LifecycleModuleBuilder.buildProject(Lorg/apache/maven/execution/MavenSession;Lorg/apache/maven/execution/MavenSession;Lorg/apache/maven/lifecycle/internal/ReactorContext;Lorg/apache/maven/project/MavenProject;Lorg/apache/maven/lifecycle/internal/TaskSegment;)V+179
+j  org.apache.maven.lifecycle.internal.LifecycleModuleBuilder.buildProject(Lorg/apache/maven/execution/MavenSession;Lorg/apache/maven/lifecycle/internal/ReactorContext;Lorg/apache/maven/project/MavenProject;Lorg/apache/maven/lifecycle/internal/TaskSegment;)V+7
+j  org.apache.maven.lifecycle.internal.builder.singlethreaded.SingleThreadedBuilder.build(Lorg/apache/maven/execution/MavenSession;Lorg/apache/maven/lifecycle/internal/ReactorContext;Lorg/apache/maven/lifecycle/internal/ProjectBuildList;Ljava/util/List;Lorg/apache/maven/lifecycle/internal/ReactorBuildStatus;)V+77
+j  org.apache.maven.lifecycle.internal.LifecycleStarter.execute(Lorg/apache/maven/execution/MavenSession;)V+348
+j  org.apache.maven.DefaultMaven.doExecute(Lorg/apache/maven/execution/MavenExecutionRequest;Lorg/apache/maven/execution/MavenSession;Lorg/apache/maven/execution/MavenExecutionResult;Lorg/eclipse/aether/DefaultRepositorySystemSession;)Lorg/apache/maven/execution/MavenExecutionResult;+425
+j  org.apache.maven.DefaultMaven.doExecute(Lorg/apache/maven/execution/MavenExecutionRequest;)Lorg/apache/maven/execution/MavenExecutionResult;+98
+j  org.apache.maven.DefaultMaven.execute(Lorg/apache/maven/execution/MavenExecutionRequest;)Lorg/apache/maven/execution/MavenExecutionResult;+2
+j  org.apache.maven.cli.MavenCli.execute(Lorg/apache/maven/cli/CliRequest;)I+27
+j  org.apache.maven.cli.MavenCli.doMain(Lorg/apache/maven/cli/CliRequest;)I+66
+j  org.apache.maven.cli.MavenCli.main([Ljava/lang/String;Lorg/codehaus/plexus/classworlds/ClassWorld;)I+24
+v  ~StubRoutines::call_stub
+j  jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Ljava/lang/reflect/Method;Ljava/lang/Object;[Ljava/lang/Object;)Ljava/lang/Object;+0 java.base@11.0.8
+j  jdk.internal.reflect.NativeMethodAccessorImpl.invoke(Ljava/lang/Object;[Ljava/lang/Object;)Ljava/lang/Object;+100 java.base@11.0.8
+j  jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(Ljava/lang/Object;[Ljava/lang/Object;)Ljava/lang/Object;+6 java.base@11.0.8
+j  java.lang.reflect.Method.invoke(Ljava/lang/Object;[Ljava/lang/Object;)Ljava/lang/Object;+59 java.base@11.0.8
+j  org.codehaus.plexus.classworlds.launcher.Launcher.launchEnhanced([Ljava/lang/String;)V+45
+j  org.codehaus.plexus.classworlds.launcher.Launcher.launch([Ljava/lang/String;)V+2
+j  org.codehaus.plexus.classworlds.launcher.Launcher.mainWithExitCode([Ljava/lang/String;)I+101
+j  org.codehaus.plexus.classworlds.launcher.Launcher.main([Ljava/lang/String;)V+1
+v  ~StubRoutines::call_stub
+
+siginfo: si_signo: 11 (SIGSEGV), si_code: 2 (SEGV_ACCERR), si_addr: 0x00000008421e20dc
+
+Register to memory mapping:
+
+RAX=0x0000000000000001 is an unknown value
+RBX=0x00000008401e1e28 is a pointer to class: 
+com.sun.tools.javac.main.Option$22 {0x00000008401e1e28}
+RCX=0x0 is NULL
+RDX=0x0000000000000005 is an unknown value
+RSP=0x00007f0c8311d5d0 points into unknown readable memory: e0 8f 00 00 00 00 00 00
+RBP=0x00007f0c8311d620 points into unknown readable memory: b0 d6 11 83 0c 7f 00 00
+RSI=0x00000007506d6d48 is an oop: com.sun.tools.javac.main.Option$22 
+{0x00000007506d6d48} - klass: 'com/sun/tools/javac/main/Option$22'
+RDI=0x00000008401e1e28 is a pointer to class: 
+com.sun.tools.javac.main.Option$22 {0x00000008401e1e28}
+R8 =0x00000008421e20d8 is an unknown value
+R9 =0x00000007506d6d48 is an oop: com.sun.tools.javac.main.Option$22 
+{0x00000007506d6d48} - klass: 'com/sun/tools/javac/main/Option$22'
+R10=0x000000000000000d is an unknown value
+R11=0x0000000000000001 is an unknown value
+R12=0x0 is NULL
+R13=0x00007f0c58001950 points into unknown readable memory: 50 4f 23 cc 0c 7f 00 00
+R14=0x00007f0c58001ac0 points into unknown readable memory: 10 4f 23 cc 0c 7f 00 00
+R15=0x00000008421e20e0 is an unknown value
+
+
+Registers:
+RAX=0x0000000000000001, RBX=0x00000008401e1e28, RCX=0x0000000000000000, RDX=0x0000000000000005
+RSP=0x00007f0c8311d5d0, RBP=0x00007f0c8311d620, RSI=0x00000007506d6d48, RDI=0x00000008401e1e28
+R8 =0x00000008421e20d8, R9 =0x00000007506d6d48, R10=0x000000000000000d, R11=0x0000000000000001
+R12=0x0000000000000000, R13=0x00007f0c58001950, R14=0x00007f0c58001ac0, R15=0x00000008421e20e0
+RIP=0x00007f0ccb941408, EFLAGS=0x0000000000010246, CSGSFS=0x002b000000000033, ERR=0x0000000000000004
+  TRAPNO=0x000000000000000e
+
+Top of Stack: (sp=0x00007f0c8311d5d0)
+0x00007f0c8311d5d0:   0000000000008fe0 0000000000000006
+0x00007f0c8311d5e0:   00007f0ccc3341e8 00000007506d6d48
+0x00007f0c8311d5f0:   00000000b420f808 0000000000000007
+0x00007f0c8311d600:   000000075133d038 00007f0c58001950 
+
+Instructions: (pc=0x00007f0ccb941408)
+0x00007f0ccb941308:   38 01 e9 91 fe ff ff 90 48 8b 50 10 89 ce 83 c1
+0x00007f0ccb941318:   01 81 e1 ff ff 01 00 48 8d 14 f2 48 89 1a 89 08
+0x00007f0ccb941328:   e9 73 fe ff ff 0f 1f 00 48 89 c6 48 2b 72 10 48
+0x00007f0ccb941338:   d3 ee 89 f1 48 8b b2 88 04 00 00 48 01 ce 80 3e
+0x00007f0ccb941348:   00 0f 84 ac fe ff ff c6 06 00 48 8b 92 d0 06 00
+0x00007f0ccb941358:   00 c6 04 0a 00 e9 99 fe ff ff 66 0f 1f 44 00 00
+0x00007f0ccb941368:   8b 30 48 8b 48 10 48 89 f2 48 8d 0c f1 83 c2 01
+0x00007f0ccb941378:   48 89 19 81 e2 ff ff 01 00 89 10 e9 18 fe ff ff
+0x00007f0ccb941388:   0f 1f 84 00 00 00 00 00 48 8d 78 18 48 89 45 b8
+0x00007f0ccb941398:   e8 53 3f fc ff 48 8b 45 b8 48 8b 50 38 e9 53 ff
+0x00007f0ccb9413a8:   ff ff 66 0f 1f 44 00 00 f3 0f 1e fa 55 48 89 e5
+0x00007f0ccb9413b8:   41 57 41 56 49 89 fe 48 89 d7 41 55 41 54 53 48
+0x00007f0ccb9413c8:   89 d3 48 83 ec 28 48 89 75 c8 e8 79 fa 28 00 48
+0x00007f0ccb9413d8:   63 93 34 01 00 00 49 89 c0 48 63 83 c4 00 00 00
+0x00007f0ccb9413e8:   48 01 d0 4d 8d 04 c0 8b 83 30 01 00 00 4d 8d 3c
+0x00007f0ccb9413f8:   c0 4d 39 c7 0f 86 37 01 00 00 45 31 e4 0f 1f 00
+0x00007f0ccb941408:   41 8b 47 fc 4d 63 6f f8 49 83 ef 08 4c 03 6d c8
+0x00007f0ccb941418:   49 8d 5c 85 00 0f 1f 00 4c 39 eb 0f 86 07 01 00
+0x00007f0ccb941428:   00 8b 43 fc 48 83 eb 04 85 c0 74 ec 48 8d 35 e5
+0x00007f0ccb941438:   4a 9c 00 8b 4e 08 48 d3 e0 48 03 06 49 8b 76 10
+0x00007f0ccb941448:   48 89 c2 8b 8e f0 06 00 00 48 8b be e0 06 00 00
+0x00007f0ccb941458:   48 d3 ea 0f b6 3c 17 40 84 ff 0f 8f e8 00 00 00
+0x00007f0ccb941468:   48 8d 0d 75 25 9f 00 49 89 c1 49 31 d9 8b 09 49
+0x00007f0ccb941478:   d3 e9 4d 85 c9 74 a1 40 80 ff ff 0f 84 47 01 00
+0x00007f0ccb941488:   00 49 8b 4e 20 8b 89 04 01 00 00 83 e1 02 75 88
+0x00007f0ccb941498:   4d 8b 4e 18 49 8b 71 08 8b 8e c0 02 00 00 48 d3
+0x00007f0ccb9414a8:   e8 48 8b 8e b0 02 00 00 48 8b 04 c1 48 8b 80 f8
+0x00007f0ccb9414b8:   00 00 00 8b 80 18 01 00 00 85 c0 0f 84 57 ff ff
+0x00007f0ccb9414c8:   ff 49 8b 79 50 48 89 d9 4c 89 45 c0 48 c1 e9 09
+0x00007f0ccb9414d8:   4c 89 4d b8 48 03 4f 48 48 2b 4f 40 48 89 ce 48
+0x00007f0ccb9414e8:   89 4d b0 e8 00 fe fa ff 4c 8b 45 c0 84 c0 0f 84
+0x00007f0ccb9414f8:   24 ff ff ff 4c 8b 4d b8 41 80 79 28 00 0f 84 15 
+
+
+Stack slot to memory mapping:
+stack at sp + 0 slots: 0x0000000000008fe0 is an unknown value
+stack at sp + 1 slots: 0x0000000000000006 is an unknown value
+stack at sp + 2 slots: 0x00007f0ccc3341e8: <offset 0x00000000011431e8> in /usr/lib/jvm/java-11-openjdk-amd64/lib/server/libjvm.so at 0x00007f0ccb1f1000
+stack at sp + 3 slots: 0x00000007506d6d48 is an oop: com.sun.tools.javac.main.Option$22 
+{0x00000007506d6d48} - klass: 'com/sun/tools/javac/main/Option$22'
+stack at sp + 4 slots: 0x00000000b420f808 is an unknown value
+stack at sp + 5 slots: 0x0000000000000007 is an unknown value
+stack at sp + 6 slots: 0x000000075133d038 is an oop: com.sun.tools.javac.main.Option$22 
+{0x000000075133d038} - klass: 'com/sun/tools/javac/main/Option$22'
+stack at sp + 7 slots: 0x00007f0c58001950 points into unknown readable memory: 50 4f 23 cc 0c 7f 00 00
+
+
+---------------  P R O C E S S  ---------------
+
+Threads class SMR info:
+_java_thread_list=0x00007f0c781d3670, length=10, elements={
+0x00007f0cc4016000, 0x00007f0cc4162800, 0x00007f0cc416c800, 0x00007f0cc4172000,
+0x00007f0cc4174000, 0x00007f0cc4176800, 0x00007f0cc4178800, 0x00007f0cc41af800,
+0x00007f0cc41b4800, 0x00007f0c781d2000
+}
+
+Java Threads: ( => current thread )
+  0x00007f0cc4016000 JavaThread "main" [_thread_blocked, id=55456, stack(0x00007f0ccada5000,0x00007f0ccaea6000)]
+  0x00007f0cc4162800 JavaThread "Reference Handler" daemon [_thread_blocked, id=55463, stack(0x00007f0cc8137000,0x00007f0cc8238000)]
+  0x00007f0cc416c800 JavaThread "Finalizer" daemon [_thread_blocked, id=55464, stack(0x00007f0cc8036000,0x00007f0cc8137000)]
+  0x00007f0cc4172000 JavaThread "Signal Dispatcher" daemon [_thread_blocked, id=55465, stack(0x00007f0cac801000,0x00007f0cac902000)]
+  0x00007f0cc4174000 JavaThread "C2 CompilerThread0" daemon [_thread_blocked, id=55466, stack(0x00007f0cac700000,0x00007f0cac801000)]
+  0x00007f0cc4176800 JavaThread "C1 CompilerThread0" daemon [_thread_blocked, id=55467, stack(0x00007f0cac5ff000,0x00007f0cac700000)]
+  0x00007f0cc4178800 JavaThread "Sweeper thread" daemon [_thread_blocked, id=55468, stack(0x00007f0cac4fe000,0x00007f0cac5ff000)]
+  0x00007f0cc41af800 JavaThread "Service Thread" daemon [_thread_blocked, id=55469, stack(0x00007f0cac3fd000,0x00007f0cac4fe000)]
+  0x00007f0cc41b4800 JavaThread "Common-Cleaner" daemon [_thread_blocked, id=55471, stack(0x00007f0cac1fa000,0x00007f0cac2fb000)]
+  0x00007f0c781d2000 JavaThread "C2 CompilerThread1" daemon [_thread_blocked, id=55472, stack(0x00007f0cac0c8000,0x00007f0cac1c9000)]
+
+Other Threads:
+  0x00007f0cc415f800 VMThread "VM Thread" [stack: 0x00007f0cc823a000,0x00007f0cc833a000] [id=55462]
+  0x00007f0cc41b2000 WatcherThread [stack: 0x00007f0cac2fd000,0x00007f0cac3fd000] [id=55470]
+  0x00007f0cc402d800 GCTaskThread "GC Thread#0" [stack: 0x00007f0ccaa59000,0x00007f0ccab59000] [id=55457]
+  0x00007f0c90001000 GCTaskThread "GC Thread#1" [stack: 0x00007f0ca003d000,0x00007f0ca013d000] [id=55475]
+  0x00007f0c90002800 GCTaskThread "GC Thread#2" [stack: 0x00007f0c83122000,0x00007f0c83222000] [id=55476]
+=>0x00007f0c90004000 GCTaskThread "GC Thread#3" [stack: 0x00007f0c83020000,0x00007f0c83120000] [id=55477]
+  0x00007f0cc4075000 ConcurrentGCThread "G1 Main Marker" [stack: 0x00007f0cc938c000,0x00007f0cc948c000] [id=55458]
+  0x00007f0cc4076800 ConcurrentGCThread "G1 Conc#0" [stack: 0x00007f0cc928a000,0x00007f0cc938a000] [id=55459]
+  0x00007f0cc4127800 ConcurrentGCThread "G1 Refine#0" [stack: 0x00007f0cc8d84000,0x00007f0cc8e84000] [id=55460]
+  0x00007f0cc4129800 ConcurrentGCThread "G1 Young RemSet Sampling" [stack: 0x00007f0cc8c82000,0x00007f0cc8d82000] [id=55461]
+
+Threads with active compile tasks:
+C2 CompilerThread0   3794 5068       4       com.sun.tools.javac.code.Types$15::visitClassType (130 bytes)
+C2 CompilerThread1   3794 5099       4       com.sun.tools.javac.code.Types::capture (556 bytes)
+
+VM state:at safepoint (normal execution)
+
+VM Mutex/Monitor currently owned by a thread:  ([mutex/lock_event])
+[0x00007f0cc4013100] Threads_lock - owner thread: 0x00007f0cc415f800
+[0x00007f0cc40138e0] Heap_lock - owner thread: 0x00007f0cc4016000
+
+Heap address: 0x0000000746800000, size: 2968 MB, Compressed Oops mode: Zero based, Oop shift amount: 3
+Narrow klass base: 0x0000000800000000, Narrow klass shift: 3
+Compressed class space size: 1073741824 Address: 0x0000000840000000
+
+Heap:
+ garbage-first heap   total 243712K, used 82911K [0x0000000746800000, 0x0000000800000000)
+  region size 1024K, 80 young (81920K), 10 survivors (10240K)
+ Metaspace       used 24448K, capacity 25121K, committed 25340K, reserved 1071104K
+  class space    used 2772K, capacity 2988K, committed 3072K, reserved 1048576K
+Heap Regions: E=young(eden), S=young(survivor), O=old, HS=humongous(starts), HC=humongous(continues), CS=collection set, F=free, A=archive, TAMS=top-at-mark-start (previous, next)
+|   0|0x0000000746800000, 0x0000000746900000, 0x0000000746900000|100%| O|  |TAMS 0x0000000746900000, 0x0000000746800000| Untracked 
+|   1|0x0000000746900000, 0x0000000746a00000, 0x0000000746a00000|100%| O|  |TAMS 0x0000000746a00000, 0x0000000746900000| Untracked 
+|   2|0x0000000746a00000, 0x0000000746b00000, 0x0000000746b00000|100%| O|  |TAMS 0x0000000746a7a000, 0x0000000746a00000| Untracked 
+|   3|0x0000000746b00000, 0x0000000746c00000, 0x0000000746c00000|100%|HS|  |TAMS 0x0000000746b00000, 0x0000000746b00000| Complete 
+|   4|0x0000000746c00000, 0x0000000746d00000, 0x0000000746d00000|100%| O|  |TAMS 0x0000000746c00000, 0x0000000746c00000| Untracked 
+|   5|0x0000000746d00000, 0x0000000746e00000, 0x0000000746e00000|100%| O|  |TAMS 0x0000000746d00000, 0x0000000746d00000| Untracked 
+|   6|0x0000000746e00000, 0x0000000746f00000, 0x0000000746f00000|100%| O|  |TAMS 0x0000000746e00000, 0x0000000746e00000| Untracked 
+|   7|0x0000000746f00000, 0x0000000747000000, 0x0000000747000000|100%| O|  |TAMS 0x0000000746f00000, 0x0000000746f00000| Untracked 
+|   8|0x0000000747000000, 0x000000074708ba80, 0x0000000747100000| 54%| O|  |TAMS 0x0000000747000000, 0x0000000747000000| Untracked 
+|   9|0x0000000747100000, 0x0000000747100000, 0x0000000747200000|  0%| F|  |TAMS 0x0000000747100000, 0x0000000747100000| Untracked 
+|  10|0x0000000747200000, 0x0000000747200000, 0x0000000747300000|  0%| F|  |TAMS 0x0000000747200000, 0x0000000747200000| Untracked 
+|  11|0x0000000747300000, 0x0000000747300000, 0x0000000747400000|  0%| F|  |TAMS 0x0000000747300000, 0x0000000747300000| Untracked 
+|  12|0x0000000747400000, 0x0000000747400000, 0x0000000747500000|  0%| F|  |TAMS 0x0000000747400000, 0x0000000747400000| Untracked 
+|  13|0x0000000747500000, 0x0000000747500000, 0x0000000747600000|  0%| F|  |TAMS 0x0000000747500000, 0x0000000747500000| Untracked 
+|  14|0x0000000747600000, 0x0000000747600000, 0x0000000747700000|  0%| F|  |TAMS 0x0000000747600000, 0x0000000747600000| Untracked 
+|  15|0x0000000747700000, 0x0000000747700000, 0x0000000747800000|  0%| F|  |TAMS 0x0000000747700000, 0x0000000747700000| Untracked 
+|  16|0x0000000747800000, 0x0000000747800000, 0x0000000747900000|  0%| F|  |TAMS 0x0000000747800000, 0x0000000747800000| Untracked 
+|  17|0x0000000747900000, 0x0000000747900000, 0x0000000747a00000|  0%| F|  |TAMS 0x0000000747900000, 0x0000000747900000| Untracked 
+|  18|0x0000000747a00000, 0x0000000747a00000, 0x0000000747b00000|  0%| F|  |TAMS 0x0000000747a00000, 0x0000000747a00000| Untracked 
+|  19|0x0000000747b00000, 0x0000000747b00000, 0x0000000747c00000|  0%| F|  |TAMS 0x0000000747b00000, 0x0000000747b00000| Untracked 
+|  20|0x0000000747c00000, 0x0000000747c00000, 0x0000000747d00000|  0%| F|  |TAMS 0x0000000747c00000, 0x0000000747c00000| Untracked 
+|  21|0x0000000747d00000, 0x0000000747d00000, 0x0000000747e00000|  0%| F|  |TAMS 0x0000000747d00000, 0x0000000747d00000| Untracked 
+|  22|0x0000000747e00000, 0x0000000747e00000, 0x0000000747f00000|  0%| F|  |TAMS 0x0000000747e00000, 0x0000000747e00000| Untracked 
+|  23|0x0000000747f00000, 0x0000000747f00000, 0x0000000748000000|  0%| F|  |TAMS 0x0000000747f00000, 0x0000000747f00000| Untracked 
+|  24|0x0000000748000000, 0x0000000748000000, 0x0000000748100000|  0%| F|  |TAMS 0x0000000748000000, 0x0000000748000000| Untracked 
+|  25|0x0000000748100000, 0x0000000748100000, 0x0000000748200000|  0%| F|  |TAMS 0x0000000748100000, 0x0000000748100000| Untracked 
+|  26|0x0000000748200000, 0x0000000748200000, 0x0000000748300000|  0%| F|  |TAMS 0x0000000748200000, 0x0000000748200000| Untracked 
+|  27|0x0000000748300000, 0x0000000748300000, 0x0000000748400000|  0%| F|  |TAMS 0x0000000748300000, 0x0000000748300000| Untracked 
+|  28|0x0000000748400000, 0x0000000748400000, 0x0000000748500000|  0%| F|  |TAMS 0x0000000748400000, 0x0000000748400000| Untracked 
+|  29|0x0000000748500000, 0x0000000748500000, 0x0000000748600000|  0%| F|  |TAMS 0x0000000748500000, 0x0000000748500000| Untracked 
+|  30|0x0000000748600000, 0x0000000748600000, 0x0000000748700000|  0%| F|  |TAMS 0x0000000748600000, 0x0000000748600000| Untracked 
+|  31|0x0000000748700000, 0x0000000748700000, 0x0000000748800000|  0%| F|  |TAMS 0x0000000748700000, 0x0000000748700000| Untracked 
+|  32|0x0000000748800000, 0x0000000748800000, 0x0000000748900000|  0%| F|  |TAMS 0x0000000748800000, 0x0000000748800000| Untracked 
+|  33|0x0000000748900000, 0x0000000748900000, 0x0000000748a00000|  0%| F|  |TAMS 0x0000000748900000, 0x0000000748900000| Untracked 
+|  34|0x0000000748a00000, 0x0000000748a00000, 0x0000000748b00000|  0%| F|  |TAMS 0x0000000748a00000, 0x0000000748a00000| Untracked 
+|  35|0x0000000748b00000, 0x0000000748b00000, 0x0000000748c00000|  0%| F|  |TAMS 0x0000000748b00000, 0x0000000748b00000| Untracked 
+|  36|0x0000000748c00000, 0x0000000748c00000, 0x0000000748d00000|  0%| F|  |TAMS 0x0000000748c00000, 0x0000000748c00000| Untracked 
+|  37|0x0000000748d00000, 0x0000000748d00000, 0x0000000748e00000|  0%| F|  |TAMS 0x0000000748d00000, 0x0000000748d00000| Untracked 
+|  38|0x0000000748e00000, 0x0000000748e00000, 0x0000000748f00000|  0%| F|  |TAMS 0x0000000748e00000, 0x0000000748e00000| Untracked 
+|  39|0x0000000748f00000, 0x0000000748f00000, 0x0000000749000000|  0%| F|  |TAMS 0x0000000748f00000, 0x0000000748f00000| Untracked 
+|  40|0x0000000749000000, 0x0000000749000000, 0x0000000749100000|  0%| F|  |TAMS 0x0000000749000000, 0x0000000749000000| Untracked 
+|  41|0x0000000749100000, 0x0000000749100000, 0x0000000749200000|  0%| F|  |TAMS 0x0000000749100000, 0x0000000749100000| Untracked 
+|  42|0x0000000749200000, 0x0000000749200000, 0x0000000749300000|  0%| F|  |TAMS 0x0000000749200000, 0x0000000749200000| Untracked 
+|  43|0x0000000749300000, 0x0000000749300000, 0x0000000749400000|  0%| F|  |TAMS 0x0000000749300000, 0x0000000749300000| Untracked 
+|  44|0x0000000749400000, 0x0000000749400000, 0x0000000749500000|  0%| F|  |TAMS 0x0000000749400000, 0x0000000749400000| Untracked 
+|  45|0x0000000749500000, 0x0000000749500000, 0x0000000749600000|  0%| F|  |TAMS 0x0000000749500000, 0x0000000749500000| Untracked 
+|  46|0x0000000749600000, 0x0000000749600000, 0x0000000749700000|  0%| F|  |TAMS 0x0000000749600000, 0x0000000749600000| Untracked 
+|  47|0x0000000749700000, 0x0000000749700000, 0x0000000749800000|  0%| F|  |TAMS 0x0000000749700000, 0x0000000749700000| Untracked 
+|  48|0x0000000749800000, 0x0000000749800000, 0x0000000749900000|  0%| F|  |TAMS 0x0000000749800000, 0x0000000749800000| Untracked 
+|  49|0x0000000749900000, 0x0000000749900000, 0x0000000749a00000|  0%| F|  |TAMS 0x0000000749900000, 0x0000000749900000| Untracked 
+|  50|0x0000000749a00000, 0x0000000749a00000, 0x0000000749b00000|  0%| F|  |TAMS 0x0000000749a00000, 0x0000000749a00000| Untracked 
+|  51|0x0000000749b00000, 0x0000000749b00000, 0x0000000749c00000|  0%| F|  |TAMS 0x0000000749b00000, 0x0000000749b00000| Untracked 
+|  52|0x0000000749c00000, 0x0000000749c00000, 0x0000000749d00000|  0%| F|  |TAMS 0x0000000749c00000, 0x0000000749c00000| Untracked 
+|  53|0x0000000749d00000, 0x0000000749d00000, 0x0000000749e00000|  0%| F|  |TAMS 0x0000000749d00000, 0x0000000749d00000| Untracked 
+|  54|0x0000000749e00000, 0x0000000749e00000, 0x0000000749f00000|  0%| F|  |TAMS 0x0000000749e00000, 0x0000000749e00000| Untracked 
+|  55|0x0000000749f00000, 0x0000000749f00000, 0x000000074a000000|  0%| F|  |TAMS 0x0000000749f00000, 0x0000000749f00000| Untracked 
+|  56|0x000000074a000000, 0x000000074a000000, 0x000000074a100000|  0%| F|  |TAMS 0x000000074a000000, 0x000000074a000000| Untracked 
+|  57|0x000000074a100000, 0x000000074a100000, 0x000000074a200000|  0%| F|  |TAMS 0x000000074a100000, 0x000000074a100000| Untracked 
+|  58|0x000000074a200000, 0x000000074a200000, 0x000000074a300000|  0%| F|  |TAMS 0x000000074a200000, 0x000000074a200000| Untracked 
+|  59|0x000000074a300000, 0x000000074a300000, 0x000000074a400000|  0%| F|  |TAMS 0x000000074a300000, 0x000000074a300000| Untracked 
+|  60|0x000000074a400000, 0x000000074a400000, 0x000000074a500000|  0%| F|  |TAMS 0x000000074a400000, 0x000000074a400000| Untracked 
+|  61|0x000000074a500000, 0x000000074a500000, 0x000000074a600000|  0%| F|  |TAMS 0x000000074a500000, 0x000000074a500000| Untracked 
+|  62|0x000000074a600000, 0x000000074a600000, 0x000000074a700000|  0%| F|  |TAMS 0x000000074a600000, 0x000000074a600000| Untracked 
+|  63|0x000000074a700000, 0x000000074a700000, 0x000000074a800000|  0%| F|  |TAMS 0x000000074a700000, 0x000000074a700000| Untracked 
+|  64|0x000000074a800000, 0x000000074a800000, 0x000000074a900000|  0%| F|  |TAMS 0x000000074a800000, 0x000000074a800000| Untracked 
+|  65|0x000000074a900000, 0x000000074a900000, 0x000000074aa00000|  0%| F|  |TAMS 0x000000074a900000, 0x000000074a900000| Untracked 
+|  66|0x000000074aa00000, 0x000000074aa00000, 0x000000074ab00000|  0%| F|  |TAMS 0x000000074aa00000, 0x000000074aa00000| Untracked 
+|  67|0x000000074ab00000, 0x000000074ab00000, 0x000000074ac00000|  0%| F|  |TAMS 0x000000074ab00000, 0x000000074ab00000| Untracked 
+|  68|0x000000074ac00000, 0x000000074ac00000, 0x000000074ad00000|  0%| F|  |TAMS 0x000000074ac00000, 0x000000074ac00000| Untracked 
+|  69|0x000000074ad00000, 0x000000074ad00000, 0x000000074ae00000|  0%| F|  |TAMS 0x000000074ad00000, 0x000000074ad00000| Untracked 
+|  70|0x000000074ae00000, 0x000000074ae00000, 0x000000074af00000|  0%| F|  |TAMS 0x000000074ae00000, 0x000000074ae00000| Untracked 
+|  71|0x000000074af00000, 0x000000074af00000, 0x000000074b000000|  0%| F|  |TAMS 0x000000074af00000, 0x000000074af00000| Untracked 
+|  72|0x000000074b000000, 0x000000074b000000, 0x000000074b100000|  0%| F|  |TAMS 0x000000074b000000, 0x000000074b000000| Untracked 
+|  73|0x000000074b100000, 0x000000074b100000, 0x000000074b200000|  0%| F|  |TAMS 0x000000074b100000, 0x000000074b100000| Untracked 
+|  74|0x000000074b200000, 0x000000074b200000, 0x000000074b300000|  0%| F|  |TAMS 0x000000074b200000, 0x000000074b200000| Untracked 
+|  75|0x000000074b300000, 0x000000074b300000, 0x000000074b400000|  0%| F|  |TAMS 0x000000074b300000, 0x000000074b300000| Untracked 
+|  76|0x000000074b400000, 0x000000074b400000, 0x000000074b500000|  0%| F|  |TAMS 0x000000074b400000, 0x000000074b400000| Untracked 
+|  77|0x000000074b500000, 0x000000074b500000, 0x000000074b600000|  0%| F|  |TAMS 0x000000074b500000, 0x000000074b500000| Untracked 
+|  78|0x000000074b600000, 0x000000074b600000, 0x000000074b700000|  0%| F|  |TAMS 0x000000074b600000, 0x000000074b600000| Untracked 
+|  79|0x000000074b700000, 0x000000074b700000, 0x000000074b800000|  0%| F|  |TAMS 0x000000074b700000, 0x000000074b700000| Untracked 
+|  80|0x000000074b800000, 0x000000074b800000, 0x000000074b900000|  0%| F|  |TAMS 0x000000074b800000, 0x000000074b800000| Untracked 
+|  81|0x000000074b900000, 0x000000074b900000, 0x000000074ba00000|  0%| F|  |TAMS 0x000000074b900000, 0x000000074b900000| Untracked 
+|  82|0x000000074ba00000, 0x000000074ba00000, 0x000000074bb00000|  0%| F|  |TAMS 0x000000074ba00000, 0x000000074ba00000| Untracked 
+|  83|0x000000074bb00000, 0x000000074bb00000, 0x000000074bc00000|  0%| F|  |TAMS 0x000000074bb00000, 0x000000074bb00000| Untracked 
+|  84|0x000000074bc00000, 0x000000074bc00000, 0x000000074bd00000|  0%| F|  |TAMS 0x000000074bc00000, 0x000000074bc00000| Untracked 
+|  85|0x000000074bd00000, 0x000000074bd00000, 0x000000074be00000|  0%| F|  |TAMS 0x000000074bd00000, 0x000000074bd00000| Untracked 
+|  86|0x000000074be00000, 0x000000074be00000, 0x000000074bf00000|  0%| F|  |TAMS 0x000000074be00000, 0x000000074be00000| Untracked 
+|  87|0x000000074bf00000, 0x000000074bf00000, 0x000000074c000000|  0%| F|  |TAMS 0x000000074bf00000, 0x000000074bf00000| Untracked 
+|  88|0x000000074c000000, 0x000000074c000000, 0x000000074c100000|  0%| F|  |TAMS 0x000000074c000000, 0x000000074c000000| Untracked 
+|  89|0x000000074c100000, 0x000000074c100000, 0x000000074c200000|  0%| F|  |TAMS 0x000000074c100000, 0x000000074c100000| Untracked 
+|  90|0x000000074c200000, 0x000000074c200000, 0x000000074c300000|  0%| F|  |TAMS 0x000000074c200000, 0x000000074c200000| Untracked 
+|  91|0x000000074c300000, 0x000000074c300000, 0x000000074c400000|  0%| F|  |TAMS 0x000000074c300000, 0x000000074c300000| Untracked 
+|  92|0x000000074c400000, 0x000000074c400000, 0x000000074c500000|  0%| F|  |TAMS 0x000000074c400000, 0x000000074c400000| Untracked 
+|  93|0x000000074c500000, 0x000000074c500000, 0x000000074c600000|  0%| F|  |TAMS 0x000000074c500000, 0x000000074c500000| Untracked 
+|  94|0x000000074c600000, 0x000000074c600000, 0x000000074c700000|  0%| F|  |TAMS 0x000000074c600000, 0x000000074c600000| Untracked 
+|  95|0x000000074c700000, 0x000000074c700000, 0x000000074c800000|  0%| F|  |TAMS 0x000000074c700000, 0x000000074c700000| Untracked 
+|  96|0x000000074c800000, 0x000000074c800000, 0x000000074c900000|  0%| F|  |TAMS 0x000000074c800000, 0x000000074c800000| Untracked 
+|  97|0x000000074c900000, 0x000000074c900000, 0x000000074ca00000|  0%| F|  |TAMS 0x000000074c900000, 0x000000074c900000| Untracked 
+|  98|0x000000074ca00000, 0x000000074ca00000, 0x000000074cb00000|  0%| F|  |TAMS 0x000000074ca00000, 0x000000074ca00000| Untracked 
+|  99|0x000000074cb00000, 0x000000074cb00000, 0x000000074cc00000|  0%| F|  |TAMS 0x000000074cb00000, 0x000000074cb00000| Untracked 
+| 100|0x000000074cc00000, 0x000000074cc00000, 0x000000074cd00000|  0%| F|  |TAMS 0x000000074cc00000, 0x000000074cc00000| Untracked 
+| 101|0x000000074cd00000, 0x000000074cd00000, 0x000000074ce00000|  0%| F|  |TAMS 0x000000074cd00000, 0x000000074cd00000| Untracked 
+| 102|0x000000074ce00000, 0x000000074ce00000, 0x000000074cf00000|  0%| F|  |TAMS 0x000000074ce00000, 0x000000074ce00000| Untracked 
+| 103|0x000000074cf00000, 0x000000074cf00000, 0x000000074d000000|  0%| F|  |TAMS 0x000000074cf00000, 0x000000074cf00000| Untracked 
+| 104|0x000000074d000000, 0x000000074d000000, 0x000000074d100000|  0%| F|  |TAMS 0x000000074d000000, 0x000000074d000000| Untracked 
+| 105|0x000000074d100000, 0x000000074d100000, 0x000000074d200000|  0%| F|  |TAMS 0x000000074d100000, 0x000000074d100000| Untracked 
+| 106|0x000000074d200000, 0x000000074d200000, 0x000000074d300000|  0%| F|  |TAMS 0x000000074d200000, 0x000000074d200000| Untracked 
+| 107|0x000000074d300000, 0x000000074d300000, 0x000000074d400000|  0%| F|  |TAMS 0x000000074d300000, 0x000000074d300000| Untracked 
+| 108|0x000000074d400000, 0x000000074d400000, 0x000000074d500000|  0%| F|  |TAMS 0x000000074d400000, 0x000000074d400000| Untracked 
+| 109|0x000000074d500000, 0x000000074d500000, 0x000000074d600000|  0%| F|  |TAMS 0x000000074d500000, 0x000000074d500000| Untracked 
+| 110|0x000000074d600000, 0x000000074d600000, 0x000000074d700000|  0%| F|  |TAMS 0x000000074d600000, 0x000000074d600000| Untracked 
+| 111|0x000000074d700000, 0x000000074d700000, 0x000000074d800000|  0%| F|  |TAMS 0x000000074d700000, 0x000000074d700000| Untracked 
+| 112|0x000000074d800000, 0x000000074d800000, 0x000000074d900000|  0%| F|  |TAMS 0x000000074d800000, 0x000000074d800000| Untracked 
+| 113|0x000000074d900000, 0x000000074d900000, 0x000000074da00000|  0%| F|  |TAMS 0x000000074d900000, 0x000000074d900000| Untracked 
+| 114|0x000000074da00000, 0x000000074da00000, 0x000000074db00000|  0%| F|  |TAMS 0x000000074da00000, 0x000000074da00000| Untracked 
+| 115|0x000000074db00000, 0x000000074db00000, 0x000000074dc00000|  0%| F|  |TAMS 0x000000074db00000, 0x000000074db00000| Untracked 
+| 116|0x000000074dc00000, 0x000000074dc00000, 0x000000074dd00000|  0%| F|  |TAMS 0x000000074dc00000, 0x000000074dc00000| Untracked 
+| 117|0x000000074dd00000, 0x000000074dd00000, 0x000000074de00000|  0%| F|  |TAMS 0x000000074dd00000, 0x000000074dd00000| Untracked 
+| 118|0x000000074de00000, 0x000000074de00000, 0x000000074df00000|  0%| F|  |TAMS 0x000000074de00000, 0x000000074de00000| Untracked 
+| 119|0x000000074df00000, 0x000000074df00000, 0x000000074e000000|  0%| F|  |TAMS 0x000000074df00000, 0x000000074df00000| Untracked 
+| 120|0x000000074e000000, 0x000000074e000000, 0x000000074e100000|  0%| F|  |TAMS 0x000000074e000000, 0x000000074e000000| Untracked 
+| 121|0x000000074e100000, 0x000000074e100000, 0x000000074e200000|  0%| F|  |TAMS 0x000000074e100000, 0x000000074e100000| Untracked 
+| 122|0x000000074e200000, 0x000000074e200000, 0x000000074e300000|  0%| F|  |TAMS 0x000000074e200000, 0x000000074e200000| Untracked 
+| 123|0x000000074e300000, 0x000000074e300000, 0x000000074e400000|  0%| F|  |TAMS 0x000000074e300000, 0x000000074e300000| Untracked 
+| 124|0x000000074e400000, 0x000000074e400000, 0x000000074e500000|  0%| F|  |TAMS 0x000000074e400000, 0x000000074e400000| Untracked 
+| 125|0x000000074e500000, 0x000000074e500000, 0x000000074e600000|  0%| F|  |TAMS 0x000000074e500000, 0x000000074e500000| Untracked 
+| 126|0x000000074e600000, 0x000000074e600000, 0x000000074e700000|  0%| F|  |TAMS 0x000000074e600000, 0x000000074e600000| Untracked 
+| 127|0x000000074e700000, 0x000000074e700000, 0x000000074e800000|  0%| F|  |TAMS 0x000000074e700000, 0x000000074e700000| Untracked 
+| 128|0x000000074e800000, 0x000000074e800000, 0x000000074e900000|  0%| F|  |TAMS 0x000000074e800000, 0x000000074e800000| Untracked 
+| 129|0x000000074e900000, 0x000000074e900000, 0x000000074ea00000|  0%| F|  |TAMS 0x000000074e900000, 0x000000074e900000| Untracked 
+| 130|0x000000074ea00000, 0x000000074ea00000, 0x000000074eb00000|  0%| F|  |TAMS 0x000000074ea00000, 0x000000074ea00000| Untracked 
+| 131|0x000000074eb00000, 0x000000074eb00000, 0x000000074ec00000|  0%| F|  |TAMS 0x000000074eb00000, 0x000000074eb00000| Untracked 
+| 132|0x000000074ec00000, 0x000000074ec00000, 0x000000074ed00000|  0%| F|  |TAMS 0x000000074ec00000, 0x000000074ec00000| Untracked 
+| 133|0x000000074ed00000, 0x000000074ed00000, 0x000000074ee00000|  0%| F|  |TAMS 0x000000074ed00000, 0x000000074ed00000| Untracked 
+| 134|0x000000074ee00000, 0x000000074ee00000, 0x000000074ef00000|  0%| F|  |TAMS 0x000000074ee00000, 0x000000074ee00000| Untracked 
+| 135|0x000000074ef00000, 0x000000074ef00000, 0x000000074f000000|  0%| F|  |TAMS 0x000000074ef00000, 0x000000074ef00000| Untracked 
+| 136|0x000000074f000000, 0x000000074f000000, 0x000000074f100000|  0%| F|  |TAMS 0x000000074f000000, 0x000000074f000000| Untracked 
+| 137|0x000000074f100000, 0x000000074f100000, 0x000000074f200000|  0%| F|  |TAMS 0x000000074f100000, 0x000000074f100000| Untracked 
+| 138|0x000000074f200000, 0x000000074f200000, 0x000000074f300000|  0%| F|  |TAMS 0x000000074f200000, 0x000000074f200000| Untracked 
+| 139|0x000000074f300000, 0x000000074f300000, 0x000000074f400000|  0%| F|  |TAMS 0x000000074f300000, 0x000000074f300000| Untracked 
+| 140|0x000000074f400000, 0x000000074f400000, 0x000000074f500000|  0%| F|  |TAMS 0x000000074f400000, 0x000000074f400000| Untracked 
+| 141|0x000000074f500000, 0x000000074f500000, 0x000000074f600000|  0%| F|  |TAMS 0x000000074f500000, 0x000000074f500000| Untracked 
+| 142|0x000000074f600000, 0x000000074f600000, 0x000000074f700000|  0%| F|  |TAMS 0x000000074f600000, 0x000000074f600000| Untracked 
+| 143|0x000000074f700000, 0x000000074f700000, 0x000000074f800000|  0%| F|  |TAMS 0x000000074f700000, 0x000000074f700000| Untracked 
+| 144|0x000000074f800000, 0x000000074f800000, 0x000000074f900000|  0%| F|  |TAMS 0x000000074f800000, 0x000000074f800000| Untracked 
+| 145|0x000000074f900000, 0x000000074f900000, 0x000000074fa00000|  0%| F|  |TAMS 0x000000074f900000, 0x000000074f900000| Untracked 
+| 146|0x000000074fa00000, 0x000000074fa00000, 0x000000074fb00000|  0%| F|  |TAMS 0x000000074fa00000, 0x000000074fa00000| Untracked 
+| 147|0x000000074fb00000, 0x000000074fb00000, 0x000000074fc00000|  0%| F|  |TAMS 0x000000074fb00000, 0x000000074fb00000| Untracked 
+| 148|0x000000074fc00000, 0x000000074fc00000, 0x000000074fd00000|  0%| F|  |TAMS 0x000000074fc00000, 0x000000074fc00000| Untracked 
+| 149|0x000000074fd00000, 0x000000074fe00000, 0x000000074fe00000|100%| S|  |TAMS 0x000000074fd00000, 0x000000074fd00000| Complete 
+| 150|0x000000074fe00000, 0x000000074ff00000, 0x000000074ff00000|100%| S|  |TAMS 0x000000074fe00000, 0x000000074fe00000| Complete 
+| 151|0x000000074ff00000, 0x0000000750000000, 0x0000000750000000|100%| S|  |TAMS 0x000000074ff00000, 0x000000074ff00000| Complete 
+| 152|0x0000000750000000, 0x0000000750100000, 0x0000000750100000|100%| S|  |TAMS 0x0000000750000000, 0x0000000750000000| Complete 
+| 153|0x0000000750100000, 0x0000000750200000, 0x0000000750200000|100%| S|  |TAMS 0x0000000750100000, 0x0000000750100000| Complete 
+| 154|0x0000000750200000, 0x0000000750300000, 0x0000000750300000|100%| S|  |TAMS 0x0000000750200000, 0x0000000750200000| Complete 
+| 155|0x0000000750300000, 0x0000000750400000, 0x0000000750400000|100%| S|  |TAMS 0x0000000750300000, 0x0000000750300000| Complete 
+| 156|0x0000000750400000, 0x0000000750500000, 0x0000000750500000|100%| S|  |TAMS 0x0000000750400000, 0x0000000750400000| Complete 
+| 157|0x0000000750500000, 0x0000000750600000, 0x0000000750600000|100%| S|  |TAMS 0x0000000750500000, 0x0000000750500000| Complete 
+| 158|0x0000000750600000, 0x0000000750700000, 0x0000000750700000|100%| S|  |TAMS 0x0000000750600000, 0x0000000750600000| Complete 
+| 159|0x0000000750700000, 0x0000000750800000, 0x0000000750800000|100%| E|CS|TAMS 0x0000000750700000, 0x0000000750700000| Complete 
+| 160|0x0000000750800000, 0x0000000750900000, 0x0000000750900000|100%| E|CS|TAMS 0x0000000750800000, 0x0000000750800000| Complete 
+| 161|0x0000000750900000, 0x0000000750a00000, 0x0000000750a00000|100%| E|CS|TAMS 0x0000000750900000, 0x0000000750900000| Complete 
+| 162|0x0000000750a00000, 0x0000000750b00000, 0x0000000750b00000|100%| E|CS|TAMS 0x0000000750a00000, 0x0000000750a00000| Complete 
+| 163|0x0000000750b00000, 0x0000000750c00000, 0x0000000750c00000|100%| E|CS|TAMS 0x0000000750b00000, 0x0000000750b00000| Complete 
+| 164|0x0000000750c00000, 0x0000000750d00000, 0x0000000750d00000|100%| E|CS|TAMS 0x0000000750c00000, 0x0000000750c00000| Complete 
+| 165|0x0000000750d00000, 0x0000000750dccee0, 0x0000000750e00000| 80%| E|CS|TAMS 0x0000000750d00000, 0x0000000750d00000| Complete 
+| 166|0x0000000750e00000, 0x0000000750f00000, 0x0000000750f00000|100%| E|CS|TAMS 0x0000000750e00000, 0x0000000750e00000| Complete 
+| 167|0x0000000750f00000, 0x0000000751000000, 0x0000000751000000|100%| E|CS|TAMS 0x0000000750f00000, 0x0000000750f00000| Complete 
+| 168|0x0000000751000000, 0x0000000751100000, 0x0000000751100000|100%| E|CS|TAMS 0x0000000751000000, 0x0000000751000000| Complete 
+| 169|0x0000000751100000, 0x0000000751200000, 0x0000000751200000|100%| E|CS|TAMS 0x0000000751100000, 0x0000000751100000| Complete 
+| 170|0x0000000751200000, 0x0000000751300000, 0x0000000751300000|100%| E|CS|TAMS 0x0000000751200000, 0x0000000751200000| Complete 
+| 171|0x0000000751300000, 0x0000000751400000, 0x0000000751400000|100%| E|CS|TAMS 0x0000000751300000, 0x0000000751300000| Complete 
+| 172|0x0000000751400000, 0x0000000751500000, 0x0000000751500000|100%| E|CS|TAMS 0x0000000751400000, 0x0000000751400000| Complete 
+| 173|0x0000000751500000, 0x0000000751600000, 0x0000000751600000|100%| E|CS|TAMS 0x0000000751500000, 0x0000000751500000| Complete 
+| 174|0x0000000751600000, 0x0000000751700000, 0x0000000751700000|100%| E|CS|TAMS 0x0000000751600000, 0x0000000751600000| Complete 
+| 175|0x0000000751700000, 0x0000000751800000, 0x0000000751800000|100%| E|CS|TAMS 0x0000000751700000, 0x0000000751700000| Complete 
+| 176|0x0000000751800000, 0x0000000751900000, 0x0000000751900000|100%| E|CS|TAMS 0x0000000751800000, 0x0000000751800000| Complete 
+| 177|0x0000000751900000, 0x0000000751a00000, 0x0000000751a00000|100%| E|CS|TAMS 0x0000000751900000, 0x0000000751900000| Complete 
+| 178|0x0000000751a00000, 0x0000000751b00000, 0x0000000751b00000|100%| E|CS|TAMS 0x0000000751a00000, 0x0000000751a00000| Complete 
+| 179|0x0000000751b00000, 0x0000000751c00000, 0x0000000751c00000|100%| E|CS|TAMS 0x0000000751b00000, 0x0000000751b00000| Complete 
+| 180|0x0000000751c00000, 0x0000000751d00000, 0x0000000751d00000|100%| E|CS|TAMS 0x0000000751c00000, 0x0000000751c00000| Complete 
+| 181|0x0000000751d00000, 0x0000000751e00000, 0x0000000751e00000|100%| E|CS|TAMS 0x0000000751d00000, 0x0000000751d00000| Complete 
+| 182|0x0000000751e00000, 0x0000000751f00000, 0x0000000751f00000|100%| E|CS|TAMS 0x0000000751e00000, 0x0000000751e00000| Complete 
+| 183|0x0000000751f00000, 0x0000000752000000, 0x0000000752000000|100%| E|CS|TAMS 0x0000000751f00000, 0x0000000751f00000| Complete 
+| 184|0x0000000752000000, 0x0000000752100000, 0x0000000752100000|100%| E|CS|TAMS 0x0000000752000000, 0x0000000752000000| Complete 
+| 185|0x0000000752100000, 0x0000000752200000, 0x0000000752200000|100%| E|CS|TAMS 0x0000000752100000, 0x0000000752100000| Complete 
+| 186|0x0000000752200000, 0x0000000752300000, 0x0000000752300000|100%| E|CS|TAMS 0x0000000752200000, 0x0000000752200000| Complete 
+| 187|0x0000000752300000, 0x0000000752400000, 0x0000000752400000|100%| E|CS|TAMS 0x0000000752300000, 0x0000000752300000| Complete 
+| 188|0x0000000752400000, 0x0000000752500000, 0x0000000752500000|100%| E|CS|TAMS 0x0000000752400000, 0x0000000752400000| Complete 
+| 189|0x0000000752500000, 0x0000000752600000, 0x0000000752600000|100%| E|CS|TAMS 0x0000000752500000, 0x0000000752500000| Complete 
+| 190|0x0000000752600000, 0x0000000752700000, 0x0000000752700000|100%| E|CS|TAMS 0x0000000752600000, 0x0000000752600000| Complete 
+| 191|0x0000000752700000, 0x0000000752800000, 0x0000000752800000|100%| E|CS|TAMS 0x0000000752700000, 0x0000000752700000| Complete 
+| 192|0x0000000752800000, 0x0000000752900000, 0x0000000752900000|100%| E|CS|TAMS 0x0000000752800000, 0x0000000752800000| Complete 
+| 193|0x0000000752900000, 0x0000000752a00000, 0x0000000752a00000|100%| E|CS|TAMS 0x0000000752900000, 0x0000000752900000| Complete 
+| 194|0x0000000752a00000, 0x0000000752b00000, 0x0000000752b00000|100%| E|CS|TAMS 0x0000000752a00000, 0x0000000752a00000| Complete 
+| 195|0x0000000752b00000, 0x0000000752c00000, 0x0000000752c00000|100%| E|CS|TAMS 0x0000000752b00000, 0x0000000752b00000| Complete 
+| 196|0x0000000752c00000, 0x0000000752d00000, 0x0000000752d00000|100%| E|CS|TAMS 0x0000000752c00000, 0x0000000752c00000| Complete 
+| 197|0x0000000752d00000, 0x0000000752e00000, 0x0000000752e00000|100%| E|CS|TAMS 0x0000000752d00000, 0x0000000752d00000| Complete 
+| 198|0x0000000752e00000, 0x0000000752f00000, 0x0000000752f00000|100%| E|CS|TAMS 0x0000000752e00000, 0x0000000752e00000| Complete 
+| 199|0x0000000752f00000, 0x0000000753000000, 0x0000000753000000|100%| E|CS|TAMS 0x0000000752f00000, 0x0000000752f00000| Complete 
+| 200|0x0000000753000000, 0x0000000753100000, 0x0000000753100000|100%| E|CS|TAMS 0x0000000753000000, 0x0000000753000000| Complete 
+| 201|0x0000000753100000, 0x0000000753200000, 0x0000000753200000|100%| E|CS|TAMS 0x0000000753100000, 0x0000000753100000| Complete 
+| 202|0x0000000753200000, 0x0000000753300000, 0x0000000753300000|100%| E|CS|TAMS 0x0000000753200000, 0x0000000753200000| Complete 
+| 203|0x0000000753300000, 0x0000000753400000, 0x0000000753400000|100%| E|CS|TAMS 0x0000000753300000, 0x0000000753300000| Complete 
+| 204|0x0000000753400000, 0x0000000753500000, 0x0000000753500000|100%| E|CS|TAMS 0x0000000753400000, 0x0000000753400000| Complete 
+| 205|0x0000000753500000, 0x0000000753600000, 0x0000000753600000|100%| E|CS|TAMS 0x0000000753500000, 0x0000000753500000| Complete 
+| 206|0x0000000753600000, 0x0000000753700000, 0x0000000753700000|100%| E|CS|TAMS 0x0000000753600000, 0x0000000753600000| Complete 
+| 207|0x0000000753700000, 0x0000000753800000, 0x0000000753800000|100%| E|CS|TAMS 0x0000000753700000, 0x0000000753700000| Complete 
+| 208|0x0000000753800000, 0x0000000753900000, 0x0000000753900000|100%| E|CS|TAMS 0x0000000753800000, 0x0000000753800000| Complete 
+| 209|0x0000000753900000, 0x0000000753a00000, 0x0000000753a00000|100%| E|CS|TAMS 0x0000000753900000, 0x0000000753900000| Complete 
+| 210|0x0000000753a00000, 0x0000000753b00000, 0x0000000753b00000|100%| E|CS|TAMS 0x0000000753a00000, 0x0000000753a00000| Complete 
+| 211|0x0000000753b00000, 0x0000000753c00000, 0x0000000753c00000|100%| E|CS|TAMS 0x0000000753b00000, 0x0000000753b00000| Complete 
+| 212|0x0000000753c00000, 0x0000000753d00000, 0x0000000753d00000|100%| E|CS|TAMS 0x0000000753c00000, 0x0000000753c00000| Complete 
+| 213|0x0000000753d00000, 0x0000000753e00000, 0x0000000753e00000|100%| E|CS|TAMS 0x0000000753d00000, 0x0000000753d00000| Complete 
+| 214|0x0000000753e00000, 0x0000000753f00000, 0x0000000753f00000|100%| E|CS|TAMS 0x0000000753e00000, 0x0000000753e00000| Complete 
+| 215|0x0000000753f00000, 0x0000000754000000, 0x0000000754000000|100%| E|CS|TAMS 0x0000000753f00000, 0x0000000753f00000| Complete 
+| 216|0x0000000754000000, 0x0000000754100000, 0x0000000754100000|100%| E|CS|TAMS 0x0000000754000000, 0x0000000754000000| Complete 
+| 217|0x0000000754100000, 0x0000000754200000, 0x0000000754200000|100%| E|CS|TAMS 0x0000000754100000, 0x0000000754100000| Complete 
+| 218|0x0000000754200000, 0x0000000754300000, 0x0000000754300000|100%| E|CS|TAMS 0x0000000754200000, 0x0000000754200000| Complete 
+| 219|0x0000000754300000, 0x0000000754400000, 0x0000000754400000|100%| E|CS|TAMS 0x0000000754300000, 0x0000000754300000| Complete 
+| 220|0x0000000754400000, 0x0000000754500000, 0x0000000754500000|100%| E|CS|TAMS 0x0000000754400000, 0x0000000754400000| Complete 
+| 221|0x0000000754500000, 0x0000000754600000, 0x0000000754600000|100%| E|CS|TAMS 0x0000000754500000, 0x0000000754500000| Complete 
+| 222|0x0000000754600000, 0x0000000754700000, 0x0000000754700000|100%| E|CS|TAMS 0x0000000754600000, 0x0000000754600000| Complete 
+| 223|0x0000000754700000, 0x0000000754800000, 0x0000000754800000|100%| E|CS|TAMS 0x0000000754700000, 0x0000000754700000| Complete 
+| 224|0x0000000754800000, 0x0000000754900000, 0x0000000754900000|100%| E|CS|TAMS 0x0000000754800000, 0x0000000754800000| Complete 
+| 225|0x0000000754900000, 0x0000000754a00000, 0x0000000754a00000|100%| E|CS|TAMS 0x0000000754900000, 0x0000000754900000| Complete 
+| 226|0x0000000754a00000, 0x0000000754b00000, 0x0000000754b00000|100%| E|CS|TAMS 0x0000000754a00000, 0x0000000754a00000| Complete 
+| 227|0x0000000754b00000, 0x0000000754c00000, 0x0000000754c00000|100%| E|CS|TAMS 0x0000000754b00000, 0x0000000754b00000| Complete 
+| 228|0x0000000754c00000, 0x0000000754d00000, 0x0000000754d00000|100%| E|CS|TAMS 0x0000000754c00000, 0x0000000754c00000| Complete 
+| 229|0x0000000754d00000, 0x0000000754e00000, 0x0000000754e00000|100%| E|CS|TAMS 0x0000000754d00000, 0x0000000754d00000| Complete 
+| 230|0x0000000754e00000, 0x0000000754f00000, 0x0000000754f00000|100%| E|CS|TAMS 0x0000000754e00000, 0x0000000754e00000| Complete 
+| 231|0x0000000754f00000, 0x0000000755000000, 0x0000000755000000|100%| E|CS|TAMS 0x0000000754f00000, 0x0000000754f00000| Complete 
+| 232|0x0000000755000000, 0x0000000755100000, 0x0000000755100000|100%| E|CS|TAMS 0x0000000755000000, 0x0000000755000000| Complete 
+| 233|0x0000000755100000, 0x0000000755200000, 0x0000000755200000|100%| E|CS|TAMS 0x0000000755100000, 0x0000000755100000| Complete 
+| 234|0x0000000755200000, 0x0000000755300000, 0x0000000755300000|100%| E|CS|TAMS 0x0000000755200000, 0x0000000755200000| Complete 
+| 235|0x0000000755300000, 0x0000000755400000, 0x0000000755400000|100%| E|CS|TAMS 0x0000000755300000, 0x0000000755300000| Complete 
+|1942|0x00000007bfe00000, 0x00000007bfe47000, 0x00000007bff00000| 27%|OA|  |TAMS 0x00000007bfe47000, 0x00000007bfe00000| Untracked 
+|1943|0x00000007bff00000, 0x00000007bff6a000, 0x00000007c0000000| 41%|CA|  |TAMS 0x00000007bff6a000, 0x00000007bff00000| Untracked 
+
+Card table byte_map: [0x00007f0cc9abb000,0x00007f0cca087000] _byte_map_base: 0x00007f0cc6087000
+
+Marking Bits (Prev, Next): (CMBitMap*) 0x00007f0cc4068640, (CMBitMap*) 0x00007f0cc4068608
+ Prev Bits: [0x00007f0ca2340000, 0x00007f0ca51a0000)
+ Next Bits: [0x00007f0ca51a0000, 0x00007f0ca8000000)
+
+Polling page: 0x00007f0ccad61000
+
+Metaspace:
+
+Usage:
+  Non-class:     21.61 MB capacity,    21.17 MB ( 98%) used,   403.70 KB (  2%) free+waste,    52.81 KB ( <1%) overhead. 
+      Class:      2.92 MB capacity,     2.71 MB ( 93%) used,   191.98 KB (  6%) free+waste,    23.56 KB ( <1%) overhead. 
+       Both:     24.53 MB capacity,    23.88 MB ( 97%) used,   595.68 KB (  2%) free+waste,    76.38 KB ( <1%) overhead. 
+
+Virtual space:
+  Non-class space:       22.00 MB reserved,      21.75 MB ( 99%) committed 
+      Class space:        1.00 GB reserved,       3.00 MB ( <1%) committed 
+             Both:        1.02 GB reserved,      24.75 MB (  2%) committed 
+
+Chunk freelists:
+   Non-Class:  15.00 KB
+       Class:  20.00 KB
+        Both:  35.00 KB
+
+MaxMetaspaceSize: unlimited
+CompressedClassSpaceSize: 1.00 GB
+
+CodeHeap 'non-profiled nmethods': size=120032Kb used=1975Kb max_used=1975Kb free=118056Kb
+ bounds [0x00007f0cb43ca000, 0x00007f0cb463a000, 0x00007f0cbb902000]
+CodeHeap 'profiled nmethods': size=120032Kb used=11297Kb max_used=11297Kb free=108734Kb
+ bounds [0x00007f0cace92000, 0x00007f0cad9a2000, 0x00007f0cb43ca000]
+CodeHeap 'non-nmethods': size=5696Kb used=1135Kb max_used=1178Kb free=4560Kb
+ bounds [0x00007f0cac902000, 0x00007f0cacb72000, 0x00007f0cace92000]
+ total_blobs=5598 nmethods=5121 adapters=389
+ compilation: enabled
+              stopped_count=0, restarted_count=0
+ full_count=0
+
+Compilation events (20 events):
+Event: 3.745 Thread 0x00007f0cc4176800 5152       2       com.sun.tools.javac.comp.ArgumentAttr$ResolvedMethodType::methodType (14 bytes)
+Event: 3.745 Thread 0x00007f0cc4176800 nmethod 5152 0x00007f0cad996f10 code [0x00007f0cad9970c0, 0x00007f0cad997230]
+Event: 3.751 Thread 0x00007f0c781d2000 nmethod 4588 0x00007f0cb45a1a90 code [0x00007f0cb45a2160, 0x00007f0cb45a8ae0]
+Event: 3.752 Thread 0x00007f0c781d2000 5099       4       com.sun.tools.javac.code.Types::capture (556 bytes)
+Event: 3.755 Thread 0x00007f0cc4176800 5154       2       com.sun.tools.javac.comp.ArgumentAttr::processArg (25 bytes)
+Event: 3.756 Thread 0x00007f0cc4176800 nmethod 5154 0x00007f0cad997310 code [0x00007f0cad9974e0, 0x00007f0cad997830]
+Event: 3.756 Thread 0x00007f0cc4176800 5155       2       com.sun.tools.javac.comp.ArgumentAttr$$Lambda$210/0x00000008402e0040::get$Lambda (12 bytes)
+Event: 3.756 Thread 0x00007f0cc4176800 nmethod 5155 0x00007f0cad997a10 code [0x00007f0cad997bc0, 0x00007f0cad997e90]
+Event: 3.757 Thread 0x00007f0cc4176800 5157       2       com.sun.tools.javac.comp.ArgumentAttr::visitApply (50 bytes)
+Event: 3.758 Thread 0x00007f0cc4176800 nmethod 5157 0x00007f0cad997f90 code [0x00007f0cad9981a0, 0x00007f0cad998810]
+Event: 3.758 Thread 0x00007f0cc4176800 5158       2       com.sun.tools.javac.comp.ArgumentAttr$$Lambda$209/0x00000008402cac40::get$Lambda (10 bytes)
+Event: 3.759 Thread 0x00007f0cc4176800 nmethod 5158 0x00007f0cad998b10 code [0x00007f0cad998cc0, 0x00007f0cad998ed0]
+Event: 3.759 Thread 0x00007f0cc4176800 5159       2       com.sun.tools.javac.comp.ArgumentAttr$ResolvedMemberType::<init> (17 bytes)
+Event: 3.759 Thread 0x00007f0cc4176800 nmethod 5159 0x00007f0cad998f90 code [0x00007f0cad999160, 0x00007f0cad999550]
+Event: 3.759 Thread 0x00007f0cc4176800 5160       2       com.sun.tools.javac.comp.ArgumentAttr$ArgumentType::speculativeType (111 bytes)
+Event: 3.760 Thread 0x00007f0cc4176800 nmethod 5160 0x00007f0cad999710 code [0x00007f0cad999960, 0x00007f0cad999e20]
+Event: 3.760 Thread 0x00007f0cc4176800 5161       2       com.sun.tools.javac.comp.ArgumentAttr$ResolvedMethodType::<init> (17 bytes)
+Event: 3.760 Thread 0x00007f0cc4176800 nmethod 5161 0x00007f0cad99a110 code [0x00007f0cad99a2c0, 0x00007f0cad99a4c0]
+Event: 3.763 Thread 0x00007f0cc4174000 nmethod 4856 0x00007f0cb45af290 code [0x00007f0cb45af800, 0x00007f0cb45b3b10]
+Event: 3.763 Thread 0x00007f0cc4174000 5068       4       com.sun.tools.javac.code.Types$15::visitClassType (130 bytes)
+
+GC Heap History (11 events):
+Event: 0.462 GC heap before
+{Heap before GC invocations=0 (full 0):
+ garbage-first heap   total 192512K, used 15044K [0x0000000746800000, 0x0000000800000000)
+  region size 1024K, 14 young (14336K), 0 survivors (0K)
+ Metaspace       used 3986K, capacity 7089K, committed 7296K, reserved 1056768K
+  class space    used 451K, capacity 792K, committed 896K, reserved 1048576K
+}
+Event: 0.471 GC heap after
+{Heap after GC invocations=1 (full 0):
+ garbage-first heap   total 192512K, used 3268K [0x0000000746800000, 0x0000000800000000)
+  region size 1024K, 2 young (2048K), 2 survivors (2048K)
+ Metaspace       used 3986K, capacity 7089K, committed 7296K, reserved 1056768K
+  class space    used 451K, capacity 792K, committed 896K, reserved 1048576K
+}
+Event: 0.633 GC heap before
+{Heap before GC invocations=1 (full 0):
+ garbage-first heap   total 192512K, used 14532K [0x0000000746800000, 0x0000000800000000)
+  region size 1024K, 13 young (13312K), 2 survivors (2048K)
+ Metaspace       used 5289K, capacity 7901K, committed 8064K, reserved 1056768K
+  class space    used 630K, capacity 892K, committed 896K, reserved 1048576K
+}
+Event: 0.642 GC heap after
+{Heap after GC invocations=2 (full 0):
+ garbage-first heap   total 192512K, used 3756K [0x0000000746800000, 0x0000000800000000)
+  region size 1024K, 1 young (1024K), 1 survivors (1024K)
+ Metaspace       used 5289K, capacity 7901K, committed 8064K, reserved 1056768K
+  class space    used 630K, capacity 892K, committed 896K, reserved 1048576K
+}
+Event: 1.168 GC heap before
+{Heap before GC invocations=2 (full 0):
+ garbage-first heap   total 192512K, used 34476K [0x0000000746800000, 0x0000000800000000)
+  region size 1024K, 31 young (31744K), 1 survivors (1024K)
+ Metaspace       used 9891K, capacity 12072K, committed 12288K, reserved 1060864K
+  class space    used 1215K, capacity 1485K, committed 1536K, reserved 1048576K
+}
+Event: 1.173 GC heap after
+{Heap after GC invocations=3 (full 0):
+ garbage-first heap   total 192512K, used 5439K [0x0000000746800000, 0x0000000800000000)
+  region size 1024K, 3 young (3072K), 3 survivors (3072K)
+ Metaspace       used 9891K, capacity 12072K, committed 12288K, reserved 1060864K
+  class space    used 1215K, capacity 1485K, committed 1536K, reserved 1048576K
+}
+Event: 2.029 GC heap before
+{Heap before GC invocations=3 (full 0):
+ garbage-first heap   total 192512K, used 57663K [0x0000000746800000, 0x0000000800000000)
+  region size 1024K, 54 young (55296K), 3 survivors (3072K)
+ Metaspace       used 14004K, capacity 15645K, committed 16000K, reserved 1062912K
+  class space    used 1615K, capacity 1835K, committed 1920K, reserved 1048576K
+}
+Event: 2.040 GC heap after
+{Heap after GC invocations=4 (full 0):
+ garbage-first heap   total 192512K, used 8364K [0x0000000746800000, 0x0000000800000000)
+  region size 1024K, 5 young (5120K), 5 survivors (5120K)
+ Metaspace       used 14004K, capacity 15645K, committed 16000K, reserved 1062912K
+  class space    used 1615K, capacity 1835K, committed 1920K, reserved 1048576K
+}
+Event: 2.388 GC heap before
+{Heap before GC invocations=4 (full 0):
+ garbage-first heap   total 192512K, used 21676K [0x0000000746800000, 0x0000000800000000)
+  region size 1024K, 19 young (19456K), 5 survivors (5120K)
+ Metaspace       used 19731K, capacity 21049K, committed 21248K, reserved 1069056K
+  class space    used 2355K, capacity 2560K, committed 2560K, reserved 1048576K
+}
+Event: 2.397 GC heap after
+{Heap after GC invocations=5 (full 0):
+ garbage-first heap   total 243712K, used 10207K [0x0000000746800000, 0x0000000800000000)
+  region size 1024K, 7 young (7168K), 7 survivors (7168K)
+ Metaspace       used 19731K, capacity 21049K, committed 21248K, reserved 1069056K
+  class space    used 2355K, capacity 2560K, committed 2560K, reserved 1048576K
+}
+Event: 3.763 GC heap before
+{Heap before GC invocations=6 (full 0):
+ garbage-first heap   total 243712K, used 82911K [0x0000000746800000, 0x0000000800000000)
+  region size 1024K, 77 young (78848K), 7 survivors (7168K)
+ Metaspace       used 24448K, capacity 25121K, committed 25340K, reserved 1071104K
+  class space    used 2772K, capacity 2988K, committed 3072K, reserved 1048576K
+}
+
+Deoptimization events (20 events):
+Event: 3.668 Thread 0x00007f0cc4016000 Uncommon trap: trap_request=0xffffff4d fr.pc=0x00007f0cb4593c84 relative=0x0000000000000664
+Event: 3.668 Thread 0x00007f0cc4016000 Uncommon trap: reason=unstable_if action=reinterpret pc=0x00007f0cb4593c84 method=com.sun.tools.javac.code.Types$15.visitClassType(Lcom/sun/tools/javac/code/Type$ClassType;Ljava/lang/Void;)Lcom/sun/tools/javac/code/Type; @ 75 c2
+Event: 3.668 Thread 0x00007f0cc4016000 DEOPT PACKING pc=0x00007f0cb4593c84 sp=0x00007f0ccaea0690
+Event: 3.668 Thread 0x00007f0cc4016000 DEOPT UNPACKING pc=0x00007f0cac9288a5 sp=0x00007f0ccaea0668 mode 2
+Event: 3.668 Thread 0x00007f0cc4016000 Uncommon trap: trap_request=0xffffffde fr.pc=0x00007f0cb459e360 relative=0x0000000000000900
+Event: 3.668 Thread 0x00007f0cc4016000 Uncommon trap: reason=class_check action=maybe_recompile pc=0x00007f0cb459e360 method=com.sun.tools.javac.code.Type$ClassType.isRaw()Z @ 31 c2
+Event: 3.668 Thread 0x00007f0cc4016000 DEOPT PACKING pc=0x00007f0cb459e360 sp=0x00007f0ccaea0e80
+Event: 3.668 Thread 0x00007f0cc4016000 DEOPT UNPACKING pc=0x00007f0cac9288a5 sp=0x00007f0ccaea0db0 mode 2
+Event: 3.669 Thread 0x00007f0cc4016000 Uncommon trap: trap_request=0xffffffde fr.pc=0x00007f0cb459e360 relative=0x0000000000000900
+Event: 3.669 Thread 0x00007f0cc4016000 Uncommon trap: reason=class_check action=maybe_recompile pc=0x00007f0cb459e360 method=com.sun.tools.javac.code.Type$ClassType.isRaw()Z @ 31 c2
+Event: 3.669 Thread 0x00007f0cc4016000 DEOPT PACKING pc=0x00007f0cb459e360 sp=0x00007f0ccaea0560
+Event: 3.669 Thread 0x00007f0cc4016000 DEOPT UNPACKING pc=0x00007f0cac9288a5 sp=0x00007f0ccaea0490 mode 2
+Event: 3.669 Thread 0x00007f0cc4016000 Uncommon trap: trap_request=0xffffffde fr.pc=0x00007f0cb459e360 relative=0x0000000000000900
+Event: 3.669 Thread 0x00007f0cc4016000 Uncommon trap: reason=class_check action=maybe_recompile pc=0x00007f0cb459e360 method=com.sun.tools.javac.code.Type$ClassType.isRaw()Z @ 31 c2
+Event: 3.669 Thread 0x00007f0cc4016000 DEOPT PACKING pc=0x00007f0cb459e360 sp=0x00007f0ccaea0830
+Event: 3.669 Thread 0x00007f0cc4016000 DEOPT UNPACKING pc=0x00007f0cac9288a5 sp=0x00007f0ccaea0760 mode 2
+Event: 3.677 Thread 0x00007f0cc4016000 Uncommon trap: trap_request=0xffffff4d fr.pc=0x00007f0cb452e234 relative=0x0000000000000114
+Event: 3.677 Thread 0x00007f0cc4016000 Uncommon trap: reason=unstable_if action=reinterpret pc=0x00007f0cb452e234 method=com.sun.tools.javac.util.IntHashTable.lookup(Ljava/lang/Object;I)I @ 67 c2
+Event: 3.677 Thread 0x00007f0cc4016000 DEOPT PACKING pc=0x00007f0cb452e234 sp=0x00007f0ccaea1a70
+Event: 3.677 Thread 0x00007f0cc4016000 DEOPT UNPACKING pc=0x00007f0cac9288a5 sp=0x00007f0ccaea19f8 mode 2
+
+Classes redefined (0 events):
+No events
+
+Internal exceptions (20 events):
+Event: 0.130 Thread 0x00007f0cc4016000 Exception <a 'java/lang/NoSuchMethodError'{0x0000000751fd6f60}: 'int java.lang.invoke.DirectMethodHandle$Holder.invokeSpecialIFC(java.lang.Object, java.lang.Object, int)'> (0x0000000751fd6f60) thrown at [src/hotspot/share/interpreter/linkResolver.cpp, line 772]
+Event: 0.169 Thread 0x00007f0cc4016000 Exception <a 'java/security/PrivilegedActionException'{0x0000000751d05268}> (0x0000000751d05268) thrown at [src/hotspot/share/prims/jvm.cpp, line 1295]
+Event: 0.169 Thread 0x00007f0cc4016000 Exception <a 'java/security/PrivilegedActionException'{0x0000000751d05538}> (0x0000000751d05538) thrown at [src/hotspot/share/prims/jvm.cpp, line 1295]
+Event: 1.205 Thread 0x00007f0cc4016000 Exception <a 'java/lang/NoClassDefFoundError'{0x00000007520ba408}: com/google/inject/servlet/ServletModuleTargetVisitor> (0x00000007520ba408) thrown at [src/hotspot/share/classfile/systemDictionary.cpp, line 220]
+Event: 1.205 Thread 0x00007f0cc4016000 Exception <a 'java/lang/NoClassDefFoundError'{0x00000007520ba408}> (0x00000007520ba408) thrown at [src/hotspot/share/prims/jvm.cpp, line 1301]
+Event: 1.205 Thread 0x00007f0cc4016000 Exception <a 'java/lang/NoClassDefFoundError'{0x00000007520bd170}: javax/annotation/Priority> (0x00000007520bd170) thrown at [src/hotspot/share/classfile/systemDictionary.cpp, line 220]
+Event: 1.565 Thread 0x00007f0cc4016000 Implicit null exception at 0x00007f0cb4426985 to 0x00007f0cb4426b6c
+Event: 1.565 Thread 0x00007f0cc4016000 Implicit null exception at 0x00007f0cb446d5cb to 0x00007f0cb446dcd8
+Event: 2.248 Thread 0x00007f0cc4016000 Exception <a 'java/lang/NoSuchMethodError'{0x00000007517e4110}: 'int java.lang.invoke.DirectMethodHandle$Holder.invokeVirtual(java.lang.Object, java.lang.Object, java.lang.Object)'> (0x00000007517e4110) thrown at [src/hotspot/share/interpreter/linkResolver.cpp, line 772]
+Event: 2.305 Thread 0x00007f0cc4016000 Exception <a 'java/lang/NoSuchMethodError'{0x00000007516fb1f8}: 'int java.lang.invoke.DirectMethodHandle$Holder.invokeStaticInit(java.lang.Object, java.lang.Object)'> (0x00000007516fb1f8) thrown at [src/hotspot/share/interpreter/linkResolver.cpp, line 772]
+Event: 2.364 Thread 0x00007f0cc4016000 Exception <a 'java/lang/NoSuchMethodError'{0x00000007515c8520}: 'int java.lang.invoke.DirectMethodHandle$Holder.invokeVirtual(java.lang.Object, java.lang.Object)'> (0x00000007515c8520) thrown at [src/hotspot/share/interpreter/linkResolver.cpp, line 772]
+Event: 2.368 Thread 0x00007f0cc4016000 Exception <a 'java/lang/NoSuchMethodError'{0x00000007515f7090}: 'java.lang.Object java.lang.invoke.Invokers$Holder.linkToTargetMethod(java.lang.Object, java.lang.Object, java.lang.Object, java.lang.Object, java.lang.Object, java.lang.Object)'> (0x00000007515f7090) thrown at [src/hotspot/share/interpreter/linkResolver.cpp, line 772]
+Event: 2.551 Thread 0x00007f0cc4016000 Exception <a 'java/lang/NoSuchMethodError'{0x00000007550bad40}: 'int java.lang.invoke.DirectMethodHandle$Holder.invokeSpecial(java.lang.Object, java.lang.Object, java.lang.Object, java.lang.Object)'> (0x00000007550bad40) thrown at [src/hotspot/share/interpreter/linkResolver.cpp, line 772]
+Event: 2.620 Thread 0x00007f0cc4016000 Exception <a 'java/lang/NoSuchMethodError'{0x0000000754eda850}: 'java.lang.Object java.lang.invoke.DirectMethodHandle$Holder.invokeStatic(java.lang.Object, int, java.lang.Object)'> (0x0000000754eda850) thrown at [src/hotspot/share/interpreter/linkResolver.cpp, line 772]
+Event: 2.675 Thread 0x00007f0cc4016000 Exception <a 'java/lang/NoSuchMethodError'{0x0000000754c2b160}: 'int java.lang.invoke.DirectMethodHandle$Holder.invokeSpecial(java.lang.Object, java.lang.Object, java.lang.Object, java.lang.Object, java.lang.Object)'> (0x0000000754c2b160) thrown at [src/hotspot/share/interpreter/linkResolver.cpp, line 772]
+Event: 3.045 Thread 0x00007f0cc4016000 Exception <a 'java/lang/NoSuchMethodError'{0x0000000752ecd778}: 'int java.lang.invoke.DirectMethodHandle$Holder.invokeVirtual(java.lang.Object, java.lang.Object, java.lang.Object, java.lang.Object)'> (0x0000000752ecd778) thrown at [src/hotspot/share/interpreter/linkResolver.cpp, line 772]
+Event: 3.047 Thread 0x00007f0cc4016000 Exception <a 'java/lang/NoSuchMethodError'{0x0000000752ed8608}: 'java.lang.Object java.lang.invoke.DirectMethodHandle$Holder.invokeStatic(java.lang.Object, java.lang.Object, int, java.lang.Object)'> (0x0000000752ed8608) thrown at [src/hotspot/share/interpreter/linkResolver.cpp, line 772]
+Event: 3.047 Thread 0x00007f0cc4016000 Exception <a 'java/lang/NoSuchMethodError'{0x0000000752edf388}: 'java.lang.Object java.lang.invoke.Invokers$Holder.linkToTargetMethod(java.lang.Object, int, java.lang.Object, java.lang.Object)'> (0x0000000752edf388) thrown at [src/hotspot/share/interpreter/linkResolver.cpp, line 772]
+Event: 3.048 Thread 0x00007f0cc4016000 Exception <a 'java/lang/NoSuchMethodError'{0x0000000752ee4dc8}: 'java.lang.Object java.lang.invoke.DirectMethodHandle$Holder.invokeVirtual(java.lang.Object, java.lang.Object, java.lang.Object)'> (0x0000000752ee4dc8) thrown at [src/hotspot/share/interpreter/linkResolver.cpp, line 772]
+Event: 3.109 Thread 0x00007f0cc4016000 Exception <a 'java/lang/NoSuchMethodError'{0x0000000752dc2b78}: 'void java.lang.invoke.DirectMethodHandle$Holder.invokeVirtual(java.lang.Object, java.lang.Object)'> (0x0000000752dc2b78) thrown at [src/hotspot/share/interpreter/linkResolver.cpp, line 772]
+
+Events (20 events):
+Event: 3.300 loading class com/sun/tools/javac/comp/Operators$UnaryOperatorHelper done
+Event: 3.366 Executing VM operation: ICBufferFull
+Event: 3.367 Executing VM operation: ICBufferFull done
+Event: 3.453 Executing VM operation: ICBufferFull
+Event: 3.453 Executing VM operation: ICBufferFull done
+Event: 3.591 Executing VM operation: ICBufferFull
+Event: 3.591 Executing VM operation: ICBufferFull done
+Event: 3.601 loading class com/sun/tools/javac/tree/JCTree$JCNewClass
+Event: 3.601 loading class com/sun/tools/javac/tree/JCTree$JCNewClass done
+Event: 3.601 loading class com/sun/tools/javac/tree/JCTree$JCNewClass
+Event: 3.601 loading class com/sun/tools/javac/tree/JCTree$JCNewClass done
+Event: 3.601 loading class com/sun/tools/javac/comp/ArgumentAttr
+Event: 3.601 loading class com/sun/tools/javac/comp/ArgumentAttr done
+Event: 3.602 loading class com/sun/tools/javac/comp/InferenceContext
+Event: 3.602 loading class com/sun/tools/javac/comp/InferenceContext done
+Event: 3.602 loading class com/sun/tools/javac/util/JCDiagnostic$DiagnosticPosition
+Event: 3.602 loading class com/sun/tools/javac/util/JCDiagnostic$DiagnosticPosition done
+Event: 3.603 loading class com/sun/tools/javac/comp/Check
+Event: 3.603 loading class com/sun/tools/javac/comp/Check done
+Event: 3.763 Executing VM operation: G1CollectForAllocation
+
+
+Dynamic libraries:
+746800000-755400000 rw-p 00000000 00:00 0 
+755400000-7bfe00000 ---p 00000000 00:00 0 
+7bfe00000-7bfe47000 rw-p 0110d000 08:08 1192092                          /usr/lib/jvm/java-11-openjdk-amd64/lib/server/classes.jsa
+7bfe47000-7bff00000 rw-p 00000000 00:00 0 
+7bff00000-7bff6a000 rw-p 010a3000 08:08 1192092                          /usr/lib/jvm/java-11-openjdk-amd64/lib/server/classes.jsa
+7bff6a000-7c0000000 rw-p 00000000 00:00 0 
+7c0000000-800000000 ---p 00000000 00:00 0 
+800000000-800002000 rwxp 00001000 08:08 1192092                          /usr/lib/jvm/java-11-openjdk-amd64/lib/server/classes.jsa
+800002000-8003b9000 rw-p 00003000 08:08 1192092                          /usr/lib/jvm/java-11-openjdk-amd64/lib/server/classes.jsa
+8003b9000-800a94000 r--p 003ba000 08:08 1192092                          /usr/lib/jvm/java-11-openjdk-amd64/lib/server/classes.jsa
+800a94000-800a95000 rw-p 00a95000 08:08 1192092                          /usr/lib/jvm/java-11-openjdk-amd64/lib/server/classes.jsa
+800a95000-8010a2000 r--p 00a96000 08:08 1192092                          /usr/lib/jvm/java-11-openjdk-amd64/lib/server/classes.jsa
+840000000-840300000 rw-p 00000000 00:00 0 
+840300000-880000000 ---p 00000000 00:00 0 
+556fe08e7000-556fe08e8000 r--p 00000000 08:08 1191793                    /usr/lib/jvm/java-11-openjdk-amd64/bin/java
+556fe08e8000-556fe08e9000 r-xp 00001000 08:08 1191793                    /usr/lib/jvm/java-11-openjdk-amd64/bin/java
+556fe08e9000-556fe08ea000 r--p 00002000 08:08 1191793                    /usr/lib/jvm/java-11-openjdk-amd64/bin/java
+556fe08ea000-556fe08eb000 r--p 00002000 08:08 1191793                    /usr/lib/jvm/java-11-openjdk-amd64/bin/java
+556fe08eb000-556fe08ec000 rw-p 00003000 08:08 1191793                    /usr/lib/jvm/java-11-openjdk-amd64/bin/java
+556fe25da000-556fe25fb000 rw-p 00000000 00:00 0                          [heap]
+7f0c54000000-7f0c54021000 rw-p 00000000 00:00 0 
+7f0c54021000-7f0c58000000 ---p 00000000 00:00 0 
+7f0c58000000-7f0c58021000 rw-p 00000000 00:00 0 
+7f0c58021000-7f0c5c000000 ---p 00000000 00:00 0 
+7f0c5c000000-7f0c5cf0e000 rw-p 00000000 00:00 0 
+7f0c5cf0e000-7f0c60000000 ---p 00000000 00:00 0 
+7f0c60000000-7f0c60021000 rw-p 00000000 00:00 0 
+7f0c60021000-7f0c64000000 ---p 00000000 00:00 0 
+7f0c64000000-7f0c64021000 rw-p 00000000 00:00 0 
+7f0c64021000-7f0c68000000 ---p 00000000 00:00 0 
+7f0c68000000-7f0c68021000 rw-p 00000000 00:00 0 
+7f0c68021000-7f0c6c000000 ---p 00000000 00:00 0 
+7f0c6c000000-7f0c6c021000 rw-p 00000000 00:00 0 
+7f0c6c021000-7f0c70000000 ---p 00000000 00:00 0 
+7f0c70000000-7f0c70021000 rw-p 00000000 00:00 0 
+7f0c70021000-7f0c74000000 ---p 00000000 00:00 0 
+7f0c74000000-7f0c7569f000 rw-p 00000000 00:00 0 
+7f0c7569f000-7f0c78000000 ---p 00000000 00:00 0 
+7f0c78000000-7f0c78b44000 rw-p 00000000 00:00 0 
+7f0c78b44000-7f0c7c000000 ---p 00000000 00:00 0 
+7f0c7c000000-7f0c7c021000 rw-p 00000000 00:00 0 
+7f0c7c021000-7f0c80000000 ---p 00000000 00:00 0 
+7f0c8221e000-7f0c823de000 rw-p 00000000 00:00 0 
+7f0c823de000-7f0c8241e000 ---p 00000000 00:00 0 
+7f0c8241e000-7f0c8261d000 rw-p 00000000 00:00 0 
+7f0c8261d000-7f0c8261e000 ---p 00000000 00:00 0 
+7f0c8261e000-7f0c8281e000 rw-p 00000000 00:00 0 
+7f0c8281e000-7f0c82a1e000 rw-p 00000000 00:00 0 
+7f0c82a1e000-7f0c82c1e000 rw-p 00000000 00:00 0 
+7f0c82c1e000-7f0c82e1e000 rw-p 00000000 00:00 0 
+7f0c82e1e000-7f0c8301e000 rw-p 00000000 00:00 0 
+7f0c8301e000-7f0c8301f000 ---p 00000000 00:00 0 
+7f0c8301f000-7f0c83120000 rw-p 00000000 00:00 0 
+7f0c83120000-7f0c83121000 ---p 00000000 00:00 0 
+7f0c83121000-7f0c83222000 rw-p 00000000 00:00 0 
+7f0c83222000-7f0c84000000 r--p 00000000 08:08 1186387                    /usr/lib/locale/locale-archive
+7f0c84000000-7f0c84021000 rw-p 00000000 00:00 0 
+7f0c84021000-7f0c88000000 ---p 00000000 00:00 0 
+7f0c88000000-7f0c88021000 rw-p 00000000 00:00 0 
+7f0c88021000-7f0c8c000000 ---p 00000000 00:00 0 
+7f0c8c000000-7f0c8c021000 rw-p 00000000 00:00 0 
+7f0c8c021000-7f0c90000000 ---p 00000000 00:00 0 
+7f0c90000000-7f0c90038000 rw-p 00000000 00:00 0 
+7f0c90038000-7f0c94000000 ---p 00000000 00:00 0 
+7f0c94000000-7f0c94021000 rw-p 00000000 00:00 0 
+7f0c94021000-7f0c98000000 ---p 00000000 00:00 0 
+7f0c98000000-7f0c98021000 rw-p 00000000 00:00 0 
+7f0c98021000-7f0c9c000000 ---p 00000000 00:00 0 
+7f0c9c000000-7f0c9c021000 rw-p 00000000 00:00 0 
+7f0c9c021000-7f0ca0000000 ---p 00000000 00:00 0 
+7f0ca003b000-7f0ca003c000 ---p 00000000 00:00 0 
+7f0ca003c000-7f0ca013d000 rw-p 00000000 00:00 0 
+7f0ca013d000-7f0ca0140000 r-xp 00000000 07:06 2311                       /snap/netbeans/30/netbeans/java/maven/lib/jansi-native/linux64/libjansi.so
+7f0ca0140000-7f0ca033f000 ---p 00003000 07:06 2311                       /snap/netbeans/30/netbeans/java/maven/lib/jansi-native/linux64/libjansi.so
+7f0ca033f000-7f0ca0340000 rw-p 00002000 07:06 2311                       /snap/netbeans/30/netbeans/java/maven/lib/jansi-native/linux64/libjansi.so
+7f0ca0340000-7f0ca26f0000 rw-p 00000000 00:00 0 
+7f0ca26f0000-7f0ca4198000 ---p 00000000 00:00 0 
+7f0ca4198000-7f0ca41a0000 rw-p 00000000 00:00 0 
+7f0ca41a0000-7f0ca51a0000 ---p 00000000 00:00 0 
+7f0ca51a0000-7f0ca5550000 rw-p 00000000 00:00 0 
+7f0ca5550000-7f0ca6ff8000 ---p 00000000 00:00 0 
+7f0ca6ff8000-7f0ca7000000 rw-p 00000000 00:00 0 
+7f0ca7000000-7f0ca8000000 ---p 00000000 00:00 0 
+7f0ca8000000-7f0ca8021000 rw-p 00000000 00:00 0 
+7f0ca8021000-7f0cac000000 ---p 00000000 00:00 0 
+7f0cac0c8000-7f0cac0cc000 ---p 00000000 00:00 0 
+7f0cac0cc000-7f0cac1fa000 rw-p 00000000 00:00 0 
+7f0cac1fa000-7f0cac1fe000 ---p 00000000 00:00 0 
+7f0cac1fe000-7f0cac2fb000 rw-p 00000000 00:00 0 
+7f0cac2fb000-7f0cac2fc000 ---p 00000000 00:00 0 
+7f0cac2fc000-7f0cac3fd000 rw-p 00000000 00:00 0 
+7f0cac3fd000-7f0cac401000 ---p 00000000 00:00 0 
+7f0cac401000-7f0cac4fe000 rw-p 00000000 00:00 0 
+7f0cac4fe000-7f0cac502000 ---p 00000000 00:00 0 
+7f0cac502000-7f0cac5ff000 rw-p 00000000 00:00 0 
+7f0cac5ff000-7f0cac603000 ---p 00000000 00:00 0 
+7f0cac603000-7f0cac700000 rw-p 00000000 00:00 0 
+7f0cac700000-7f0cac704000 ---p 00000000 00:00 0 
+7f0cac704000-7f0cac801000 rw-p 00000000 00:00 0 
+7f0cac801000-7f0cac805000 ---p 00000000 00:00 0 
+7f0cac805000-7f0cac902000 rw-p 00000000 00:00 0 
+7f0cac902000-7f0cacb72000 rwxp 00000000 00:00 0 
+7f0cacb72000-7f0cace92000 ---p 00000000 00:00 0 
+7f0cace92000-7f0cad9a2000 rwxp 00000000 00:00 0 
+7f0cad9a2000-7f0cb43ca000 ---p 00000000 00:00 0 
+7f0cb43ca000-7f0cb463a000 rwxp 00000000 00:00 0 
+7f0cb463a000-7f0cbb902000 ---p 00000000 00:00 0 
+7f0cbb902000-7f0cc4000000 r--s 00000000 08:08 1191956                    /usr/lib/jvm/java-11-openjdk-amd64/lib/modules
+7f0cc4000000-7f0cc4f98000 rw-p 00000000 00:00 0 
+7f0cc4f98000-7f0cc8000000 ---p 00000000 00:00 0 
+7f0cc8004000-7f0cc8005000 r--p 00000000 08:08 1188991                    /usr/lib/x86_64-linux-gnu/libutil-2.31.so
+7f0cc8005000-7f0cc8006000 r-xp 00001000 08:08 1188991                    /usr/lib/x86_64-linux-gnu/libutil-2.31.so
+7f0cc8006000-7f0cc8007000 r--p 00002000 08:08 1188991                    /usr/lib/x86_64-linux-gnu/libutil-2.31.so
+7f0cc8007000-7f0cc8008000 r--p 00002000 08:08 1188991                    /usr/lib/x86_64-linux-gnu/libutil-2.31.so
+7f0cc8008000-7f0cc8009000 rw-p 00003000 08:08 1188991                    /usr/lib/x86_64-linux-gnu/libutil-2.31.so
+7f0cc8009000-7f0cc800d000 r--p 00000000 08:08 1191946                    /usr/lib/jvm/java-11-openjdk-amd64/lib/libnet.so
+7f0cc800d000-7f0cc801c000 r-xp 00004000 08:08 1191946                    /usr/lib/jvm/java-11-openjdk-amd64/lib/libnet.so
+7f0cc801c000-7f0cc8020000 r--p 00013000 08:08 1191946                    /usr/lib/jvm/java-11-openjdk-amd64/lib/libnet.so
+7f0cc8020000-7f0cc8021000 r--p 00016000 08:08 1191946                    /usr/lib/jvm/java-11-openjdk-amd64/lib/libnet.so
+7f0cc8021000-7f0cc8022000 rw-p 00017000 08:08 1191946                    /usr/lib/jvm/java-11-openjdk-amd64/lib/libnet.so
+7f0cc8022000-7f0cc8029000 r--p 00000000 08:08 1191947                    /usr/lib/jvm/java-11-openjdk-amd64/lib/libnio.so
+7f0cc8029000-7f0cc8031000 r-xp 00007000 08:08 1191947                    /usr/lib/jvm/java-11-openjdk-amd64/lib/libnio.so
+7f0cc8031000-7f0cc8034000 r--p 0000f000 08:08 1191947                    /usr/lib/jvm/java-11-openjdk-amd64/lib/libnio.so
+7f0cc8034000-7f0cc8035000 r--p 00011000 08:08 1191947                    /usr/lib/jvm/java-11-openjdk-amd64/lib/libnio.so
+7f0cc8035000-7f0cc8036000 rw-p 00012000 08:08 1191947                    /usr/lib/jvm/java-11-openjdk-amd64/lib/libnio.so
+7f0cc8036000-7f0cc803a000 ---p 00000000 00:00 0 
+7f0cc803a000-7f0cc8137000 rw-p 00000000 00:00 0 
+7f0cc8137000-7f0cc813b000 ---p 00000000 00:00 0 
+7f0cc813b000-7f0cc8238000 rw-p 00000000 00:00 0 
+7f0cc8238000-7f0cc8239000 ---p 00000000 00:00 0 
+7f0cc8239000-7f0cc8c3e000 rw-p 00000000 00:00 0 
+7f0cc8c3e000-7f0cc8c80000 rw-p 00000000 00:00 0 
+7f0cc8c80000-7f0cc8c81000 ---p 00000000 00:00 0 
+7f0cc8c81000-7f0cc8d82000 rw-p 00000000 00:00 0 
+7f0cc8d82000-7f0cc8d83000 ---p 00000000 00:00 0 
+7f0cc8d83000-7f0cc9288000 rw-p 00000000 00:00 0 
+7f0cc9288000-7f0cc9289000 ---p 00000000 00:00 0 
+7f0cc9289000-7f0cc938a000 rw-p 00000000 00:00 0 
+7f0cc938a000-7f0cc938b000 ---p 00000000 00:00 0 
+7f0cc938b000-7f0cc9565000 rw-p 00000000 00:00 0 
+7f0cc9565000-7f0cc98ba000 ---p 00000000 00:00 0 
+7f0cc98ba000-7f0cc98bb000 rw-p 00000000 00:00 0 
+7f0cc98bb000-7f0cc9abb000 ---p 00000000 00:00 0 
+7f0cc9abb000-7f0cc9b31000 rw-p 00000000 00:00 0 
+7f0cc9b31000-7f0cc9e86000 ---p 00000000 00:00 0 
+7f0cc9e86000-7f0cc9e87000 rw-p 00000000 00:00 0 
+7f0cc9e87000-7f0cca087000 ---p 00000000 00:00 0 
+7f0cca087000-7f0cca0fd000 rw-p 00000000 00:00 0 
+7f0cca0fd000-7f0cca452000 ---p 00000000 00:00 0 
+7f0cca452000-7f0cca453000 rw-p 00000000 00:00 0 
+7f0cca453000-7f0cca653000 ---p 00000000 00:00 0 
+7f0cca653000-7f0ccaa57000 rw-p 00000000 00:00 0 
+7f0ccaa57000-7f0ccaa58000 ---p 00000000 00:00 0 
+7f0ccaa58000-7f0ccab5e000 rw-p 00000000 00:00 0 
+7f0ccab5e000-7f0ccac44000 ---p 00000000 00:00 0 
+7f0ccac44000-7f0ccac5b000 rw-p 00000000 00:00 0 
+7f0ccac5b000-7f0ccad2f000 ---p 00000000 00:00 0 
+7f0ccad2f000-7f0ccad34000 rw-p 00000000 00:00 0 
+7f0ccad34000-7f0ccad3b000 ---p 00000000 00:00 0 
+7f0ccad3b000-7f0ccad3e000 r--p 00000000 08:08 1188578                    /usr/lib/x86_64-linux-gnu/libnss_files-2.31.so
+7f0ccad3e000-7f0ccad45000 r-xp 00003000 08:08 1188578                    /usr/lib/x86_64-linux-gnu/libnss_files-2.31.so
+7f0ccad45000-7f0ccad47000 r--p 0000a000 08:08 1188578                    /usr/lib/x86_64-linux-gnu/libnss_files-2.31.so
+7f0ccad47000-7f0ccad48000 r--p 0000b000 08:08 1188578                    /usr/lib/x86_64-linux-gnu/libnss_files-2.31.so
+7f0ccad48000-7f0ccad49000 rw-p 0000c000 08:08 1188578                    /usr/lib/x86_64-linux-gnu/libnss_files-2.31.so
+7f0ccad49000-7f0ccad4f000 rw-p 00000000 00:00 0 
+7f0ccad4f000-7f0ccad51000 r--p 00000000 08:08 1191955                    /usr/lib/jvm/java-11-openjdk-amd64/lib/libzip.so
+7f0ccad51000-7f0ccad55000 r-xp 00002000 08:08 1191955                    /usr/lib/jvm/java-11-openjdk-amd64/lib/libzip.so
+7f0ccad55000-7f0ccad57000 r--p 00006000 08:08 1191955                    /usr/lib/jvm/java-11-openjdk-amd64/lib/libzip.so
+7f0ccad57000-7f0ccad58000 r--p 00007000 08:08 1191955                    /usr/lib/jvm/java-11-openjdk-amd64/lib/libzip.so
+7f0ccad58000-7f0ccad59000 rw-p 00008000 08:08 1191955                    /usr/lib/jvm/java-11-openjdk-amd64/lib/libzip.so
+7f0ccad59000-7f0ccad61000 rw-s 00000000 08:08 1444460                    /tmp/hsperfdata_james/55439
+7f0ccad61000-7f0ccad62000 ---p 00000000 00:00 0 
+7f0ccad62000-7f0ccad63000 r--p 00000000 00:00 0 
+7f0ccad63000-7f0ccad65000 r--p 00000000 08:08 1191938                    /usr/lib/jvm/java-11-openjdk-amd64/lib/libjimage.so
+7f0ccad65000-7f0ccad68000 r-xp 00002000 08:08 1191938                    /usr/lib/jvm/java-11-openjdk-amd64/lib/libjimage.so
+7f0ccad68000-7f0ccad69000 r--p 00005000 08:08 1191938                    /usr/lib/jvm/java-11-openjdk-amd64/lib/libjimage.so
+7f0ccad69000-7f0ccad6a000 ---p 00006000 08:08 1191938                    /usr/lib/jvm/java-11-openjdk-amd64/lib/libjimage.so
+7f0ccad6a000-7f0ccad6b000 r--p 00006000 08:08 1191938                    /usr/lib/jvm/java-11-openjdk-amd64/lib/libjimage.so
+7f0ccad6b000-7f0ccad6c000 rw-p 00007000 08:08 1191938                    /usr/lib/jvm/java-11-openjdk-amd64/lib/libjimage.so
+7f0ccad6c000-7f0ccad7a000 r--p 00000000 08:08 1191934                    /usr/lib/jvm/java-11-openjdk-amd64/lib/libjava.so
+7f0ccad7a000-7f0ccad90000 r-xp 0000e000 08:08 1191934                    /usr/lib/jvm/java-11-openjdk-amd64/lib/libjava.so
+7f0ccad90000-7f0ccad97000 r--p 00024000 08:08 1191934                    /usr/lib/jvm/java-11-openjdk-amd64/lib/libjava.so
+7f0ccad97000-7f0ccad98000 r--p 0002a000 08:08 1191934                    /usr/lib/jvm/java-11-openjdk-amd64/lib/libjava.so
+7f0ccad98000-7f0ccad99000 rw-p 0002b000 08:08 1191934                    /usr/lib/jvm/java-11-openjdk-amd64/lib/libjava.so
+7f0ccad99000-7f0ccad9a000 rw-p 00000000 00:00 0 
+7f0ccad9a000-7f0ccad9d000 r--p 00000000 08:08 1188780                    /usr/lib/x86_64-linux-gnu/librt-2.31.so
+7f0ccad9d000-7f0ccada1000 r-xp 00003000 08:08 1188780                    /usr/lib/x86_64-linux-gnu/librt-2.31.so
+7f0ccada1000-7f0ccada2000 r--p 00007000 08:08 1188780                    /usr/lib/x86_64-linux-gnu/librt-2.31.so
+7f0ccada2000-7f0ccada3000 ---p 00008000 08:08 1188780                    /usr/lib/x86_64-linux-gnu/librt-2.31.so
+7f0ccada3000-7f0ccada4000 r--p 00008000 08:08 1188780                    /usr/lib/x86_64-linux-gnu/librt-2.31.so
+7f0ccada4000-7f0ccada5000 rw-p 00009000 08:08 1188780                    /usr/lib/x86_64-linux-gnu/librt-2.31.so
+7f0ccada5000-7f0ccada9000 ---p 00000000 00:00 0 
+7f0ccada9000-7f0ccaea6000 rw-p 00000000 00:00 0 
+7f0ccaea6000-7f0ccaea9000 r--p 00000000 08:08 1188101                    /usr/lib/x86_64-linux-gnu/libgcc_s.so.1
+7f0ccaea9000-7f0ccaebb000 r-xp 00003000 08:08 1188101                    /usr/lib/x86_64-linux-gnu/libgcc_s.so.1
+7f0ccaebb000-7f0ccaebf000 r--p 00015000 08:08 1188101                    /usr/lib/x86_64-linux-gnu/libgcc_s.so.1
+7f0ccaebf000-7f0ccaec0000 r--p 00018000 08:08 1188101                    /usr/lib/x86_64-linux-gnu/libgcc_s.so.1
+7f0ccaec0000-7f0ccaec1000 rw-p 00019000 08:08 1188101                    /usr/lib/x86_64-linux-gnu/libgcc_s.so.1
+7f0ccaec1000-7f0ccaed0000 r--p 00000000 08:08 1188454                    /usr/lib/x86_64-linux-gnu/libm-2.31.so
+7f0ccaed0000-7f0ccaf77000 r-xp 0000f000 08:08 1188454                    /usr/lib/x86_64-linux-gnu/libm-2.31.so
+7f0ccaf77000-7f0ccb00e000 r--p 000b6000 08:08 1188454                    /usr/lib/x86_64-linux-gnu/libm-2.31.so
+7f0ccb00e000-7f0ccb00f000 r--p 0014c000 08:08 1188454                    /usr/lib/x86_64-linux-gnu/libm-2.31.so
+7f0ccb00f000-7f0ccb010000 rw-p 0014d000 08:08 1188454                    /usr/lib/x86_64-linux-gnu/libm-2.31.so
+7f0ccb010000-7f0ccb0a6000 r--p 00000000 08:08 1188882                    /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.28
+7f0ccb0a6000-7f0ccb196000 r-xp 00096000 08:08 1188882                    /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.28
+7f0ccb196000-7f0ccb1df000 r--p 00186000 08:08 1188882                    /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.28
+7f0ccb1df000-7f0ccb1e0000 ---p 001cf000 08:08 1188882                    /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.28
+7f0ccb1e0000-7f0ccb1eb000 r--p 001cf000 08:08 1188882                    /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.28
+7f0ccb1eb000-7f0ccb1ee000 rw-p 001da000 08:08 1188882                    /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.28
+7f0ccb1ee000-7f0ccb1f1000 rw-p 00000000 00:00 0 
+7f0ccb1f1000-7f0ccb45e000 r--p 00000000 08:08 1191961                    /usr/lib/jvm/java-11-openjdk-amd64/lib/server/libjvm.so
+7f0ccb45e000-7f0ccbff2000 r-xp 0026d000 08:08 1191961                    /usr/lib/jvm/java-11-openjdk-amd64/lib/server/libjvm.so
+7f0ccbff2000-7f0ccc229000 r--p 00e01000 08:08 1191961                    /usr/lib/jvm/java-11-openjdk-amd64/lib/server/libjvm.so
+7f0ccc229000-7f0ccc2e6000 r--p 01037000 08:08 1191961                    /usr/lib/jvm/java-11-openjdk-amd64/lib/server/libjvm.so
+7f0ccc2e6000-7f0ccc31f000 rw-p 010f4000 08:08 1191961                    /usr/lib/jvm/java-11-openjdk-amd64/lib/server/libjvm.so
+7f0ccc31f000-7f0ccc378000 rw-p 00000000 00:00 0 
+7f0ccc378000-7f0ccc37f000 r--p 00000000 08:08 1188719                    /usr/lib/x86_64-linux-gnu/libpthread-2.31.so
+7f0ccc37f000-7f0ccc390000 r-xp 00007000 08:08 1188719                    /usr/lib/x86_64-linux-gnu/libpthread-2.31.so
+7f0ccc390000-7f0ccc395000 r--p 00018000 08:08 1188719                    /usr/lib/x86_64-linux-gnu/libpthread-2.31.so
+7f0ccc395000-7f0ccc396000 r--p 0001c000 08:08 1188719                    /usr/lib/x86_64-linux-gnu/libpthread-2.31.so
+7f0ccc396000-7f0ccc397000 rw-p 0001d000 08:08 1188719                    /usr/lib/x86_64-linux-gnu/libpthread-2.31.so
+7f0ccc397000-7f0ccc39b000 rw-p 00000000 00:00 0 
+7f0ccc39b000-7f0ccc39c000 r--p 00000000 08:08 1187951                    /usr/lib/x86_64-linux-gnu/libdl-2.31.so
+7f0ccc39c000-7f0ccc39e000 r-xp 00001000 08:08 1187951                    /usr/lib/x86_64-linux-gnu/libdl-2.31.so
+7f0ccc39e000-7f0ccc39f000 r--p 00003000 08:08 1187951                    /usr/lib/x86_64-linux-gnu/libdl-2.31.so
+7f0ccc39f000-7f0ccc3a0000 r--p 00003000 08:08 1187951                    /usr/lib/x86_64-linux-gnu/libdl-2.31.so
+7f0ccc3a0000-7f0ccc3a1000 rw-p 00004000 08:08 1187951                    /usr/lib/x86_64-linux-gnu/libdl-2.31.so
+7f0ccc3a1000-7f0ccc3a3000 r--p 00000000 08:08 1189144                    /usr/lib/x86_64-linux-gnu/libz.so.1.2.11
+7f0ccc3a3000-7f0ccc3b4000 r-xp 00002000 08:08 1189144                    /usr/lib/x86_64-linux-gnu/libz.so.1.2.11
+7f0ccc3b4000-7f0ccc3ba000 r--p 00013000 08:08 1189144                    /usr/lib/x86_64-linux-gnu/libz.so.1.2.11
+7f0ccc3ba000-7f0ccc3bb000 ---p 00019000 08:08 1189144                    /usr/lib/x86_64-linux-gnu/libz.so.1.2.11
+7f0ccc3bb000-7f0ccc3bc000 r--p 00019000 08:08 1189144                    /usr/lib/x86_64-linux-gnu/libz.so.1.2.11
+7f0ccc3bc000-7f0ccc3bd000 rw-p 0001a000 08:08 1189144                    /usr/lib/x86_64-linux-gnu/libz.so.1.2.11
+7f0ccc3bd000-7f0ccc3e2000 r--p 00000000 08:08 1187816                    /usr/lib/x86_64-linux-gnu/libc-2.31.so
+7f0ccc3e2000-7f0ccc55a000 r-xp 00025000 08:08 1187816                    /usr/lib/x86_64-linux-gnu/libc-2.31.so
+7f0ccc55a000-7f0ccc5a4000 r--p 0019d000 08:08 1187816                    /usr/lib/x86_64-linux-gnu/libc-2.31.so
+7f0ccc5a4000-7f0ccc5a5000 ---p 001e7000 08:08 1187816                    /usr/lib/x86_64-linux-gnu/libc-2.31.so
+7f0ccc5a5000-7f0ccc5a8000 r--p 001e7000 08:08 1187816                    /usr/lib/x86_64-linux-gnu/libc-2.31.so
+7f0ccc5a8000-7f0ccc5ab000 rw-p 001ea000 08:08 1187816                    /usr/lib/x86_64-linux-gnu/libc-2.31.so
+7f0ccc5ab000-7f0ccc5af000 rw-p 00000000 00:00 0 
+7f0ccc5af000-7f0ccc5b4000 r--p 00000000 08:08 1191954                    /usr/lib/jvm/java-11-openjdk-amd64/lib/libverify.so
+7f0ccc5b4000-7f0ccc5bb000 r-xp 00005000 08:08 1191954                    /usr/lib/jvm/java-11-openjdk-amd64/lib/libverify.so
+7f0ccc5bb000-7f0ccc5bd000 r--p 0000c000 08:08 1191954                    /usr/lib/jvm/java-11-openjdk-amd64/lib/libverify.so
+7f0ccc5bd000-7f0ccc5be000 ---p 0000e000 08:08 1191954                    /usr/lib/jvm/java-11-openjdk-amd64/lib/libverify.so
+7f0ccc5be000-7f0ccc5c0000 r--p 0000e000 08:08 1191954                    /usr/lib/jvm/java-11-openjdk-amd64/lib/libverify.so
+7f0ccc5c0000-7f0ccc5c1000 rw-p 00010000 08:08 1191954                    /usr/lib/jvm/java-11-openjdk-amd64/lib/libverify.so
+7f0ccc5c1000-7f0ccc5c4000 r--p 00000000 08:08 1191918                    /usr/lib/jvm/java-11-openjdk-amd64/lib/jli/libjli.so
+7f0ccc5c4000-7f0ccc5ce000 r-xp 00003000 08:08 1191918                    /usr/lib/jvm/java-11-openjdk-amd64/lib/jli/libjli.so
+7f0ccc5ce000-7f0ccc5d1000 r--p 0000d000 08:08 1191918                    /usr/lib/jvm/java-11-openjdk-amd64/lib/jli/libjli.so
+7f0ccc5d1000-7f0ccc5d2000 ---p 00010000 08:08 1191918                    /usr/lib/jvm/java-11-openjdk-amd64/lib/jli/libjli.so
+7f0ccc5d2000-7f0ccc5d3000 r--p 00010000 08:08 1191918                    /usr/lib/jvm/java-11-openjdk-amd64/lib/jli/libjli.so
+7f0ccc5d3000-7f0ccc5d4000 rw-p 00011000 08:08 1191918                    /usr/lib/jvm/java-11-openjdk-amd64/lib/jli/libjli.so
+7f0ccc5d4000-7f0ccc5d6000 rw-p 00000000 00:00 0 
+7f0ccc5d6000-7f0ccc5d7000 r--p 00000000 08:08 1187603                    /usr/lib/x86_64-linux-gnu/ld-2.31.so
+7f0ccc5d7000-7f0ccc5fa000 r-xp 00001000 08:08 1187603                    /usr/lib/x86_64-linux-gnu/ld-2.31.so
+7f0ccc5fa000-7f0ccc602000 r--p 00024000 08:08 1187603                    /usr/lib/x86_64-linux-gnu/ld-2.31.so
+7f0ccc603000-7f0ccc604000 r--p 0002c000 08:08 1187603                    /usr/lib/x86_64-linux-gnu/ld-2.31.so
+7f0ccc604000-7f0ccc605000 rw-p 0002d000 08:08 1187603                    /usr/lib/x86_64-linux-gnu/ld-2.31.so
+7f0ccc605000-7f0ccc606000 rw-p 00000000 00:00 0 
+7ffe7622c000-7ffe7624d000 rw-p 00000000 00:00 0                          [stack]
+7ffe76382000-7ffe76385000 r--p 00000000 00:00 0                          [vvar]
+7ffe76385000-7ffe76386000 r-xp 00000000 00:00 0                          [vdso]
+ffffffffff600000-ffffffffff601000 --xp 00000000 00:00 0                  [vsyscall]
+
+
+VM Arguments:
+jvm_args: -Dclassworlds.conf=/snap/netbeans/30/netbeans/java/maven/bin/m2.conf -Dmaven.home=/snap/netbeans/30/netbeans/java/maven -Dlibrary.jansi.path=/snap/netbeans/30/netbeans/java/maven/lib/jansi-native -Dmaven.multiModuleProjectDirectory=/home/james/NetBeansProjects/proyecto1/tiendaIPC2 
+java_command: org.codehaus.plexus.classworlds.launcher.Launcher -Dexec.args=-classpath %classpath gc.tiendaipc2.Main -Dexec.executable=/usr/lib/jvm/java-11-openjdk-amd64/bin/java -Dmaven.ext.class.path=/snap/netbeans/30/netbeans/java/maven-nblib/netbeans-eventspy.jar process-classes org.codehaus.mojo:exec-maven-plugin:1.5.0:exec
+java_class_path (initial): /snap/netbeans/30/netbeans/java/maven/boot/plexus-classworlds-2.6.0.jar
+Launcher Type: SUN_STANDARD
+
+[Global flags]
+     intx CICompilerCount                          = 3                                         {product} {ergonomic}
+     uint ConcGCThreads                            = 1                                         {product} {ergonomic}
+     uint G1ConcRefinementThreads                  = 4                                         {product} {ergonomic}
+   size_t G1HeapRegionSize                         = 1048576                                   {product} {ergonomic}
+    uintx GCDrainStackTargetSize                   = 64                                        {product} {ergonomic}
+   size_t InitialHeapSize                          = 195035136                                 {product} {ergonomic}
+   size_t MarkStackSize                            = 4194304                                   {product} {ergonomic}
+   size_t MaxHeapSize                              = 3112173568                                {product} {ergonomic}
+   size_t MaxNewSize                               = 1866465280                                {product} {ergonomic}
+   size_t MinHeapDeltaBytes                        = 1048576                                   {product} {ergonomic}
+    uintx NonNMethodCodeHeapSize                   = 5830732                                {pd product} {ergonomic}
+    uintx NonProfiledCodeHeapSize                  = 122913754                              {pd product} {ergonomic}
+    uintx ProfiledCodeHeapSize                     = 122913754                              {pd product} {ergonomic}
+    uintx ReservedCodeCacheSize                    = 251658240                              {pd product} {ergonomic}
+     bool SegmentedCodeCache                       = true                                      {product} {ergonomic}
+     bool UseCompressedClassPointers               = true                                 {lp64_product} {ergonomic}
+     bool UseCompressedOops                        = true                                 {lp64_product} {ergonomic}
+     bool UseG1GC                                  = true                                      {product} {ergonomic}
+
+Logging:
+Log output configuration:
+ #0: stdout all=warning uptime,level,tags
+ #1: stderr all=off uptime,level,tags
+
+Environment Variables:
+JAVA_HOME=/usr/lib/jvm/java-11-openjdk-amd64
+PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin
+USERNAME=james
+SHELL=/bin/bash
+DISPLAY=:0
+LANG=es_US.UTF-8
+
+Signal Handlers:
+SIGSEGV: [libjvm.so+0xd8e010], sa_mask[0]=11111111011111111101111111111110, sa_flags=SA_RESTART|SA_SIGINFO
+SIGBUS: [libjvm.so+0xd8e010], sa_mask[0]=11111111011111111101111111111110, sa_flags=SA_RESTART|SA_SIGINFO
+SIGFPE: [libjvm.so+0xd8e010], sa_mask[0]=11111111011111111101111111111110, sa_flags=SA_RESTART|SA_SIGINFO
+SIGPIPE: [libjvm.so+0xb86b30], sa_mask[0]=11111111011111111101111111111110, sa_flags=SA_RESTART|SA_SIGINFO
+SIGXFSZ: [libjvm.so+0xb86b30], sa_mask[0]=11111111011111111101111111111110, sa_flags=SA_RESTART|SA_SIGINFO
+SIGILL: [libjvm.so+0xd8e010], sa_mask[0]=11111111011111111101111111111110, sa_flags=SA_RESTART|SA_SIGINFO
+SIGUSR2: [libjvm.so+0xb869d0], sa_mask[0]=00100000000000000000000000000000, sa_flags=SA_RESTART|SA_SIGINFO
+SIGHUP: [libjvm.so+0xb86e70], sa_mask[0]=11111111011111111101111111111110, sa_flags=SA_RESTART|SA_SIGINFO
+SIGINT: SIG_IGN, sa_mask[0]=00000000000000000000000000000000, sa_flags=none
+SIGTERM: [libjvm.so+0xb86e70], sa_mask[0]=11111111011111111101111111111110, sa_flags=SA_RESTART|SA_SIGINFO
+SIGQUIT: [libjvm.so+0xb86e70], sa_mask[0]=11111111011111111101111111111110, sa_flags=SA_RESTART|SA_SIGINFO
+
+
+---------------  S Y S T E M  ---------------
+
+OS:DISTRIB_ID=Ubuntu
+DISTRIB_RELEASE=20.04
+DISTRIB_CODENAME=focal
+DISTRIB_DESCRIPTION="Ubuntu 20.04.1 LTS"
+uname:Linux 5.4.0-42-generic #46-Ubuntu SMP Fri Jul 10 00:24:02 UTC 2020 x86_64
+OS uptime: 2 days 12:08 hours
+libc:glibc 2.31 NPTL 2.31 
+rlimit (soft/hard): STACK 8192k/infinity , CORE 0k/infinity , NPROC 47249/47249 , NOFILE 1048576/1048576 , AS infinity/infinity , CPU infinity/infinity , DATA infinity/infinity , FSIZE infinity/infinity , MEMLOCK 65536k/65536k
+load average:2.65 1.88 1.74
+
+/proc/meminfo:
+MemTotal:       12152128 kB
+MemFree:          489952 kB
+MemAvailable:    5489340 kB
+Buffers:         1387568 kB
+Cached:          4203220 kB
+SwapCached:            4 kB
+Active:          8259120 kB
+Inactive:        2557692 kB
+Active(anon):    5463208 kB
+Inactive(anon):   315424 kB
+Active(file):    2795912 kB
+Inactive(file):  2242268 kB
+Unevictable:      294128 kB
+Mlocked:              56 kB
+SwapTotal:      21999612 kB
+SwapFree:       21999600 kB
+Dirty:              1296 kB
+Writeback:             0 kB
+AnonPages:       5520024 kB
+Mapped:           837428 kB
+Shmem:            552812 kB
+KReclaimable:     286160 kB
+Slab:             430040 kB
+SReclaimable:     286160 kB
+SUnreclaim:       143880 kB
+KernelStack:       17616 kB
+PageTables:        42256 kB
+NFS_Unstable:          0 kB
+Bounce:                0 kB
+WritebackTmp:          0 kB
+CommitLimit:    28075676 kB
+Committed_AS:   12436860 kB
+VmallocTotal:   34359738367 kB
+VmallocUsed:       38664 kB
+VmallocChunk:          0 kB
+Percpu:             3888 kB
+HardwareCorrupted:     0 kB
+AnonHugePages:         0 kB
+ShmemHugePages:        0 kB
+ShmemPmdMapped:        0 kB
+FileHugePages:         0 kB
+FilePmdMapped:         0 kB
+CmaTotal:              0 kB
+CmaFree:               0 kB
+HugePages_Total:       0
+HugePages_Free:        0
+HugePages_Rsvd:        0
+HugePages_Surp:        0
+Hugepagesize:       2048 kB
+Hugetlb:               0 kB
+DirectMap4k:      319092 kB
+DirectMap2M:    12146688 kB
+DirectMap1G:           0 kB
+
+/sys/kernel/mm/transparent_hugepage/enabled:
+always [madvise] never
+
+/sys/kernel/mm/transparent_hugepage/defrag (defrag/compaction efforts parameter):
+always defer defer+madvise [madvise] never
+
+
+/proc/sys/kernel/threads-max (system-wide limit on the number of threads):
+94498
+
+
+/proc/sys/vm/max_map_count (maximum number of memory map areas a process may have):
+65530
+
+
+/proc/sys/kernel/pid_max (system-wide limit on number of process identifiers):
+4194304
+
+
+
+container (cgroup) information:
+container_type: cgroupv1
+cpu_cpuset_cpus: 0-3
+cpu_memory_nodes: 0
+active_processor_count: 4
+cpu_quota: -1
+cpu_period: 100000
+cpu_shares: -1
+memory_limit_in_bytes: -1
+memory_and_swap_limit_in_bytes: -2
+memory_soft_limit_in_bytes: -1
+memory_usage_in_bytes: 8403795968
+memory_max_usage_in_bytes: 9477156864
+
+Steal ticks since vm start: 0
+Steal ticks percentage since vm start:  0.000
+
+CPU:total 4 (initial active 4) (2 cores per cpu, 2 threads per core) family 6 model 142 stepping 9, cmov, cx8, fxsr, mmx, sse, sse2, sse3, ssse3, sse4.1, sse4.2, popcnt, avx, avx2, aes, clmul, erms, 3dnowpref, lzcnt, ht, tsc, tscinvbit, bmi1, bmi2, adx, fma
+CPU Model and flags from /proc/cpuinfo:
+model name	: Intel(R) Core(TM) i5-7200U CPU @ 2.50GHz
+flags		: fpu vme de pse tsc msr pae mce cx8 apic sep mtrr pge mca cmov pat pse36 clflush dts acpi mmx fxsr sse sse2 ss ht tm pbe syscall nx pdpe1gb rdtscp lm constant_tsc art arch_perfmon pebs bts rep_good nopl xtopology nonstop_tsc cpuid aperfmperf pni pclmulqdq dtes64 monitor ds_cpl vmx est tm2 ssse3 sdbg fma cx16 xtpr pdcm pcid sse4_1 sse4_2 x2apic movbe popcnt tsc_deadline_timer aes xsave avx f16c rdrand lahf_lm abm 3dnowprefetch cpuid_fault epb invpcid_single pti ssbd ibrs ibpb stibp tpr_shadow vnmi flexpriority ept vpid ept_ad fsgsbase tsc_adjust bmi1 avx2 smep bmi2 erms invpcid mpx rdseed adx smap clflushopt intel_pt xsaveopt xsavec xgetbv1 xsaves dtherm ida arat pln pts hwp hwp_notify hwp_act_window hwp_epp md_clear flush_l1d
+
+Memory: 4k page, physical 12152128k(489952k free), swap 21999612k(21999600k free)
+
+vm_info: OpenJDK 64-Bit Server VM (11.0.8+10-post-Ubuntu-0ubuntu120.04) for linux-amd64 JRE (11.0.8+10-post-Ubuntu-0ubuntu120.04), built on Jul 15 2020 20:45:24 by "unknown" with gcc 9.3.0
+
+END.
