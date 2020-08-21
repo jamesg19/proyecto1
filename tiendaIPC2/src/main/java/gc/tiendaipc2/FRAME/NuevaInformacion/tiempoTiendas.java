@@ -6,7 +6,6 @@
 package gc.tiendaipc2.FRAME.NuevaInformacion;
 
 import static ConexionMySQL.Conexion.getConnection;
-import java.awt.HeadlessException;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -23,7 +22,9 @@ public class tiempoTiendas extends javax.swing.JFrame {
     ArrayList<String> ArrayOrigen = new ArrayList<>();
     ArrayList<String> ArrayDestino = new ArrayList<>();
     ArrayList<Integer> ArrayDias = new ArrayList<>();
-    ArrayList<Integer> ArrayID = new ArrayList<>();
+    ArrayList<String> Arraycod = new ArrayList<>();
+    ArrayList<String> Arraynom = new ArrayList<>();
+    ArrayList<String> Arraydir = new ArrayList<>();
     PreparedStatement ps;
     int dias;
     /**
@@ -33,7 +34,8 @@ public class tiempoTiendas extends javax.swing.JFrame {
         
         initComponents();
         obtenerTiempoTiendas();
-        mostrarTiempo();
+        obtenerTiendas();
+        muestratiendaJCombo();
         
     }
 
@@ -48,18 +50,16 @@ public class tiempoTiendas extends javax.swing.JFrame {
 
         jPanel1 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
-        jButton1 = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
         Tienda1 = new javax.swing.JComboBox<>();
         Tienda2 = new javax.swing.JComboBox<>();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
-        jLabel4 = new javax.swing.JLabel();
-        tiempoField = new javax.swing.JTextField();
         jLabel5 = new javax.swing.JLabel();
         jSpinner1 = new javax.swing.JSpinner();
-        jButton3 = new javax.swing.JButton();
-        jButton4 = new javax.swing.JButton();
+        jButton5 = new javax.swing.JButton();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        Mostrar_Tiempo = new javax.swing.JTextArea();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -67,13 +67,6 @@ public class tiempoTiendas extends javax.swing.JFrame {
 
         jLabel1.setFont(new java.awt.Font("Ubuntu Condensed", 2, 24)); // NOI18N
         jLabel1.setText("ACTUALIZA Tiempo --entre-- Tiendas");
-
-        jButton1.setText("Salir");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
-            }
-        });
 
         jButton2.setText("Actualizar tiempo");
         jButton2.addActionListener(new java.awt.event.ActionListener() {
@@ -92,62 +85,57 @@ public class tiempoTiendas extends javax.swing.JFrame {
 
         jLabel3.setText("Tienda 1");
 
-        jLabel4.setText("Tiempo estimado de envio(dias):");
-
-        tiempoField.setEditable(false);
-
         jLabel5.setText("Nuevo tiempo estimado (dias);");
 
         jSpinner1.setModel(new javax.swing.SpinnerNumberModel(0, 0, 31, 1));
 
-        jButton3.setText("Ver tabla  tiempo");
+        jButton5.setText("Salir");
+        jButton5.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton5ActionPerformed(evt);
+            }
+        });
 
-        jButton4.setText("Limpiar");
+        Mostrar_Tiempo.setColumns(20);
+        Mostrar_Tiempo.setRows(5);
+        jScrollPane1.setViewportView(Mostrar_Tiempo);
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap()
+                .addComponent(jButton5, javax.swing.GroupLayout.PREFERRED_SIZE, 102, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 35, Short.MAX_VALUE)
                 .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 379, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(125, 125, 125))
             .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(76, 76, 76)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(38, 38, 38)
-                        .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 138, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(76, 76, 76)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(Tienda1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGap(87, 87, 87)
-                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(Tienda2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 221, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 235, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jButton4, javax.swing.GroupLayout.PREFERRED_SIZE, 119, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGap(55, 55, 55)
-                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 141, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 172, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                        .addComponent(tiempoField, javax.swing.GroupLayout.Alignment.LEADING)
-                                        .addComponent(jSpinner1, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 133, Short.MAX_VALUE)))))))
-                .addContainerGap(109, Short.MAX_VALUE))
+                    .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 221, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                        .addComponent(jSpinner1, javax.swing.GroupLayout.PREFERRED_SIZE, 133, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGroup(jPanel1Layout.createSequentialGroup()
+                            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(Tienda1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGap(87, 87, 87)
+                            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(Tienda2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 149, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 469, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(39, 39, 39)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jButton5))
+                .addGap(32, 32, 32)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -155,75 +143,86 @@ public class tiempoTiendas extends javax.swing.JFrame {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(Tienda1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(Tienda2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(tiempoField, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGap(38, 38, 38)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jSpinner1, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 52, Short.MAX_VALUE)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(jButton4)
-                        .addGap(0, 0, Short.MAX_VALUE)))
-                .addContainerGap())
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(26, 26, 26)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 175, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(28, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        // TODO add your handling code here:
-        setVisible(false);
-    }//GEN-LAST:event_jButton1ActionPerformed
-
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         // TODO add your handling code here:
+        //obtiene los datos ingresados a la caja de texto y 
+        //los datos seleccionados con Jcombobox.
         dias = (Integer) jSpinner1.getValue();
         String origenq = (String) Tienda1.getSelectedItem();
         String destinoq = (String) Tienda2.getSelectedItem();
         int dias_esperaq=dias;
-        actualizarDias(origenq,destinoq,dias_esperaq);
+        //
+        obtieneCod(origenq,destinoq,dias_esperaq);
+        Mostrar_Tiempo.setText("");
+        ListadoTiempo();
+        
     }//GEN-LAST:event_jButton2ActionPerformed
 
+    private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
+        // TODO add your handling code here:
+        setVisible(false);
+    }//GEN-LAST:event_jButton5ActionPerformed
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JTextArea Mostrar_Tiempo;
     private javax.swing.JComboBox<String> Tienda1;
     private javax.swing.JComboBox<String> Tienda2;
-    private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton3;
-    private javax.swing.JButton jButton4;
+    private javax.swing.JButton jButton5;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JPanel jPanel1;
+    private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JSpinner jSpinner1;
-    private javax.swing.JTextField tiempoField;
     // End of variables declaration//GEN-END:variables
-    
+    private void obtieneCod(String origenq,String destinoq,int dias_espera){
+        String[] org=origenq.split(",");
+        String[] des=destinoq.split(",");
+        
+        if(org[0].equalsIgnoreCase(des[0])){
+            JOptionPane.showInternalMessageDialog(null, "No puedes programar dias de entrega \n "
+                    + "para la misma tienda.\nSelecciona otra...");
+        }else{
+            
+        
+        
+            if( ArrayOrigen.contains(org[0])&&ArrayDestino.contains(des[0])){
+
+                actualizarDias(org[0],des[0],dias_espera);
+            }
+            else if(ArrayDestino.contains(org[0])&&ArrayOrigen.contains(des[0])){
+                actualizarDias(des[0],org[0],dias_espera);
+            }
+        }
+        
+    }
     /**
      * Obtien los datos de la tabla de tiempo
      */
@@ -235,13 +234,12 @@ public class tiempoTiendas extends javax.swing.JFrame {
                 ResultSet result = preSt.executeQuery()) {
             //obtiene los datos de la tabla de tiempo 
             while (result.next()) {
-                int id_tiempo=result.getInt(1);
-                String origen=result.getString(2);
-                String destino=result.getString(3);
-                int diass=result.getInt(4);
+              
+                String origen=result.getString(1);
+                String destino=result.getString(2);
+                int diass=result.getInt(3);
                 //introduce los datos en un Array para mostrarlos
                 // posteriormente en un JComoboBox y TextField
-                ArrayID.add(id_tiempo);
                 ArrayOrigen.add(origen);
                 ArrayDestino.add(destino);
                 ArrayDias.add(diass);
@@ -253,13 +251,37 @@ public class tiempoTiendas extends javax.swing.JFrame {
             System.out.println("Error: " + e.getMessage());
         }
     }
+    private void obtenerTiendas() {
+        
+        String query = "SELECT * FROM tienda";
+
+        try (PreparedStatement preSt = getConnection().prepareStatement(query);
+                ResultSet result = preSt.executeQuery()) {
+            //obtiene los datos de la tabla de tiempo 
+            while (result.next()) {
+              
+                String cod=result.getString(1);
+                String nom=result.getString(2);
+                String dir=result.getString(2);
+                
+
+                Arraycod.add(cod);
+                Arraynom.add(nom);
+                Arraydir.add(dir);
+                
+            }
+            
+            result.close();
+        } catch (SQLException e) {
+            System.out.println("Error: " + e.getMessage());
+        }
+    }
     
-    public void mostrarTiempo(){
-        
-        
-        for(int j=0;j<ArrayOrigen.size();j++){           
-            Tienda1.addItem(ArrayOrigen.get(j));  
-            Tienda2.addItem(ArrayDestino.get(j));
+    public void muestratiendaJCombo(){
+  
+        for(int j=0;j<Arraycod.size();j++){           
+            Tienda1.addItem(Arraycod.get(j)+", "+Arraynom.get(j));  
+            Tienda2.addItem(Arraycod.get(j)+", "+Arraynom.get(j));
         }
  
     }
@@ -272,39 +294,60 @@ public class tiempoTiendas extends javax.swing.JFrame {
      * @param dias1
      */
     public void actualizarDias(String origen1,String destino1,int dias1) {
-        
-//        String origen = "2222";
-//        String destino = "Orlando";
-//        int dias
-        Connection con=null;
 
-        try {
-            con=getConnection();
-            ps=con.prepareStatement("UPDATE tiempo_entre_tiendas SET dias_espera = ? WHERE origen = ? AND destino = ?");
-//            String query = "UPDATE tiempo_entre_tiendas SET dias_espera = ? WHERE origen = ? AND destino = ?";
-            ps.setString(1, "");
-            ps.setString(2, origen1);
-            ps.setString(3, destino1);
-            ps.setInt(4, dias1);
+        String query = "UPDATE tiempo_entre_tiendas SET dias_espera = ? WHERE origen = ? AND destino= ?";
 
-            ps.executeUpdate();
-            
-            int res=ps.executeUpdate();
+        try (PreparedStatement preSt = getConnection().prepareStatement(query)) {
 
-            if(res>0){
-            JOptionPane.showMessageDialog(null,"se agrego");
+            preSt.setInt(1, dias1);
+            preSt.setString(2, origen1);
+            preSt.setString(3, destino1);
 
-            }else{
-            JOptionPane.showMessageDialog(null,"nel");
+            preSt.executeUpdate();
 
-            }
+            JOptionPane.showMessageDialog(null, "TIEMPO ACTUALIZADO");
 
-            con.close();
-        } catch(HeadlessException | SQLException e){
-
-            }
+            preSt.close();
+        } catch (SQLException e) {
+            System.out.println("Error: " + e.getMessage());
+        }
         
        
+    }
+
+    private void ListadoTiempo() {
+        
+        
+        
+        
+        
+        
+        String query = "SELECT * FROM tiempo_entre_tiendas";
+
+        try (PreparedStatement preSt = getConnection().prepareStatement(query);
+                ResultSet result = preSt.executeQuery()) {
+
+            
+            while (result.next()) {
+                
+                Mostrar_Tiempo.append("||  "+result.getString(1)+"|   "+result.getString(2)+"|   "+result.getString(3)+"||\n");
+                
+            }
+
+            result.close();
+            
+        } catch (SQLException e) {
+            System.out.println("Error: " + e.getMessage());
+        }
+        
+        
+
+    
+        
+        
+        
+        
+        
     }
 
 

@@ -74,7 +74,7 @@ public class Nueva_Tienda extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jPanel1.setBackground(new java.awt.Color(97, 166, 212));
+        jPanel1.setBackground(new java.awt.Color(69, 135, 181));
 
         jLabel1.setFont(new java.awt.Font("Ubuntu Light", 3, 24)); // NOI18N
         jLabel1.setText("Agregar Nueva Tienda");
@@ -167,14 +167,13 @@ public class Nueva_Tienda extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 32, Short.MAX_VALUE)
                         .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(11, 11, 11))
-                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                        .addComponent(NombreTiendaField, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 273, Short.MAX_VALUE)
-                        .addComponent(direccionField, javax.swing.GroupLayout.Alignment.LEADING)
-                        .addComponent(tel1Field, javax.swing.GroupLayout.Alignment.LEADING)
-                        .addComponent(tel2Field, javax.swing.GroupLayout.Alignment.LEADING)
-                        .addComponent(emailField, javax.swing.GroupLayout.Alignment.LEADING)
-                        .addComponent(HorarioField, javax.swing.GroupLayout.Alignment.LEADING)
-                        .addComponent(codigoTiendaField)))
+                    .addComponent(NombreTiendaField, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 273, Short.MAX_VALUE)
+                    .addComponent(direccionField, javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(tel1Field, javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(tel2Field, javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(emailField, javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(HorarioField, javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(codigoTiendaField))
                 .addContainerGap(65, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
@@ -198,8 +197,7 @@ public class Nueva_Tienda extends javax.swing.JFrame {
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                .addComponent(direccionField, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addComponent(direccionField, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)

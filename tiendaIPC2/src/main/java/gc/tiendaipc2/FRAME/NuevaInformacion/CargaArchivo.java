@@ -487,13 +487,12 @@ public class CargaArchivo extends javax.swing.JFrame {
      */
     public static void AgregaTiempo(String origen, String destino, int dias){
    
-        String query = "INSERT INTO tiempo_entre_tiendas VALUES (?,?,?,?)";
+        String query = "INSERT INTO tiempo_entre_tiendas VALUES (?,?,?)";
 
         try (PreparedStatement preSt = getConnection().prepareStatement(query)) {
-            preSt.setInt(1, 0);
-            preSt.setString(2, origen);
-            preSt.setString(3, destino);
-            preSt.setInt(4, dias);
+            preSt.setString(1, origen);
+            preSt.setString(2, destino);
+            preSt.setInt(3, dias);
      
             preSt.executeUpdate();
             

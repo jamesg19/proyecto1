@@ -49,7 +49,7 @@
     <Container class="javax.swing.JPanel" name="jPanel1">
       <Properties>
         <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-          <Color blue="d4" green="a6" red="61" type="rgb"/>
+          <Color blue="b5" green="87" red="45" type="rgb"/>
         </Property>
       </Properties>
 
@@ -100,15 +100,13 @@
                           <Component id="jButton3" min="-2" pref="101" max="-2" attributes="0"/>
                           <EmptySpace min="-2" pref="11" max="-2" attributes="0"/>
                       </Group>
-                      <Group type="103" groupAlignment="1" max="-2" attributes="0">
-                          <Component id="NombreTiendaField" alignment="0" pref="273" max="32767" attributes="0"/>
-                          <Component id="direccionField" alignment="0" max="32767" attributes="0"/>
-                          <Component id="tel1Field" alignment="0" max="32767" attributes="0"/>
-                          <Component id="tel2Field" alignment="0" max="32767" attributes="0"/>
-                          <Component id="emailField" alignment="0" max="32767" attributes="0"/>
-                          <Component id="HorarioField" alignment="0" max="32767" attributes="0"/>
-                          <Component id="codigoTiendaField" max="32767" attributes="0"/>
-                      </Group>
+                      <Component id="NombreTiendaField" alignment="0" pref="273" max="32767" attributes="0"/>
+                      <Component id="direccionField" alignment="0" max="32767" attributes="0"/>
+                      <Component id="tel1Field" alignment="0" max="32767" attributes="0"/>
+                      <Component id="tel2Field" alignment="0" max="32767" attributes="0"/>
+                      <Component id="emailField" alignment="0" max="32767" attributes="0"/>
+                      <Component id="HorarioField" alignment="0" max="32767" attributes="0"/>
+                      <Component id="codigoTiendaField" max="32767" attributes="0"/>
                   </Group>
                   <EmptySpace pref="65" max="32767" attributes="0"/>
               </Group>
@@ -138,9 +136,7 @@
                       <Group type="102" attributes="0">
                           <Group type="103" groupAlignment="0" attributes="0">
                               <Component id="jLabel4" alignment="0" min="-2" pref="31" max="-2" attributes="0"/>
-                              <Group type="103" groupAlignment="3" attributes="0">
-                                  <Component id="direccionField" alignment="3" min="-2" pref="31" max="-2" attributes="0"/>
-                              </Group>
+                              <Component id="direccionField" min="-2" pref="31" max="-2" attributes="0"/>
                           </Group>
                           <EmptySpace max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="3" attributes="0">
