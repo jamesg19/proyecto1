@@ -74,6 +74,7 @@ public class CargaArchivo extends javax.swing.JFrame {
             }
         });
 
+        jTextArea2.setEditable(false);
         jTextArea2.setColumns(20);
         jTextArea2.setRows(5);
         jScrollPane1.setViewportView(jTextArea2);
@@ -88,6 +89,7 @@ public class CargaArchivo extends javax.swing.JFrame {
 
         jLabel1.setForeground(new java.awt.Color(213, 45, 55));
 
+        jTextArea3.setEditable(false);
         jTextArea3.setColumns(20);
         jTextArea3.setRows(5);
         jScrollPane2.setViewportView(jTextArea3);

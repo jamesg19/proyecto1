@@ -74,6 +74,8 @@ public class ClienteJFrame extends javax.swing.JFrame {
 
     private void SalirbtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SalirbtnActionPerformed
         // TODO add your handling code here:
+        MENU Menu=new MENU();
+        Menu.setVisible(true);
         setVisible(false);
         
     }//GEN-LAST:event_SalirbtnActionPerformed
