@@ -6,6 +6,7 @@
 package gc.tiendaipc2.Menu;
 
 
+import Ventas.Vender;
 import gc.tiendaipc2.FRAME.NuevaInformacion.AgregaProducto;
 import gc.tiendaipc2.FRAME.NuevaInformacion.Nueva_Tienda;
 import gc.tiendaipc2.FRAME.NuevaInformacion.tiempoTiendas;
@@ -34,11 +35,11 @@ public class EmpleadoJFrame extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
         AgregarTienda = new javax.swing.JButton();
         AgregarNuevosProductos = new javax.swing.JButton();
-        jButton3 = new javax.swing.JButton();
+        Vender = new javax.swing.JButton();
         jButton4 = new javax.swing.JButton();
         TiempoEntreTiendas = new javax.swing.JButton();
         jButton5 = new javax.swing.JButton();
-        jButton7 = new javax.swing.JButton();
+        CrearUsuarios = new javax.swing.JButton();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         salirBtn = new javax.swing.JButton();
@@ -68,10 +69,10 @@ public class EmpleadoJFrame extends javax.swing.JFrame {
             }
         });
 
-        jButton3.setText("Vender");
-        jButton3.addActionListener(new java.awt.event.ActionListener() {
+        Vender.setText("Vender");
+        Vender.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton3ActionPerformed(evt);
+                VenderActionPerformed(evt);
             }
         });
 
@@ -85,8 +86,18 @@ public class EmpleadoJFrame extends javax.swing.JFrame {
         });
 
         jButton5.setText("Realizar pedido");
+        jButton5.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton5ActionPerformed(evt);
+            }
+        });
 
-        jButton7.setText("Crear usuarios");
+        CrearUsuarios.setText("Crear usuarios");
+        CrearUsuarios.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                CrearUsuariosActionPerformed(evt);
+            }
+        });
 
         jLabel2.setFont(new java.awt.Font("Ubuntu", 3, 14)); // NOI18N
         jLabel2.setText("Registro de nueva informacion");
@@ -125,7 +136,7 @@ public class EmpleadoJFrame extends javax.swing.JFrame {
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                .addComponent(jButton7, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(CrearUsuarios, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                 .addComponent(AgregarNuevosProductos, javax.swing.GroupLayout.DEFAULT_SIZE, 194, Short.MAX_VALUE))
                             .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addComponent(salirBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 107, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -137,7 +148,7 @@ public class EmpleadoJFrame extends javax.swing.JFrame {
                                     .addComponent(TiempoEntreTiendas, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                                 .addGap(217, 217, 217)
                                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addComponent(jButton3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(Vender, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                     .addComponent(jButton4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                     .addComponent(jButton5, javax.swing.GroupLayout.PREFERRED_SIZE, 154, javax.swing.GroupLayout.PREFERRED_SIZE))))
                         .addContainerGap(90, Short.MAX_VALUE))))
@@ -168,13 +179,13 @@ public class EmpleadoJFrame extends javax.swing.JFrame {
                         .addGap(13, 13, 13)
                         .addComponent(AgregarNuevosProductos, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(jButton3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(Vender, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(jButton5, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(10, 10, 10)
                         .addComponent(jButton4, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jButton7, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(CrearUsuarios, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(95, 95, 95))
         );
 
@@ -203,9 +214,11 @@ public class EmpleadoJFrame extends javax.swing.JFrame {
         tiempo.setVisible(true);
     }//GEN-LAST:event_TiempoEntreTiendasActionPerformed
 
-    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+    private void VenderActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_VenderActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jButton3ActionPerformed
+        Vender venta=new Vender(CODIGOTIENDA);
+        venta.setVisible(true);
+    }//GEN-LAST:event_VenderActionPerformed
 
     private void salirBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_salirBtnActionPerformed
         // TODO add your handling code here:
@@ -221,16 +234,24 @@ public class EmpleadoJFrame extends javax.swing.JFrame {
         nuevo_producto.setVisible(true);
     }//GEN-LAST:event_AgregarNuevosProductosActionPerformed
 
+    private void CrearUsuariosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CrearUsuariosActionPerformed
+
+    }//GEN-LAST:event_CrearUsuariosActionPerformed
+
+    private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton5ActionPerformed
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton AgregarNuevosProductos;
     private javax.swing.JButton AgregarTienda;
+    private javax.swing.JButton CrearUsuarios;
     private javax.swing.JButton TiempoEntreTiendas;
     private javax.swing.JLabel TiendaLabel;
     private javax.swing.JLabel UsuarioLabel;
-    private javax.swing.JButton jButton3;
+    private javax.swing.JButton Vender;
     private javax.swing.JButton jButton4;
     private javax.swing.JButton jButton5;
-    private javax.swing.JButton jButton7;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;

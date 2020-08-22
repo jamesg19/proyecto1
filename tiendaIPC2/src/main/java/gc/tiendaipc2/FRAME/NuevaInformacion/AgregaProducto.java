@@ -61,7 +61,6 @@ public class AgregaProducto extends javax.swing.JFrame {
         jLabel15 = new javax.swing.JLabel();
         jLabel16 = new javax.swing.JLabel();
         codigoJ = new javax.swing.JTextField();
-        garantiaJ = new javax.swing.JTextField();
         GarantiaSpinner = new javax.swing.JSpinner();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -94,6 +93,11 @@ public class AgregaProducto extends javax.swing.JFrame {
         jButton2.setBounds(340, 430, 122, 37);
 
         jButton3.setText("Limpiar");
+        jButton3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton3ActionPerformed(evt);
+            }
+        });
         Garantia.add(jButton3);
         jButton3.setBounds(200, 430, 105, 37);
 
@@ -170,12 +174,10 @@ public class AgregaProducto extends javax.swing.JFrame {
         jLabel16.setBounds(10, 280, 163, 31);
         Garantia.add(codigoJ);
         codigoJ.setBounds(210, 200, 209, 31);
-        Garantia.add(garantiaJ);
-        garantiaJ.setBounds(210, 370, 210, 30);
 
         GarantiaSpinner.setModel(new javax.swing.SpinnerNumberModel(0, 0, null, 1));
         Garantia.add(GarantiaSpinner);
-        GarantiaSpinner.setBounds(430, 370, 70, 36);
+        GarantiaSpinner.setBounds(210, 370, 210, 30);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -208,6 +210,20 @@ public class AgregaProducto extends javax.swing.JFrame {
         
     }//GEN-LAST:event_jButton2ActionPerformed
 
+    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+        // TODO add your handling code here:
+        
+        
+        tienda.setText("");
+        nombre.setText("");
+        fabricante.setText("");
+        codigoJ.setText("");
+        Descripcion.setText("");
+        cantidadJ.setText("");
+        GarantiaSpinner.setValue(0);
+        
+    }//GEN-LAST:event_jButton3ActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTextField Descripcion;
@@ -216,7 +232,6 @@ public class AgregaProducto extends javax.swing.JFrame {
     private javax.swing.JTextField cantidadJ;
     private javax.swing.JTextField codigoJ;
     private javax.swing.JTextField fabricante;
-    private javax.swing.JTextField garantiaJ;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
