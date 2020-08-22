@@ -272,7 +272,7 @@ public class CargaArchivo extends javax.swing.JFrame {
                             verificaErrorCliente(texto);  
                         }
                         if(TipoLinea[0].equalsIgnoreCase("PEDIDO")){
-                            
+                            verificaErrorPedido(texto);
                         }
             }
         }     

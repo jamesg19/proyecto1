@@ -311,7 +311,7 @@ public class Nueva_Tienda extends javax.swing.JFrame {
      */
     private void compruebaIngreso() {
         if(codigoTiendaField.getText().length()>2&&NombreTiendaField.getText().length()>1
-                &&direccionField.getText().length()>=7&&tel1Field.getText().length()>=8){
+                &&direccionField.getText().length()>=3&&tel1Field.getText().length()>=8){
             
             comprobarDupicado();
             

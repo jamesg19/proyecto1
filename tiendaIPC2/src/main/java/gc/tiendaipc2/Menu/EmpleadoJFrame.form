@@ -161,6 +161,9 @@
             </Property>
             <Property name="text" type="java.lang.String" value="Agregar nuevos productos"/>
           </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="AgregarNuevosProductosActionPerformed"/>
+          </Events>
         </Component>
         <Component class="javax.swing.JButton" name="jButton3">
           <Properties>
@@ -218,9 +221,6 @@
           </Events>
         </Component>
         <Component class="javax.swing.JLabel" name="UsuarioLabel">
-          <Properties>
-            <Property name="text" type="java.lang.String" value="jLabel4"/>
-          </Properties>
         </Component>
         <Component class="javax.swing.JLabel" name="jLabel4">
           <Properties>
@@ -228,9 +228,6 @@
           </Properties>
         </Component>
         <Component class="javax.swing.JLabel" name="TiendaLabel">
-          <Properties>
-            <Property name="text" type="java.lang.String" value="Label"/>
-          </Properties>
         </Component>
       </SubComponents>
     </Container>

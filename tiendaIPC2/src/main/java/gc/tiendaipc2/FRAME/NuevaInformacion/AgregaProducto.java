@@ -1,13 +1,8 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package gc.tiendaipc2.FRAME.NuevaInformacion;
 
 import static ConexionMySQL.Conexion.getConnection;
 import static gc.tiendaipc2.FRAME.NuevaInformacion.CargaArchivo.AgregaProducto;
-import static gc.tiendaipc2.FRAME.NuevaInformacion.CargaArchivo.AgregaTienda;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -20,12 +15,16 @@ import javax.swing.JOptionPane;
  */
 public class AgregaProducto extends javax.swing.JFrame {
     ArrayList<String> ArrayCodPro = new ArrayList<>();
-    String cod;
+    String cod,CODIGOTIENDA,preciot;
+    
     /**
      * Creates new form AgregaProducto
+     * @param CODIGOTIENDA
      */
-    public AgregaProducto() {
+    public AgregaProducto(String CODIGOTIENDA) {
         initComponents();
+        this.CODIGOTIENDA=CODIGOTIENDA;
+        tienda.setText(CODIGOTIENDA);
     }
 
     /**
@@ -37,7 +36,7 @@ public class AgregaProducto extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jPanel1 = new javax.swing.JPanel();
+        Garantia = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         jButton1 = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
@@ -50,10 +49,9 @@ public class AgregaProducto extends javax.swing.JFrame {
         jLabel7 = new javax.swing.JLabel();
         jLabel8 = new javax.swing.JLabel();
         jLabel9 = new javax.swing.JLabel();
-        Garantia = new javax.swing.JTextField();
         nombre = new javax.swing.JTextField();
         fabricante = new javax.swing.JTextField();
-        codigo = new javax.swing.JTextField();
+        cantidadJ = new javax.swing.JTextField();
         Descripcion = new javax.swing.JTextField();
         jLabel11 = new javax.swing.JLabel();
         jLabel12 = new javax.swing.JLabel();
@@ -62,16 +60,18 @@ public class AgregaProducto extends javax.swing.JFrame {
         jLabel14 = new javax.swing.JLabel();
         jLabel15 = new javax.swing.JLabel();
         jLabel16 = new javax.swing.JLabel();
-        cantidad = new javax.swing.JSpinner();
+        codigoJ = new javax.swing.JTextField();
+        garantiaJ = new javax.swing.JTextField();
+        GarantiaSpinner = new javax.swing.JSpinner();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jPanel1.setBackground(new java.awt.Color(53, 192, 124));
-        jPanel1.setLayout(null);
+        Garantia.setBackground(new java.awt.Color(53, 192, 124));
+        Garantia.setLayout(null);
 
         jLabel1.setFont(new java.awt.Font("Phetsarath OT", 0, 24)); // NOI18N
         jLabel1.setText("Agrega un nuevo producto ");
-        jPanel1.add(jLabel1);
+        Garantia.add(jLabel1);
         jLabel1.setBounds(190, 20, 328, 42);
 
         jButton1.setBackground(new java.awt.Color(208, 48, 52));
@@ -81,7 +81,7 @@ public class AgregaProducto extends javax.swing.JFrame {
                 jButton1ActionPerformed(evt);
             }
         });
-        jPanel1.add(jButton1);
+        Garantia.add(jButton1);
         jButton1.setBounds(20, 10, 98, 40);
 
         jButton2.setText("Agregar");
@@ -90,100 +90,102 @@ public class AgregaProducto extends javax.swing.JFrame {
                 jButton2ActionPerformed(evt);
             }
         });
-        jPanel1.add(jButton2);
+        Garantia.add(jButton2);
         jButton2.setBounds(340, 430, 122, 37);
 
         jButton3.setText("Limpiar");
-        jPanel1.add(jButton3);
+        Garantia.add(jButton3);
         jButton3.setBounds(200, 430, 105, 37);
 
         jLabel2.setText("Estas en la tienda:");
-        jPanel1.add(jLabel2);
+        Garantia.add(jLabel2);
         jLabel2.setBounds(12, 87, 181, 18);
 
         tienda.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-        jPanel1.add(tienda);
+        Garantia.add(tienda);
         tienda.setBounds(210, 80, 210, 30);
 
         jLabel4.setText("Nombre:");
-        jPanel1.add(jLabel4);
+        Garantia.add(jLabel4);
         jLabel4.setBounds(10, 120, 163, 31);
 
         jLabel5.setText("Fabricante:");
-        jPanel1.add(jLabel5);
+        Garantia.add(jLabel5);
         jLabel5.setBounds(12, 160, 163, 31);
 
         jLabel6.setText("Codigo de producto:");
-        jPanel1.add(jLabel6);
+        Garantia.add(jLabel6);
         jLabel6.setBounds(10, 200, 163, 31);
 
         jLabel7.setText("Cantidad");
-        jPanel1.add(jLabel7);
+        Garantia.add(jLabel7);
         jLabel7.setBounds(10, 240, 163, 31);
 
         jLabel8.setText("Descripcion:");
-        jPanel1.add(jLabel8);
+        Garantia.add(jLabel8);
         jLabel8.setBounds(10, 320, 163, 31);
 
         jLabel9.setText("Garantia (meses)");
-        jPanel1.add(jLabel9);
+        Garantia.add(jLabel9);
         jLabel9.setBounds(10, 360, 163, 31);
-        jPanel1.add(Garantia);
-        Garantia.setBounds(210, 360, 209, 31);
-        jPanel1.add(nombre);
-        nombre.setBounds(211, 117, 209, 31);
-        jPanel1.add(fabricante);
+        Garantia.add(nombre);
+        nombre.setBounds(210, 120, 209, 31);
+        Garantia.add(fabricante);
         fabricante.setBounds(210, 160, 209, 31);
-        jPanel1.add(codigo);
-        codigo.setBounds(210, 200, 209, 31);
+        Garantia.add(cantidadJ);
+        cantidadJ.setBounds(210, 240, 209, 31);
 
         Descripcion.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 DescripcionActionPerformed(evt);
             }
         });
-        jPanel1.add(Descripcion);
+        Garantia.add(Descripcion);
         Descripcion.setBounds(210, 320, 209, 31);
 
         jLabel11.setText("*");
-        jPanel1.add(jLabel11);
+        Garantia.add(jLabel11);
         jLabel11.setBounds(180, 120, 20, 20);
 
         jLabel12.setText("*");
-        jPanel1.add(jLabel12);
+        Garantia.add(jLabel12);
         jLabel12.setBounds(180, 160, 20, 20);
 
         jLabel13.setText("*");
-        jPanel1.add(jLabel13);
+        Garantia.add(jLabel13);
         jLabel13.setBounds(180, 200, 20, 20);
-        jPanel1.add(precio);
+        Garantia.add(precio);
         precio.setBounds(210, 280, 209, 31);
 
         jLabel14.setText("*");
-        jPanel1.add(jLabel14);
+        Garantia.add(jLabel14);
         jLabel14.setBounds(180, 240, 20, 20);
 
         jLabel15.setText("*");
-        jPanel1.add(jLabel15);
+        Garantia.add(jLabel15);
         jLabel15.setBounds(180, 280, 20, 20);
 
         jLabel16.setText("Precio:");
-        jPanel1.add(jLabel16);
+        Garantia.add(jLabel16);
         jLabel16.setBounds(10, 280, 163, 31);
+        Garantia.add(codigoJ);
+        codigoJ.setBounds(210, 200, 209, 31);
+        Garantia.add(garantiaJ);
+        garantiaJ.setBounds(210, 370, 210, 30);
 
-        cantidad.setModel(new javax.swing.SpinnerNumberModel(1, 1, null, 1));
-        jPanel1.add(cantidad);
-        cantidad.setBounds(210, 240, 210, 30);
+        GarantiaSpinner.setModel(new javax.swing.SpinnerNumberModel(0, 0, null, 1));
+        Garantia.add(GarantiaSpinner);
+        GarantiaSpinner.setBounds(430, 370, 70, 36);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 575, Short.MAX_VALUE)
+            .addComponent(Garantia, javax.swing.GroupLayout.DEFAULT_SIZE, 575, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 507, Short.MAX_VALUE)
+            .addComponent(Garantia, javax.swing.GroupLayout.DEFAULT_SIZE, 507, Short.MAX_VALUE)
         );
 
         pack();
@@ -200,17 +202,21 @@ public class AgregaProducto extends javax.swing.JFrame {
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         // TODO add your handling code here:
+        preciot=precio.getText();
         obtenerDatos();
-        agregaNuevoProducto();
+        
+        
     }//GEN-LAST:event_jButton2ActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTextField Descripcion;
-    private javax.swing.JTextField Garantia;
-    private javax.swing.JSpinner cantidad;
-    private javax.swing.JTextField codigo;
+    private javax.swing.JPanel Garantia;
+    private javax.swing.JSpinner GarantiaSpinner;
+    private javax.swing.JTextField cantidadJ;
+    private javax.swing.JTextField codigoJ;
     private javax.swing.JTextField fabricante;
+    private javax.swing.JTextField garantiaJ;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
@@ -228,7 +234,6 @@ public class AgregaProducto extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
-    private javax.swing.JPanel jPanel1;
     private javax.swing.JTextField nombre;
     private javax.swing.JTextField precio;
     private javax.swing.JLabel tienda;
@@ -239,7 +244,7 @@ public class AgregaProducto extends javax.swing.JFrame {
     private void obtenerDatos() {
         
         if(nombre.getText().length()>1&&fabricante.getText().length()>1&&
-                codigo.getText().length()>1&&precio.getText().length()>1){
+                codigoJ.getText().length()>1){
             comprobarDuplicado();
         }else{
             JOptionPane.showMessageDialog(null,"Ingresa los campos obligatorios que tengan *");
@@ -272,7 +277,7 @@ public class AgregaProducto extends javax.swing.JFrame {
             System.out.println("Error: " + e.getMessage());
         }
         
-        if(!ArrayCodPro.contains(codigo.getText())){
+        if(!ArrayCodPro.contains(codigoJ.getText()) ){
             agregaNuevoProducto();
         }
         else{
@@ -287,22 +292,27 @@ public class AgregaProducto extends javax.swing.JFrame {
          */
     
         private void agregaNuevoProducto() {
+            
         try{
-            tienda.getText();
-            nombre.getText();
-            fabricante.getText();
-            codigo.getText();
-            int Cantidad = (Integer) cantidad.getValue();
-            double value = Double.parseDouble(precio.getText());
-            Descripcion.getText();
-            int garantia = Integer.parseInt(Garantia.getText());
+            String tda=tienda.getText();
+            String nom=nombre.getText();
+            String fab=fabricante.getText();
+            String codpro=codigoJ.getText();
+            String des=Descripcion.getText();
+            int Cant = Integer.parseInt(cantidadJ.getText());
+            double Precio = Double.parseDouble(preciot);
+            //int garantia = Integer.parseInt(garantiaJ.getText());
+            int garantia= (Integer) GarantiaSpinner.getValue();
+            
+           
             
             //llama al metodo para agregar productos
-            AgregaProducto(codigo.getText(),nombre.getText(), fabricante.getText(),
-            Cantidad, value, tienda.getText(), Descripcion.getText(), garantia);
+            AgregaProducto(codpro,nom,fab,Cant, Precio, tda,des, garantia);
+            JOptionPane.showMessageDialog(null,"Se agregado el nuevo producto a la tienda");
+        
         }catch(NumberFormatException e){
             JOptionPane.showMessageDialog(null,"Debes ingresar solo numeros en \n"
-                    + "los campos requeridos");
+                    + "los campos requeridos ");
         
         }
     }

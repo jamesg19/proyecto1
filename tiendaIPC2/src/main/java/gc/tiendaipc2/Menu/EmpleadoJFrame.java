@@ -6,6 +6,7 @@
 package gc.tiendaipc2.Menu;
 
 
+import gc.tiendaipc2.FRAME.NuevaInformacion.AgregaProducto;
 import gc.tiendaipc2.FRAME.NuevaInformacion.Nueva_Tienda;
 import gc.tiendaipc2.FRAME.NuevaInformacion.tiempoTiendas;
 
@@ -21,7 +22,8 @@ public class EmpleadoJFrame extends javax.swing.JFrame {
         initComponents();
         this.empleado=empleado;
         this.CODIGOTIENDA=CODIGOTIENDA;
-        
+        UsuarioLabel.setText(empleado);
+        TiendaLabel.setText(CODIGOTIENDA);
     }
 
     @SuppressWarnings("unchecked")
@@ -60,6 +62,11 @@ public class EmpleadoJFrame extends javax.swing.JFrame {
 
         AgregarNuevosProductos.setFont(new java.awt.Font("Ubuntu", 0, 14)); // NOI18N
         AgregarNuevosProductos.setText("Agregar nuevos productos");
+        AgregarNuevosProductos.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                AgregarNuevosProductosActionPerformed(evt);
+            }
+        });
 
         jButton3.setText("Vender");
         jButton3.addActionListener(new java.awt.event.ActionListener() {
@@ -94,11 +101,7 @@ public class EmpleadoJFrame extends javax.swing.JFrame {
             }
         });
 
-        UsuarioLabel.setText("jLabel4");
-
         jLabel4.setText("Tienda:");
-
-        TiendaLabel.setText("Label");
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -210,6 +213,13 @@ public class EmpleadoJFrame extends javax.swing.JFrame {
         Menu.setVisible(true);
         setVisible(false);
     }//GEN-LAST:event_salirBtnActionPerformed
+
+    private void AgregarNuevosProductosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AgregarNuevosProductosActionPerformed
+        // TODO add your handling code here:
+        
+        AgregaProducto nuevo_producto=new AgregaProducto(CODIGOTIENDA);
+        nuevo_producto.setVisible(true);
+    }//GEN-LAST:event_AgregarNuevosProductosActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton AgregarNuevosProductos;
