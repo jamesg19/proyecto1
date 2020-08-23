@@ -104,7 +104,7 @@ public class MENU extends javax.swing.JFrame {
                 .addGap(73, 73, 73)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(ActualizarBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 91, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(ActualizarBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 112, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(ComboBoxTienda, javax.swing.GroupLayout.PREFERRED_SIZE, 214, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(114, 114, 114))
@@ -212,6 +212,8 @@ public class MENU extends javax.swing.JFrame {
         try (PreparedStatement preSt = getConnection().prepareStatement(query);
                 ResultSet result = preSt.executeQuery()) {
 
+            
+            ArraycodT.clear();
             //obtiene los codigo de las tiendas registradas 
             //para determinar si se inicia con login o no
             while (result.next()) {
@@ -257,8 +259,10 @@ public class MENU extends javax.swing.JFrame {
      * agrega los datos de las tiendas en Combox para logearse en Menu
      */
     private void AgregaDatosJComboB() {
-        
+        //limpia el JComboBox
+        ComboBoxTienda.removeAllItems();
         for(int t=0;t<ArraycodT.size();t++){
+            
             ComboBoxTienda.addItem(ArraycodT.get(t));
             
         }

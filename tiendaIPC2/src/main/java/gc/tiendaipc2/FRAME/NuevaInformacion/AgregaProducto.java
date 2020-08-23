@@ -90,7 +90,7 @@ public class AgregaProducto extends javax.swing.JFrame {
             }
         });
         Garantia.add(jButton2);
-        jButton2.setBounds(340, 430, 122, 37);
+        jButton2.setBounds(300, 430, 122, 37);
 
         jButton3.setText("Limpiar");
         jButton3.addActionListener(new java.awt.event.ActionListener() {
@@ -99,7 +99,7 @@ public class AgregaProducto extends javax.swing.JFrame {
             }
         });
         Garantia.add(jButton3);
-        jButton3.setBounds(200, 430, 105, 37);
+        jButton3.setBounds(180, 430, 105, 37);
 
         jLabel2.setText("Estas en la tienda:");
         Garantia.add(jLabel2);

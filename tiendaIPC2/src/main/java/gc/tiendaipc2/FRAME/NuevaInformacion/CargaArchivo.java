@@ -418,7 +418,7 @@ public class CargaArchivo extends javax.swing.JFrame {
                 &&ArraycodT.contains(TipoLinea[3]))){
                 //excepciones en caso de introducir un string en int
                 try{
-                String cod_pedido=TipoLinea[1];
+                int cod_pedido=Integer.parseInt(TipoLinea[1]);
                 String origen=TipoLinea[2];
                 String destino=TipoLinea[3];   
                 String fecha=TipoLinea[4];
@@ -606,7 +606,7 @@ public class CargaArchivo extends javax.swing.JFrame {
      * @param total
      * @param anticipo 
      */
-    public static void AgregaPedido(String codPedido, String origen, String destino, 
+    public static void AgregaPedido(int codPedido, String origen, String destino, 
             String fecha, String cod_cliente,String cod_articulo,int cantidad, double total,
             double anticipo){
    
@@ -614,7 +614,7 @@ public class CargaArchivo extends javax.swing.JFrame {
 
         try (PreparedStatement preSt = getConnection().prepareStatement(query)) {
 
-            preSt.setString(1, codPedido);
+            preSt.setInt(1, codPedido);
             preSt.setString(2, origen);
             preSt.setString(3, destino);
             preSt.setString(4, fecha);

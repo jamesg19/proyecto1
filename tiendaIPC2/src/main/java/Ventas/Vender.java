@@ -23,8 +23,11 @@ public class Vender extends javax.swing.JFrame {
     ArrayList<String> ArrayLineaProd = new ArrayList<>();
     ArrayList<String> ArrayCodPreCant = new ArrayList<>();
     ArrayList<Double> ArrayPrecio = new ArrayList<>();
+    ArrayList<Double> ArrayP = new ArrayList<>();
+    ArrayList<Integer> ArrayC = new ArrayList<>();
+    ArrayList<String> ArrayCode = new ArrayList<>();
     double total,pre;
-    int cantElegida,cantRestante;
+    int cantElegida,cantRestante,cantidadTotal;
     /**
      * Creates new form Vender
      * @param CODIGOTIENDA
@@ -221,7 +224,6 @@ public class Vender extends javax.swing.JFrame {
                     .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(precioField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel9))
-                .addGap(18, 18, 18)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                         .addComponent(TotalPagar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -230,10 +232,11 @@ public class Vender extends javax.swing.JFrame {
                         .addGap(8, 8, 8)
                         .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(18, 18, 18)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(ProcesaBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(37, Short.MAX_VALUE))
         );
 
@@ -267,7 +270,8 @@ public class Vender extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void ProcesaBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ProcesaBtnActionPerformed
-        
+        MuestraDatos.setText("");
+        comprobarExistenciaProductos();
         ProcesarCompra();
         
     }//GEN-LAST:event_ProcesaBtnActionPerformed
@@ -316,7 +320,11 @@ private void comprobarExistenciaProductos() {
 
 
             ResultSetMetaData meta = result.getMetaData();
-
+                ArrayLineaProd.clear();
+                ArrayCodPreCant.clear();
+                ArrayCode.clear();
+                ArrayC.clear();
+                ArrayP.clear();
             
 //            MuestraDatos.append(meta.getColumnName(1) + "\t" + meta.getColumnName(2) + " y " + meta.getColumnName(3) + "\t" + meta.getColumnName(4) + "\t"+ meta.getColumnName(5) + "\t"
 //            + meta.getColumnName(6) + "\t"+ meta.getColumnName(7) + "\t"+ meta.getColumnName(8) + "\t"+"\n");
@@ -337,6 +345,10 @@ MuestraDatos.append(" Codigo " + "\t" + " Nombre " + "\t" + " Fabricante " + "\t
                 MuestraDatos.append(cod+"\t"+nom+"\t"+fab+"\t"+cant+"\t"+prec+"\t"+CODIGOTIENDA.trim()+"\t"+desc+"\t"+garant+"\t"+"\n");
                 ArrayLineaProd.add(cod+""+nom+" "+fab+" "+cant+" "+prec+" "+desc+" "+garant);
                 ArrayCodPreCant.add(cod);
+                ArrayCode.add(cod);
+                
+                ArrayC.add(cant);
+                ArrayP.add(prec);
             }
 
             result.close();
@@ -355,7 +367,6 @@ MuestraDatos.append(" Codigo " + "\t" + " Nombre " + "\t" + " Fabricante " + "\t
      */
     private void ProcesarCompra() {
         try{
-            String productos=ProductoField.getText();
             cantElegida=(Integer) parseInt(cantidadField.getText());
             nitField.getText();
             verificarExistenciaProducto(ProductoField.getText(),cantElegida,nitField.getText());
@@ -376,40 +387,21 @@ MuestraDatos.append(" Codigo " + "\t" + " Nombre " + "\t" + " Fabricante " + "\t
     private void verificarExistenciaProducto(String product, int cantidad,String nit) {
        
        if(ArrayCodPreCant.contains(product)){
-
-        String query = "SELECT * FROM productos WHERE codigo_producto= ? AND codigo_tienda_exist = ? ";
-
-        try (PreparedStatement preSt = getConnection().prepareStatement(query)) {
-
-            preSt.setString(1, product);
-            preSt.setString(2, CODIGOTIENDA);
-            ResultSet result = preSt.executeQuery();
-            
-            while (result.next()) {  
-                pre=result.getDouble(5);
-                int ctd=result.getInt(4);
-                
-                if(ctd>=cantidad&&ctd>0 ){
-                    precioField.setText(pre+"");
-                    cantRestante=ctd-cantElegida;
-                    total=cantidad*pre;
-                    TotalPagar.setText(total+"");
-                    
-                    ConfirmaVenta();
-                    MuestraDatos.setText("");
-                    comprobarExistenciaProductos();
-                }else{
-                    JOptionPane.showMessageDialog(this, "No hay suficientes unidades para vender");
-                }
-  
-            }
-                result.close();
-                preSt.close();
-            } catch (SQLException e) {
-                System.out.println("Error: " + e.getMessage());
-            }
-        
-
+           for(int i=0;i<ArrayCode.size();i++){
+               
+               if(ArrayCode.get(i).contains(product)){
+                   cantidadTotal=ArrayC.get(i);
+                   pre=ArrayP.get(i);
+                   
+               }
+           }
+           if(cantidadTotal>=cantElegida&&cantidadTotal>0){
+               ConfirmaVenta();
+           }else{
+               JOptionPane.showMessageDialog(this, "No hay suficientes unidades para la venta.");
+               
+           }
+           
        }else{
            JOptionPane.showMessageDialog(this, "El codigo del producto es invalido");
        }
@@ -421,10 +413,12 @@ MuestraDatos.append(" Codigo " + "\t" + " Nombre " + "\t" + " Fabricante " + "\t
      */
     public void ConfirmaVenta() {
        
-
+        
         String query = "UPDATE productos SET cantidad = ? WHERE codigo_tienda_exist = ? "
                 + "AND codigo_producto= ?";
-
+        cantidadTotal-=cantElegida;
+        total=cantElegida*pre;
+        
         try (PreparedStatement preSt = getConnection().prepareStatement(query)) {
             
             preSt.setInt(1, cantRestante);
@@ -435,7 +429,10 @@ MuestraDatos.append(" Codigo " + "\t" + " Nombre " + "\t" + " Fabricante " + "\t
             
             RegistraVenta(CODIGOTIENDA,nitField.getText(), ProductoField.getText(),
             cantElegida,pre ,total);
-            JOptionPane.showMessageDialog(this, "Venta Realizada con exito");
+            precioField.setText(pre+"");
+            TotalPagar.setText(total+"");
+            JOptionPane.showMessageDialog(this, "Venta Realizada con exito."
+            +"\n venta realizada de: Q"+total);
 
             preSt.close();
         } catch (SQLException e) {
