@@ -6,6 +6,7 @@
 package gc.tiendaipc2.Menu;
 
 
+import Ventas.RealizarPedido;
 import Ventas.Vender;
 import gc.tiendaipc2.FRAME.NuevaInformacion.AgregaProducto;
 import gc.tiendaipc2.FRAME.NuevaInformacion.Nueva_Tienda;
@@ -38,7 +39,7 @@ public class EmpleadoJFrame extends javax.swing.JFrame {
         Vender = new javax.swing.JButton();
         jButton4 = new javax.swing.JButton();
         TiempoEntreTiendas = new javax.swing.JButton();
-        jButton5 = new javax.swing.JButton();
+        PedidoBtn = new javax.swing.JButton();
         CrearUsuarios = new javax.swing.JButton();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
@@ -85,10 +86,10 @@ public class EmpleadoJFrame extends javax.swing.JFrame {
             }
         });
 
-        jButton5.setText("Realizar pedido");
-        jButton5.addActionListener(new java.awt.event.ActionListener() {
+        PedidoBtn.setText("Realizar pedido");
+        PedidoBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton5ActionPerformed(evt);
+                PedidoBtnActionPerformed(evt);
             }
         });
 
@@ -150,7 +151,7 @@ public class EmpleadoJFrame extends javax.swing.JFrame {
                                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                                     .addComponent(Vender, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                     .addComponent(jButton4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(jButton5, javax.swing.GroupLayout.PREFERRED_SIZE, 154, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                                    .addComponent(PedidoBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 154, javax.swing.GroupLayout.PREFERRED_SIZE))))
                         .addContainerGap(90, Short.MAX_VALUE))))
         );
         jPanel1Layout.setVerticalGroup(
@@ -181,7 +182,7 @@ public class EmpleadoJFrame extends javax.swing.JFrame {
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addComponent(Vender, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jButton5, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(PedidoBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(10, 10, 10)
                         .addComponent(jButton4, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -238,20 +239,20 @@ public class EmpleadoJFrame extends javax.swing.JFrame {
 
     }//GEN-LAST:event_CrearUsuariosActionPerformed
 
-    private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton5ActionPerformed
-
+    private void PedidoBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_PedidoBtnActionPerformed
+        RealizarPedido pedido =new RealizarPedido(CODIGOTIENDA);
+        pedido.setVisible(true);
+    }//GEN-LAST:event_PedidoBtnActionPerformed
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton AgregarNuevosProductos;
     private javax.swing.JButton AgregarTienda;
     private javax.swing.JButton CrearUsuarios;
+    private javax.swing.JButton PedidoBtn;
     private javax.swing.JButton TiempoEntreTiendas;
     private javax.swing.JLabel TiendaLabel;
     private javax.swing.JLabel UsuarioLabel;
     private javax.swing.JButton Vender;
     private javax.swing.JButton jButton4;
-    private javax.swing.JButton jButton5;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;

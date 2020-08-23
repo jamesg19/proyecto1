@@ -83,7 +83,7 @@
                                   <Group type="103" groupAlignment="0" max="-2" attributes="0">
                                       <Component id="Vender" max="32767" attributes="0"/>
                                       <Component id="jButton4" alignment="0" max="32767" attributes="0"/>
-                                      <Component id="jButton5" alignment="0" min="-2" pref="154" max="-2" attributes="0"/>
+                                      <Component id="PedidoBtn" alignment="0" min="-2" pref="154" max="-2" attributes="0"/>
                                   </Group>
                               </Group>
                           </Group>
@@ -125,7 +125,7 @@
                       <Group type="102" attributes="0">
                           <Component id="Vender" max="32767" attributes="0"/>
                           <EmptySpace max="32767" attributes="0"/>
-                          <Component id="jButton5" min="-2" pref="44" max="-2" attributes="0"/>
+                          <Component id="PedidoBtn" min="-2" pref="44" max="-2" attributes="0"/>
                           <EmptySpace min="-2" pref="10" max="-2" attributes="0"/>
                           <Component id="jButton4" min="-2" pref="38" max="-2" attributes="0"/>
                       </Group>
@@ -186,12 +186,12 @@
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="TiempoEntreTiendasActionPerformed"/>
           </Events>
         </Component>
-        <Component class="javax.swing.JButton" name="jButton5">
+        <Component class="javax.swing.JButton" name="PedidoBtn">
           <Properties>
             <Property name="text" type="java.lang.String" value="Realizar pedido"/>
           </Properties>
           <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButton5ActionPerformed"/>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="PedidoBtnActionPerformed"/>
           </Events>
         </Component>
         <Component class="javax.swing.JButton" name="CrearUsuarios">
