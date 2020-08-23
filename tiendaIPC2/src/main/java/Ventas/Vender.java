@@ -125,6 +125,11 @@ public class Vender extends javax.swing.JFrame {
         jLabel10.setText("Q.");
 
         jButton2.setText("Limpiar ");
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
 
         jButton3.setText("Realizar pedido");
 
@@ -276,6 +281,11 @@ public class Vender extends javax.swing.JFrame {
         
     }//GEN-LAST:event_ProcesaBtnActionPerformed
 
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        // TODO add your handling code here:
+        LimpiarDatos();
+    }//GEN-LAST:event_jButton2ActionPerformed
+
  
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -411,17 +421,17 @@ MuestraDatos.append(" Codigo " + "\t" + " Nombre " + "\t" + " Fabricante " + "\t
     /**
      * actualiza el inventario de productos de una tienda
      */
-    public void ConfirmaVenta() {
+    public  void ConfirmaVenta() {
        
         
         String query = "UPDATE productos SET cantidad = ? WHERE codigo_tienda_exist = ? "
                 + "AND codigo_producto= ?";
-        cantidadTotal-=cantElegida;
+        cantidadTotal=cantidadTotal-cantElegida;
         total=cantElegida*pre;
         
         try (PreparedStatement preSt = getConnection().prepareStatement(query)) {
             
-            preSt.setInt(1, cantRestante);
+            preSt.setInt(1, cantidadTotal);
             preSt.setString(2, CODIGOTIENDA);
             preSt.setString(3, ProductoField.getText() );
 
@@ -433,6 +443,7 @@ MuestraDatos.append(" Codigo " + "\t" + " Nombre " + "\t" + " Fabricante " + "\t
             TotalPagar.setText(total+"");
             JOptionPane.showMessageDialog(this, "Venta Realizada con exito."
             +"\n venta realizada de: Q"+total);
+            LimpiarDatos();
 
             preSt.close();
         } catch (SQLException e) {
@@ -466,5 +477,13 @@ MuestraDatos.append(" Codigo " + "\t" + " Nombre " + "\t" + " Fabricante " + "\t
         } catch (SQLException e) {
             //System.out.println("Error: " + e.getMessage());
         }
+    }
+
+    private void LimpiarDatos() {
+        ProductoField.setText("");
+        nitField.setText("");
+        cantidadField.setText("");
+        precioField.setText("");
+        TotalPagar.setText("");
     }
 }

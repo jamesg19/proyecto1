@@ -6,18 +6,34 @@
 package Ventas;
 
 import static ConexionMySQL.Conexion.getConnection;
+import static gc.tiendaipc2.FRAME.NuevaInformacion.CargaArchivo.AgregaPedido;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
-import java.sql.ResultSetMetaData;
 import java.sql.SQLException;
+import java.text.SimpleDateFormat;
+import java.util.ArrayList;
+import java.util.Calendar;
+import java.util.Collections;
 import javax.swing.JOptionPane;
+
 
 /**
  *
  * @author james
  */
 public class RealizarPedido extends javax.swing.JFrame {
+    ArrayList<String> Producto = new ArrayList<>();                                                                                                            ArrayList<String> NIT = new ArrayList<>();
+    ArrayList<String> TiendaO = new ArrayList<>();
+    ArrayList<Double> Precio = new ArrayList<>();
+    ArrayList<Integer> Cantidad = new ArrayList<>();
+    ArrayList<Integer> Dias = new ArrayList<>(); 
+    ArrayList<Integer> ArrayPedido = new ArrayList<>(); 
     String CODIGOTIENDA;
+    String fecha,codCliente,codProducto,origen;
+    int cantidad,MAX;
+    double total,anticipo,precio;
+    String FECHA;
+    
     /**
      * Creates new form RealizarPedido
      * @param CODIGOTIENDA
@@ -25,7 +41,7 @@ public class RealizarPedido extends javax.swing.JFrame {
     public RealizarPedido(String CODIGOTIENDA) {
         initComponents();
         this.CODIGOTIENDA=CODIGOTIENDA;
-        TiendaActualLabel.setText(CODIGOTIENDA);
+        TiendaDestino.setText(CODIGOTIENDA);
     }
 
     /**
@@ -42,13 +58,35 @@ public class RealizarPedido extends javax.swing.JFrame {
         jLabel4 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         BuscaCodigoP = new javax.swing.JTextField();
-        jButton1 = new javax.swing.JButton();
+        BuscaProducto = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
         MuestraProductos = new javax.swing.JTextArea();
         jLabel3 = new javax.swing.JLabel();
-        TiendaActualLabel = new javax.swing.JLabel();
+        TiendaDestino = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
-        jFormattedTextField1 = new javax.swing.JFormattedTextField();
+        jLabel6 = new javax.swing.JLabel();
+        jLabel7 = new javax.swing.JLabel();
+        jLabel8 = new javax.swing.JLabel();
+        TiendaOrigen = new javax.swing.JComboBox<>();
+        SeleccionProducto = new javax.swing.JTextField();
+        jLabel9 = new javax.swing.JLabel();
+        CodigoCliente = new javax.swing.JTextField();
+        CantidadSpinner = new javax.swing.JSpinner();
+        jLabel10 = new javax.swing.JLabel();
+        jLabel11 = new javax.swing.JLabel();
+        jLabel12 = new javax.swing.JLabel();
+        jLabel13 = new javax.swing.JLabel();
+        jLabel14 = new javax.swing.JLabel();
+        jLabel15 = new javax.swing.JLabel();
+        CotizarBtn = new javax.swing.JButton();
+        Total = new javax.swing.JTextField();
+        Year = new javax.swing.JSpinner();
+        Dia = new javax.swing.JComboBox<>();
+        Mes = new javax.swing.JComboBox<>();
+        jLabel19 = new javax.swing.JLabel();
+        jLabel20 = new javax.swing.JLabel();
+        jLabel18 = new javax.swing.JLabel();
+        PrecioLabel = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -58,83 +96,211 @@ public class RealizarPedido extends javax.swing.JFrame {
         jLabel1.setFont(new java.awt.Font("Ubuntu", 3, 24)); // NOI18N
         jLabel1.setText("Realizar pedido");
         jPanel1.add(jLabel1);
-        jLabel1.setBounds(256, 34, 174, 29);
+        jLabel1.setBounds(280, 10, 174, 29);
 
-        jLabel4.setText("Puedes buscar articulos en otras tiendas ingresando ");
+        jLabel4.setText("Puedes buscar articulos en otras tiendas ");
         jPanel1.add(jLabel4);
-        jLabel4.setBounds(50, 80, 363, 18);
+        jLabel4.setBounds(50, 60, 290, 18);
 
-        jLabel2.setText("el codigo del producto.");
+        jLabel2.setText("ingresando  el codigo del producto.");
         jPanel1.add(jLabel2);
-        jLabel2.setBounds(50, 100, 160, 18);
+        jLabel2.setBounds(50, 80, 244, 18);
         jPanel1.add(BuscaCodigoP);
-        BuscaCodigoP.setBounds(50, 130, 200, 40);
+        BuscaCodigoP.setBounds(370, 60, 120, 30);
 
-        jButton1.setText("Buscar Producto");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        BuscaProducto.setText("Buscar Producto");
+        BuscaProducto.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                BuscaProductoActionPerformed(evt);
             }
         });
-        jPanel1.add(jButton1);
-        jButton1.setBounds(310, 120, 151, 50);
+        jPanel1.add(BuscaProducto);
+        BuscaProducto.setBounds(500, 60, 151, 30);
 
         MuestraProductos.setColumns(20);
         MuestraProductos.setRows(5);
         jScrollPane1.setViewportView(MuestraProductos);
 
         jPanel1.add(jScrollPane1);
-        jScrollPane1.setBounds(50, 180, 559, 170);
+        jScrollPane1.setBounds(50, 110, 620, 110);
 
         jLabel3.setFont(new java.awt.Font("Ubuntu", 0, 12)); // NOI18N
         jLabel3.setText("Tienda Destino:");
         jPanel1.add(jLabel3);
-        jLabel3.setBounds(436, 0, 113, 42);
-        jPanel1.add(TiendaActualLabel);
-        TiendaActualLabel.setBounds(555, 0, 79, 42);
+        jLabel3.setBounds(500, 10, 113, 42);
+        jPanel1.add(TiendaDestino);
+        TiendaDestino.setBounds(620, 10, 79, 42);
 
-        jLabel5.setText("Agrega la fecha de hoy");
+        jLabel5.setText("Agrega la fecha de hoy: yyyy-MM-dd");
         jPanel1.add(jLabel5);
-        jLabel5.setBounds(50, 360, 180, 30);
+        jLabel5.setBounds(50, 270, 290, 30);
 
-        jFormattedTextField1.setText("jFormattedTextField1");
-        jPanel1.add(jFormattedTextField1);
-        jFormattedTextField1.setBounds(50, 400, 173, 35);
+        jLabel6.setFont(new java.awt.Font("Ubuntu", 0, 19)); // NOI18N
+        jLabel6.setText("Realiza pedido a una tienda que tenga en existencia el producto deseado");
+        jPanel1.add(jLabel6);
+        jLabel6.setBounds(50, 230, 660, 40);
+
+        jLabel7.setText("Codigo del producto:");
+        jPanel1.add(jLabel7);
+        jLabel7.setBounds(50, 370, 320, 40);
+
+        jLabel8.setText("Tienda a donde se realiza el pedido");
+        jPanel1.add(jLabel8);
+        jLabel8.setBounds(50, 320, 270, 30);
+
+        jPanel1.add(TiendaOrigen);
+        TiendaOrigen.setBounds(400, 320, 240, 35);
+
+        SeleccionProducto.setEditable(false);
+        SeleccionProducto.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                SeleccionProductoActionPerformed(evt);
+            }
+        });
+        jPanel1.add(SeleccionProducto);
+        SeleccionProducto.setBounds(400, 370, 240, 35);
+
+        jLabel9.setText("Nit del Cliente:");
+        jPanel1.add(jLabel9);
+        jLabel9.setBounds(50, 420, 240, 30);
+        jPanel1.add(CodigoCliente);
+        CodigoCliente.setBounds(400, 420, 240, 35);
+
+        CantidadSpinner.setModel(new javax.swing.SpinnerNumberModel(1, 1, null, 1));
+        jPanel1.add(CantidadSpinner);
+        CantidadSpinner.setBounds(520, 470, 120, 36);
+
+        jLabel10.setText("Precio        Q");
+        jPanel1.add(jLabel10);
+        jLabel10.setBounds(250, 470, 90, 30);
+
+        jLabel11.setText("Q.");
+        jPanel1.add(jLabel11);
+        jLabel11.setBounds(460, 520, 20, 30);
+
+        jLabel12.setText("D");
+        jPanel1.add(jLabel12);
+        jLabel12.setBounds(550, 270, 20, 30);
+
+        jLabel13.setText("*");
+        jPanel1.add(jLabel13);
+        jLabel13.setBounds(370, 320, 20, 30);
+
+        jLabel14.setText("*");
+        jPanel1.add(jLabel14);
+        jLabel14.setBounds(370, 370, 20, 30);
+
+        jLabel15.setText("*");
+        jPanel1.add(jLabel15);
+        jLabel15.setBounds(370, 420, 20, 30);
+
+        CotizarBtn.setText("Añadir al  pedido");
+        CotizarBtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                CotizarBtnActionPerformed(evt);
+            }
+        });
+        jPanel1.add(CotizarBtn);
+        CotizarBtn.setBounds(290, 520, 140, 40);
+
+        Total.setEditable(false);
+        jPanel1.add(Total);
+        Total.setBounds(480, 520, 160, 35);
+
+        Year.setModel(new javax.swing.SpinnerNumberModel(2020, 2020, 2020, 1));
+        jPanel1.add(Year);
+        Year.setBounds(370, 270, 90, 30);
+
+        Dia.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "01", "02", "03", "04", "05", "06", "07", "08", "09", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21", "22", "23", "24", "25", "26", "27", "28", "29", "30", "31", " " }));
+        jPanel1.add(Dia);
+        Dia.setBounds(570, 270, 70, 30);
+
+        Mes.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "01", "02", "03", "04", "05", "06", "07", "08", "09", "10", "11", "12" }));
+        jPanel1.add(Mes);
+        Mes.setBounds(480, 270, 70, 30);
+
+        jLabel19.setText("Y");
+        jPanel1.add(jLabel19);
+        jLabel19.setBounds(350, 270, 20, 30);
+
+        jLabel20.setText("M");
+        jPanel1.add(jLabel20);
+        jLabel20.setBounds(460, 270, 20, 30);
+
+        jLabel18.setText("Cantidad ");
+        jPanel1.add(jLabel18);
+        jLabel18.setBounds(440, 470, 70, 30);
+
+        PrecioLabel.setFont(new java.awt.Font("Ubuntu", 3, 18)); // NOI18N
+        PrecioLabel.setForeground(new java.awt.Color(2, 6, 24));
+        jPanel1.add(PrecioLabel);
+        PrecioLabel.setBounds(350, 470, 80, 30);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 752, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 684, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 794, Short.MAX_VALUE)
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    private void CotizarBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CotizarBtnActionPerformed
+        cantidad=(Integer)CantidadSpinner.getValue();
+        FECHA=(String) Year.getValue()+"-"+(String) Mes.getSelectedItem()+"-"+(String) Dia.getSelectedItem();
+        
+        anadirProductoPedido();
+    }//GEN-LAST:event_CotizarBtnActionPerformed
+
+    private void BuscaProductoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BuscaProductoActionPerformed
         MuestraProductos.setText("");
         BuscaProducto();
-        
-    }//GEN-LAST:event_jButton1ActionPerformed
+        //FECHA=(String) Year.getValue()+"-"+Mes.getSelectedItem().toString().trim()+"-"+Dia.getSelectedItem().toString().trim();
+    }//GEN-LAST:event_BuscaProductoActionPerformed
+
+    private void SeleccionProductoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SeleccionProductoActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_SeleccionProductoActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTextField BuscaCodigoP;
+    private javax.swing.JButton BuscaProducto;
+    private javax.swing.JSpinner CantidadSpinner;
+    private javax.swing.JTextField CodigoCliente;
+    private javax.swing.JButton CotizarBtn;
+    private javax.swing.JComboBox<String> Dia;
+    private javax.swing.JComboBox<String> Mes;
     private javax.swing.JTextArea MuestraProductos;
-    private javax.swing.JLabel TiendaActualLabel;
-    private javax.swing.JButton jButton1;
-    private javax.swing.JFormattedTextField jFormattedTextField1;
+    private javax.swing.JLabel PrecioLabel;
+    private javax.swing.JTextField SeleccionProducto;
+    private javax.swing.JLabel TiendaDestino;
+    private javax.swing.JComboBox<String> TiendaOrigen;
+    private javax.swing.JTextField Total;
+    private javax.swing.JSpinner Year;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel10;
+    private javax.swing.JLabel jLabel11;
+    private javax.swing.JLabel jLabel12;
+    private javax.swing.JLabel jLabel13;
+    private javax.swing.JLabel jLabel14;
+    private javax.swing.JLabel jLabel15;
+    private javax.swing.JLabel jLabel18;
+    private javax.swing.JLabel jLabel19;
     private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel20;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel7;
+    private javax.swing.JLabel jLabel8;
+    private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
     // End of variables declaration//GEN-END:variables
@@ -146,20 +312,31 @@ public class RealizarPedido extends javax.swing.JFrame {
         String query = "SELECT DISTINCTROW codigo_tienda_exist,codigo_producto,nombre_producto,cantidad,precio,dias_espera " +
                         "FROM productos p INNER JOIN tiempo_entre_tiendas t ON " +
                         "p.codigo_tienda_exist = t.origen AND t.destino= ? "
-                        + "AND p.codigo_producto LIKE ?";
+                        + "AND p.codigo_producto LIKE ? WHERE cantidad>0";
 
         try (PreparedStatement preSt = getConnection().prepareStatement(query)) {
 
             preSt.setString(1, CODIGOTIENDA);
             preSt.setString(2, "%" + BuscaCodigoP.getText() + "%");
             ResultSet result = preSt.executeQuery();
+            
+            
+            TiendaOrigen.removeAllItems();
 
             MuestraProductos.append("TIENDA \t PRODUCTO \t NOMBRE \t CANTIDAD \t PRECIO \t DIAS DE ENVIO"+"\n");
 
             while (result.next()) {
                 MuestraProductos.append(result.getString(1)+"\t"+result.getString(2)+"\t"+result.getString(3)+"\t"+result.getInt(4)+"\t"
                 +result.getDouble(5)+"\t    "+result.getInt(6)+"\t"+"\n");
-                
+                TiendaO.add(result.getString(1));
+                Producto.add(result.getString(2));
+                Precio.add(result.getDouble(5));
+                Cantidad.add(result.getInt(4));
+                Dias.add(result.getInt(6));
+                TiendaOrigen.addItem(result.getString(1));
+                SeleccionProducto.setText(result.getString(2));
+                PrecioLabel.setText(result.getDouble(5)+"");
+                precio=result.getDouble(5);
             }
             BuscaProducto2();
             result.close();
@@ -176,7 +353,7 @@ public class RealizarPedido extends javax.swing.JFrame {
         String query = "SELECT DISTINCTROW codigo_tienda_exist,codigo_producto,nombre_producto,cantidad,precio,dias_espera " +
                         "FROM productos p INNER JOIN tiempo_entre_tiendas t ON " +
                         "p.codigo_tienda_exist = t.destino AND t.origen= ? "
-                        + "AND p.codigo_producto LIKE ?";
+                        + "AND p.codigo_producto LIKE ? WHERE cantidad>0";
 
         try (PreparedStatement preSt = getConnection().prepareStatement(query)) {
 
@@ -188,8 +365,19 @@ public class RealizarPedido extends javax.swing.JFrame {
             while (result.next()) {
                 MuestraProductos.append(result.getString(1)+"\t"+result.getString(2)+"\t"+result.getString(3)+"\t"+result.getInt(4)+"\t"
                 +result.getDouble(5)+"\t    "+result.getInt(6)+"\t"+"\n");
+                TiendaO.add(result.getString(1));
+                Producto.add(result.getString(2));
+                Precio.add(result.getDouble(5));
+                Cantidad.add(result.getInt(4));
+                Dias.add(result.getInt(6));
+                TiendaOrigen.addItem(result.getString(1));
+                SeleccionProducto.setText(result.getString(2));
                 
+                PrecioLabel.setText(result.getDouble(5)+"");
+                precio=result.getDouble(5);
             }
+            
+            
 
             result.close();
             preSt.close();
@@ -198,9 +386,141 @@ public class RealizarPedido extends javax.swing.JFrame {
         }
         
     }
+    /**
+     * OBTENER FECHA DE ENTREGA
+     * suma los dias que tarda un producto en ser entregado a la tienda
+     * 
+     * @param fecha
+     * @param dias
+     * @return 
+     */
+     public static String sumarDiasAFecha(String fecha, int dias) {
+        if(dias == 0){
+            return fecha;
+        }
 
+        String[] f = fecha.split("-");
+        Calendar calendar = Calendar.getInstance();
+        //calendar.setTime(new Date(Integer.parseInt(f[0]), Integer.parseInt(f[1]), Integer.parseInt(f[2])));
+        calendar.set(Integer.parseInt(f[0]), Integer.parseInt(f[1])-1, Integer.parseInt(f[2]));
+        calendar.add(Calendar.DAY_OF_MONTH, dias);
+        SimpleDateFormat fe = new SimpleDateFormat("YYYY-MM-dd");
+        JOptionPane.showMessageDialog(null, calendar.getTime());
+        return fe.format(calendar.getTime());
+        
 
+    }
+     /**
+      * Agrega el producto a la lista de pedidos
+      */
+    private void anadirProductoPedido() {
+        
+        
+        for(int m=0;m<TiendaO.size();m++){
+          
+            if(TiendaO.get(m).contains(TiendaOrigen.getSelectedItem().toString()) 
+                    &&Cantidad.get(m)>=cantidad){
+                
+                
+                int CantActual=Cantidad.get(m)-cantidad;
+                total=cantidad*precio;
+                Total.setText(total+"");
+                
+                ActualizaInventarioOrigen(TiendaOrigen.getSelectedItem().toString(),SeleccionProducto.getText(),CantActual);
+                
+                
+                analizaPedido();
+                
 
+                JOptionPane.showMessageDialog(null, " Se ha agregado el produco a la lista de pedido\n"
+                +"Con un total a pagar de: "+(Cantidad.get(m)+cantidad   ));
+            }else if(TiendaO.get(m).contains(TiendaOrigen.getSelectedItem().toString().trim())
+                    &&Cantidad.get(m)<cantidad){
+                
+                
+                JOptionPane.showMessageDialog(null, " La cantidad seleccionada sobrepasa el inventario"+(Cantidad.get(m)+cantidad   ));
+            }
+             
+        }
+ 
+    }
+    /**
+     * Actualiza el inventario de la tienda de origen donde se pidio el producto
+     * @param Origen
+     * @param producto
+     * @param CANTactual 
+     */
+    private void ActualizaInventarioOrigen(String Origen, String producto, int CANTactual) {
+        
+        
+        String query = "UPDATE productos SET cantidad = ? WHERE codigo_tienda_exist = ? "
+                + "AND codigo_producto= ?";
+        
+        
+        try (PreparedStatement preSt = getConnection().prepareStatement(query)) {
+            
+            preSt.setInt(1, CANTactual);
+            preSt.setString(2, Origen);
+            preSt.setString(3, producto );
+
+            preSt.executeUpdate();
+            
+
+            preSt.close();
+        } catch (SQLException e) {
+            System.out.println("Error: " + e.getMessage());
+        }
+        
+       
+        
+    }
+    /**
+     * Verifica la existencia de productos y la cantidad disponible
+     */
+    private void analizaPedido() {
+//select  max(codigo_pedido)
+//from pedido 
+//group by codigo_pedido  ORDER BY codigo_pedido DESC;
+        String query="SELECT * FROM pedido";
+        
+        try (PreparedStatement preSt = getConnection().prepareStatement(query)) {
+
+            ResultSet result = preSt.executeQuery();
+
+            while (result.next()) {
+                ArrayPedido.add(result.getInt(1));
+            }
+            result.close();
+            preSt.close();
+        } catch (SQLException e) {
+            System.out.println("Error: " + e.getMessage());
+        }
+        pedido();
+        NIT.add(CodigoCliente.getText());
+        
+    }
+
+    private void pedido() {
+       MAX=Collections.max(ArrayPedido);
+       CodigoCliente.getText();
+       if(NIT.contains(CodigoCliente.getText())   ){
+           
+           
+//           String fecha,codCliente,codProducto,origen;
+//    int cantidad,MAX;
+//    double total,anticipo,precio;
+//    String FECHA;
+//           
+           
+           
+           
+           AgregaPedido(MAX, origen, CODIGOTIENDA,FECHA, CodigoCliente.getText(),codProducto,cantidad,total,0);
+           
+       }else{
+          MAX+=1;
+          AgregaPedido(MAX, origen, CODIGOTIENDA,FECHA, CodigoCliente.getText(),codProducto,cantidad,total,0);
+       }
+    }
 
 
 }

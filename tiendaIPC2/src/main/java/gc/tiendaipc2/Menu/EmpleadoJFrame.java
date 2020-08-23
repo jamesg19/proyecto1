@@ -19,6 +19,7 @@ import gc.tiendaipc2.FRAME.NuevaInformacion.tiempoTiendas;
 public class EmpleadoJFrame extends javax.swing.JFrame {
     String empleado,CODIGOTIENDA;
     Nueva_Tienda nuevatienda=new Nueva_Tienda();
+    RealizarPedido pedido =new RealizarPedido(CODIGOTIENDA);
 
     public EmpleadoJFrame(String CODIGOTIENDA, String empleado) {
         initComponents();
@@ -204,7 +205,7 @@ public class EmpleadoJFrame extends javax.swing.JFrame {
     }//GEN-LAST:event_CrearUsuariosActionPerformed
 
     private void PedidoBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_PedidoBtnActionPerformed
-        RealizarPedido pedido =new RealizarPedido(CODIGOTIENDA);
+        
         pedido.setVisible(true);
     }//GEN-LAST:event_PedidoBtnActionPerformed
     // Variables declaration - do not modify//GEN-BEGIN:variables
