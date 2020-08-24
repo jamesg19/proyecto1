@@ -15,10 +15,10 @@ import javax.swing.filechooser.FileNameExtensionFilter;
  * @author james
  */
 public class CargaArchivo extends javax.swing.JFrame {
-//    public static final String USERNAME="root";
-//    public static final String PASSWORD="Guatemala13.";
+    public static final String USERNAME="root";
+    public static final String PASSWORD="Guatemala13.";
 //    public static final String URL="jdbc:mysql://localhost:3306/prueba2";
-//    public static final String URL="jdbc:mysql://localhost:3306/prueba2?useTimezona=true&serverTimezone=CST";
+    public static final String URL="jdbc:mysql://localhost:3306/prueba2?useTimezona=true&serverTimezone=CST";
 //    arraylist para la comprobacion de datos ingresados
     ArrayList<String> datoIncorrecto = new ArrayList<>();
     ArrayList<String> ArraycodT = new ArrayList<>();

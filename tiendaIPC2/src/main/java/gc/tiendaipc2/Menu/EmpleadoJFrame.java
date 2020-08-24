@@ -6,6 +6,7 @@
 package gc.tiendaipc2.Menu;
 
 
+import Ventas.EntregaPedido;
 import Ventas.RealizarPedido;
 import Ventas.Vender;
 import gc.tiendaipc2.FRAME.NuevaInformacion.AgregaProducto;
@@ -19,7 +20,7 @@ import gc.tiendaipc2.FRAME.NuevaInformacion.tiempoTiendas;
 public class EmpleadoJFrame extends javax.swing.JFrame {
     String empleado,CODIGOTIENDA;
     Nueva_Tienda nuevatienda=new Nueva_Tienda();
-    RealizarPedido pedido =new RealizarPedido(CODIGOTIENDA);
+    
 
     public EmpleadoJFrame(String CODIGOTIENDA, String empleado) {
         initComponents();
@@ -27,6 +28,7 @@ public class EmpleadoJFrame extends javax.swing.JFrame {
         this.CODIGOTIENDA=CODIGOTIENDA;
         UsuarioLabel.setText(empleado);
         TiendaLabel.setText(CODIGOTIENDA);
+        
     }
 
     @SuppressWarnings("unchecked")
@@ -90,6 +92,11 @@ public class EmpleadoJFrame extends javax.swing.JFrame {
         Vender.setBounds(430, 240, 154, 38);
 
         jButton4.setText("Entrega de pedido");
+        jButton4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton4ActionPerformed(evt);
+            }
+        });
         jPanel1.add(jButton4);
         jButton4.setBounds(430, 340, 154, 38);
 
@@ -118,7 +125,7 @@ public class EmpleadoJFrame extends javax.swing.JFrame {
             }
         });
         jPanel1.add(CrearUsuarios);
-        CrearUsuarios.setBounds(40, 400, 194, 38);
+        CrearUsuarios.setBounds(40, 390, 194, 38);
 
         jLabel2.setFont(new java.awt.Font("Ubuntu", 3, 16)); // NOI18N
         jLabel2.setText("Registro de nueva informacion");
@@ -153,7 +160,7 @@ public class EmpleadoJFrame extends javax.swing.JFrame {
 
         jButton2.setText("Agrega  Producto");
         jPanel1.add(jButton2);
-        jButton2.setBounds(260, 340, 150, 40);
+        jButton2.setBounds(260, 390, 150, 40);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -205,9 +212,16 @@ public class EmpleadoJFrame extends javax.swing.JFrame {
     }//GEN-LAST:event_CrearUsuariosActionPerformed
 
     private void PedidoBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_PedidoBtnActionPerformed
-        
+        RealizarPedido pedido =new RealizarPedido(CODIGOTIENDA);
         pedido.setVisible(true);
     }//GEN-LAST:event_PedidoBtnActionPerformed
+
+    private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
+        // TODO add your handling code here:
+        EntregaPedido entrega=new EntregaPedido(CODIGOTIENDA);
+        entrega.setVisible(true);
+    }//GEN-LAST:event_jButton4ActionPerformed
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton AgregarNuevosProductos;
     private javax.swing.JButton AgregarTienda;
