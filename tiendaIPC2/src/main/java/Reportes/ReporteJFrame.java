@@ -57,6 +57,11 @@ public class ReporteJFrame extends javax.swing.JFrame {
         });
 
         Reporte2.setText("Reporte 2");
+        Reporte2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                Reporte2ActionPerformed(evt);
+            }
+        });
 
         Reporte3.setText("Reporte 3");
 
@@ -115,10 +120,14 @@ public class ReporteJFrame extends javax.swing.JFrame {
         // TODO add your handling code here:
         Reporte1 repo1=new Reporte1(this,true,CODIGOTIENDA);
         repo1.setVisible(true);
-        
-        
-        
+   
     }//GEN-LAST:event_Reporte1ActionPerformed
+
+    private void Reporte2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Reporte2ActionPerformed
+        // TODO add your handling code here:
+        Reporte2 repo2=new Reporte2(CODIGOTIENDA);
+        repo2.setVisible(true);
+    }//GEN-LAST:event_Reporte2ActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel MuestraTienda;

@@ -40,8 +40,8 @@ public class EmpleadoJFrame extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
         AgregarTienda = new javax.swing.JButton();
         AgregarNuevosProductos = new javax.swing.JButton();
-        Vender = new javax.swing.JButton();
-        jButton4 = new javax.swing.JButton();
+        VenderBtn = new javax.swing.JButton();
+        EntregaBtn = new javax.swing.JButton();
         TiempoEntreTiendas = new javax.swing.JButton();
         PedidoBtn = new javax.swing.JButton();
         CrearUsuarios = new javax.swing.JButton();
@@ -51,7 +51,7 @@ public class EmpleadoJFrame extends javax.swing.JFrame {
         UsuarioLabel = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
         TiendaLabel = new javax.swing.JLabel();
-        jButton1 = new javax.swing.JButton();
+        ReporteBtn = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -83,23 +83,23 @@ public class EmpleadoJFrame extends javax.swing.JFrame {
         jPanel1.add(AgregarNuevosProductos);
         AgregarNuevosProductos.setBounds(40, 340, 194, 42);
 
-        Vender.setText("Vender");
-        Vender.addActionListener(new java.awt.event.ActionListener() {
+        VenderBtn.setText("Vender");
+        VenderBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                VenderActionPerformed(evt);
+                VenderBtnActionPerformed(evt);
             }
         });
-        jPanel1.add(Vender);
-        Vender.setBounds(430, 240, 154, 38);
+        jPanel1.add(VenderBtn);
+        VenderBtn.setBounds(430, 240, 154, 38);
 
-        jButton4.setText("Entrega de pedido");
-        jButton4.addActionListener(new java.awt.event.ActionListener() {
+        EntregaBtn.setText("Entrega de pedido");
+        EntregaBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton4ActionPerformed(evt);
+                EntregaBtnActionPerformed(evt);
             }
         });
-        jPanel1.add(jButton4);
-        jButton4.setBounds(430, 340, 154, 38);
+        jPanel1.add(EntregaBtn);
+        EntregaBtn.setBounds(430, 340, 154, 38);
 
         TiempoEntreTiendas.setText("Tiempo entre tiendas");
         TiempoEntreTiendas.addActionListener(new java.awt.event.ActionListener() {
@@ -155,14 +155,14 @@ public class EmpleadoJFrame extends javax.swing.JFrame {
         jPanel1.add(TiendaLabel);
         TiendaLabel.setBounds(124, 128, 241, 29);
 
-        jButton1.setText("Reportes");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        ReporteBtn.setText("Reportes");
+        ReporteBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                ReporteBtnActionPerformed(evt);
             }
         });
-        jPanel1.add(jButton1);
-        jButton1.setBounds(430, 390, 160, 40);
+        jPanel1.add(ReporteBtn);
+        ReporteBtn.setBounds(430, 390, 160, 40);
 
         jButton2.setText("Agrega  Producto");
         jPanel1.add(jButton2);
@@ -193,11 +193,11 @@ public class EmpleadoJFrame extends javax.swing.JFrame {
         tiempo.setVisible(true);
     }//GEN-LAST:event_TiempoEntreTiendasActionPerformed
 
-    private void VenderActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_VenderActionPerformed
+    private void VenderBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_VenderBtnActionPerformed
         // TODO add your handling code here:
         Vender venta=new Vender(CODIGOTIENDA);
         venta.setVisible(true);
-    }//GEN-LAST:event_VenderActionPerformed
+    }//GEN-LAST:event_VenderBtnActionPerformed
 
     private void salirBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_salirBtnActionPerformed
         // TODO add your handling code here:
@@ -218,35 +218,34 @@ public class EmpleadoJFrame extends javax.swing.JFrame {
     }//GEN-LAST:event_CrearUsuariosActionPerformed
 
     private void PedidoBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_PedidoBtnActionPerformed
-        RealizarPedido pedido =new RealizarPedido(CODIGOTIENDA);
-        pedido.setVisible(true);
+
     }//GEN-LAST:event_PedidoBtnActionPerformed
 
-    private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
+    private void EntregaBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_EntregaBtnActionPerformed
         // TODO add your handling code here:
         EntregaPedido entrega=new EntregaPedido(CODIGOTIENDA);
         entrega.setVisible(true);
-    }//GEN-LAST:event_jButton4ActionPerformed
+    }//GEN-LAST:event_EntregaBtnActionPerformed
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    private void ReporteBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ReporteBtnActionPerformed
         // TODO add your handling code here:
         ReporteJFrame reportes=new ReporteJFrame(CODIGOTIENDA);
         
         reportes.setVisible(true);
-    }//GEN-LAST:event_jButton1ActionPerformed
+    }//GEN-LAST:event_ReporteBtnActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton AgregarNuevosProductos;
     private javax.swing.JButton AgregarTienda;
     private javax.swing.JButton CrearUsuarios;
+    private javax.swing.JButton EntregaBtn;
     private javax.swing.JButton PedidoBtn;
+    private javax.swing.JButton ReporteBtn;
     private javax.swing.JButton TiempoEntreTiendas;
     private javax.swing.JLabel TiendaLabel;
     private javax.swing.JLabel UsuarioLabel;
-    private javax.swing.JButton Vender;
-    private javax.swing.JButton jButton1;
+    private javax.swing.JButton VenderBtn;
     private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton4;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
