@@ -6,6 +6,7 @@
 package gc.tiendaipc2.Menu;
 
 
+import Reportes.ReporteJFrame;
 import Ventas.EntregaPedido;
 import Ventas.RealizarPedido;
 import Ventas.Vender;
@@ -155,12 +156,17 @@ public class EmpleadoJFrame extends javax.swing.JFrame {
         TiendaLabel.setBounds(124, 128, 241, 29);
 
         jButton1.setText("Reportes");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
         jPanel1.add(jButton1);
         jButton1.setBounds(430, 390, 160, 40);
 
         jButton2.setText("Agrega  Producto");
         jPanel1.add(jButton2);
-        jButton2.setBounds(260, 390, 150, 40);
+        jButton2.setBounds(250, 340, 150, 40);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -221,6 +227,13 @@ public class EmpleadoJFrame extends javax.swing.JFrame {
         EntregaPedido entrega=new EntregaPedido(CODIGOTIENDA);
         entrega.setVisible(true);
     }//GEN-LAST:event_jButton4ActionPerformed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        // TODO add your handling code here:
+        ReporteJFrame reportes=new ReporteJFrame(CODIGOTIENDA);
+        
+        reportes.setVisible(true);
+    }//GEN-LAST:event_jButton1ActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton AgregarNuevosProductos;
