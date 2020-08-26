@@ -339,7 +339,7 @@ public class MENU extends javax.swing.JFrame {
     private void loginCliente(String id,String cod_tienda) {
         
         if(ArrayCliente.contains(id)&& tienda.contains(cod_tienda)){
-        ClienteJFrame menucliente=new ClienteJFrame(cod_tienda);
+        ClienteApp menucliente=new ClienteApp(cod_tienda);
         menucliente.setVisible(true);
         setVisible(false);  
             

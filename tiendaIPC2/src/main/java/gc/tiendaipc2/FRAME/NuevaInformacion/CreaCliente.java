@@ -3,32 +3,29 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package EditarInformacion;
+package gc.tiendaipc2.FRAME.NuevaInformacion;
 
 
 import static ConexionMySQL.Conexion.getConnection;
-import static gc.tiendaipc2.FRAME.NuevaInformacion.CargaArchivo.AgregaTienda;
-import static gc.tiendaipc2.FRAME.NuevaInformacion.CargaArchivo.AgregaTiempo;
+import javax.swing.JOptionPane;
+import static gc.tiendaipc2.FRAME.NuevaInformacion.CargaArchivo.AgregaCliente;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.util.ArrayList;
-import javax.swing.JOptionPane;
 
 /**
  *
  * @author james
  */
-public class EditaCliente extends javax.swing.JFrame {
+public class CreaCliente extends javax.swing.JFrame {
     
     /**
      * Creates new form Nueva_Tienda
      */
-    public EditaCliente() {
+    public CreaCliente() {
         initComponents();
         ObtenerCliente();
-        
-        
+ 
     }
 
     @SuppressWarnings("unchecked")
@@ -58,9 +55,9 @@ public class EditaCliente extends javax.swing.JFrame {
         jScrollPane1 = new javax.swing.JScrollPane();
         MuestraDatos = new javax.swing.JTextArea();
         jLabel13 = new javax.swing.JLabel();
-        nitCliente = new javax.swing.JComboBox<>();
         Credito = new javax.swing.JTextField();
         jLabel14 = new javax.swing.JLabel();
+        nitCliente = new javax.swing.JTextField();
 
         jTextField1.setText("jTextField1");
 
@@ -69,7 +66,7 @@ public class EditaCliente extends javax.swing.JFrame {
         jPanel1.setBackground(new java.awt.Color(69, 196, 151));
 
         jLabel1.setFont(new java.awt.Font("Ubuntu Light", 3, 24)); // NOI18N
-        jLabel1.setText("Edita Cliente");
+        jLabel1.setText("Crear Cliente");
 
         jLabel2.setText("NIT cliente");
 
@@ -125,12 +122,6 @@ public class EditaCliente extends javax.swing.JFrame {
         jLabel13.setFont(new java.awt.Font("Ubuntu Mono", 2, 18)); // NOI18N
         jLabel13.setText("Lista de todos los clientes de las tiendas");
 
-        nitCliente.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                nitClienteActionPerformed(evt);
-            }
-        });
-
         jLabel14.setText("Credito compra");
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
@@ -143,7 +134,8 @@ public class EditaCliente extends javax.swing.JFrame {
                         .addContainerGap()
                         .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 93, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(211, 211, 211)
-                        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 221, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 221, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(0, 0, Short.MAX_VALUE))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(21, 21, 21)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -173,13 +165,12 @@ public class EditaCliente extends javax.swing.JFrame {
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                                     .addComponent(emailField, javax.swing.GroupLayout.DEFAULT_SIZE, 169, Short.MAX_VALUE)
-                                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                        .addComponent(Credito)
-                                        .addComponent(jButton1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                        .addComponent(NombreCliente)
-                                        .addComponent(Telefono)
-                                        .addComponent(DPI)
-                                        .addComponent(nitCliente, javax.swing.GroupLayout.Alignment.TRAILING, 0, 169, Short.MAX_VALUE)))
+                                    .addComponent(Credito)
+                                    .addComponent(jButton1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(NombreCliente)
+                                    .addComponent(Telefono)
+                                    .addComponent(DPI)
+                                    .addComponent(nitCliente))
                                 .addGap(0, 0, Short.MAX_VALUE)))
                         .addGap(18, 18, 18)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -206,11 +197,15 @@ public class EditaCliente extends javax.swing.JFrame {
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jButton2)
                             .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(20, 20, 20)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel7)
-                            .addComponent(nitCliente, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addGap(22, 22, 22)
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                    .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jLabel7)))
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(nitCliente, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -265,8 +260,9 @@ public class EditaCliente extends javax.swing.JFrame {
     }//GEN-LAST:event_TelefonoActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-
-        compruebaIngreso();
+        
+        anadeCliente();
+        ObtenerCliente();
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
@@ -276,7 +272,7 @@ public class EditaCliente extends javax.swing.JFrame {
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
         // TODO add your handling code here:
-        
+        nitCliente.setText("");
         NombreCliente.setText("");
         Telefono.setText("");
         DPI.setText("");
@@ -285,10 +281,6 @@ public class EditaCliente extends javax.swing.JFrame {
         Direccion.setText("");
         
     }//GEN-LAST:event_jButton3ActionPerformed
-
-    private void nitClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nitClienteActionPerformed
-
-    }//GEN-LAST:event_nitClienteActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTextField Credito;
@@ -316,27 +308,40 @@ public class EditaCliente extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTextField jTextField1;
-    private javax.swing.JComboBox<String> nitCliente;
+    private javax.swing.JTextField nitCliente;
     // End of variables declaration//GEN-END:variables
     /**
-     * Comprueba el ingreso de datos obligatorios en el sistema
+     * Comprueba el ingreso de datos en formato correcto
      */
-    private void compruebaIngreso() {
+    public void compruebaIngreso() {
         
-        if(nitCliente.getSelectedItem().toString().length()>1&&NombreCliente.getText().length()>1
-                &&Telefono.getText().length()>=8){
+        try{
+            double cred=Double.parseDouble(Credito.getText());
+            AgregaCliente(NombreCliente.getText(),nitCliente.getText(),Telefono.getText(),cred, 
+            DPI.getText(),emailField.getText(),Direccion.getText());
+  
+        }catch(NumberFormatException e){
+            JOptionPane.showMessageDialog(null, "Ingresa un numero valido");
+        }
+
+    }
+    /**
+     * verifica que todos los campos este llenos y agrega el cliente
+     */
+    public void anadeCliente(){
+        if(nitCliente.getText().length()>2&&NombreCliente.getText().length()>1
+        &&Telefono.getText().length()>=8){
             
-            ActualizaCliente();
-            
+            compruebaIngreso();
+
         }else{
             JOptionPane.showMessageDialog(null,"Ingresa los campos obligatorios *");  
         }
     }
-
-        /**
-         * metodo para obtener una cliente
-         */
-        private void ObtenerCliente() {
+    
+    
+    
+            private void ObtenerCliente() {
         
         String query = "SELECT * FROM clientes";
 
@@ -346,7 +351,7 @@ public class EditaCliente extends javax.swing.JFrame {
             MuestraDatos.append("Nombre   \t  NIT  \t Telefono  \t Credito   \t    DPI    \t   Email   \t Direccion \n");
             while (result.next()) {
                 
-                nitCliente.addItem(result.getString(2));
+                
                 MuestraDatos.append(result.getString(1)+"  \t"+result.getString(2)+"\t"+result.getString(3)+"\t"+result.getDouble(4)+"\t"
                 +result.getString(5)+"\t "+result.getString(6)+"\t "+result.getString(7)+"\n");
             }
@@ -359,36 +364,6 @@ public class EditaCliente extends javax.swing.JFrame {
         
 
     }
-
-        //UPDATE tiempo_entre_tiendas SET dias_espera = ? WHERE origen = ? AND destino= ?
-    
-        private void ActualizaCliente() {
-     
-        String query = "UPDATE clientes SET nombre_cliente = ?, telefono=?,credito_cliente = ?, dpi_cliente = ?, email_cliente = ?, direccion = ? WHERE nit_cliente = ? ";
-        
-        
-        
-
-        try (PreparedStatement preSt = getConnection().prepareStatement(query)) {
-
-            preSt.setString(1, NombreCliente.getText());
-            preSt.setString(2, Telefono.getText());
-            preSt.setString(3, Credito.getText());
-            preSt.setString(4, DPI.getText());
-            preSt.setString(5, emailField.getText());
-            preSt.setString(6, Direccion.getText());
-            preSt.setString(7, nitCliente.getSelectedItem().toString());
-
-            preSt.executeUpdate();
-
-            JOptionPane.showMessageDialog(null, "DATOS DEL CLIENTE ACTUALIZADOS");
-
-           preSt.close(); 
-        } catch (SQLException e) {
-                    System.out.println("No se pudo actualizar \n "+e);
-        }
-        MuestraDatos.setText("");
-        ObtenerCliente();
-    }
+ 
 }
 
