@@ -6,6 +6,9 @@
 package gc.tiendaipc2.Menu;
 
 
+import EditarInformacion.EditaCliente;
+import EditarInformacion.EditaTienda;
+import EditarInformacion.EditaEmpleado;
 import Reportes.ReporteJFrame;
 import Ventas.EntregaPedido;
 import Ventas.RealizarPedido;
@@ -43,7 +46,7 @@ public class EmpleadoJFrame extends javax.swing.JFrame {
         VenderBtn = new javax.swing.JButton();
         EntregaBtn = new javax.swing.JButton();
         TiempoEntreTiendas = new javax.swing.JButton();
-        PedidoBtn = new javax.swing.JButton();
+        RealizaPedidoBtn = new javax.swing.JButton();
         CrearUsuarios = new javax.swing.JButton();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
@@ -52,17 +55,21 @@ public class EmpleadoJFrame extends javax.swing.JFrame {
         jLabel4 = new javax.swing.JLabel();
         TiendaLabel = new javax.swing.JLabel();
         ReporteBtn = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
+        AnadeProducto = new javax.swing.JButton();
+        EditaTienda = new javax.swing.JButton();
+        EditaEmpleado = new javax.swing.JButton();
+        jLabel5 = new javax.swing.JLabel();
+        jButton1 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jPanel1.setBackground(new java.awt.Color(120, 152, 184));
+        jPanel1.setBackground(new java.awt.Color(69, 198, 164));
         jPanel1.setLayout(null);
 
         jLabel1.setFont(new java.awt.Font("Ubuntu", 3, 24)); // NOI18N
         jLabel1.setText("Menu Empleado");
         jPanel1.add(jLabel1);
-        jLabel1.setBounds(255, 27, 216, 51);
+        jLabel1.setBounds(290, 30, 216, 51);
 
         AgregarTienda.setText("Agregar nueva tienda");
         AgregarTienda.addActionListener(new java.awt.event.ActionListener() {
@@ -71,7 +78,7 @@ public class EmpleadoJFrame extends javax.swing.JFrame {
             }
         });
         jPanel1.add(AgregarTienda);
-        AgregarTienda.setBounds(40, 240, 194, 36);
+        AgregarTienda.setBounds(40, 240, 210, 36);
 
         AgregarNuevosProductos.setFont(new java.awt.Font("Ubuntu", 0, 14)); // NOI18N
         AgregarNuevosProductos.setText("Nuevo Producto");
@@ -81,7 +88,7 @@ public class EmpleadoJFrame extends javax.swing.JFrame {
             }
         });
         jPanel1.add(AgregarNuevosProductos);
-        AgregarNuevosProductos.setBounds(40, 340, 194, 42);
+        AgregarNuevosProductos.setBounds(40, 340, 210, 42);
 
         VenderBtn.setText("Vender");
         VenderBtn.addActionListener(new java.awt.event.ActionListener() {
@@ -90,7 +97,7 @@ public class EmpleadoJFrame extends javax.swing.JFrame {
             }
         });
         jPanel1.add(VenderBtn);
-        VenderBtn.setBounds(430, 240, 154, 38);
+        VenderBtn.setBounds(530, 240, 180, 38);
 
         EntregaBtn.setText("Entrega de pedido");
         EntregaBtn.addActionListener(new java.awt.event.ActionListener() {
@@ -99,7 +106,7 @@ public class EmpleadoJFrame extends javax.swing.JFrame {
             }
         });
         jPanel1.add(EntregaBtn);
-        EntregaBtn.setBounds(430, 340, 154, 38);
+        EntregaBtn.setBounds(530, 340, 180, 38);
 
         TiempoEntreTiendas.setText("Tiempo entre tiendas");
         TiempoEntreTiendas.addActionListener(new java.awt.event.ActionListener() {
@@ -108,16 +115,16 @@ public class EmpleadoJFrame extends javax.swing.JFrame {
             }
         });
         jPanel1.add(TiempoEntreTiendas);
-        TiempoEntreTiendas.setBounds(40, 290, 194, 37);
+        TiempoEntreTiendas.setBounds(40, 290, 210, 37);
 
-        PedidoBtn.setText("Realizar pedido");
-        PedidoBtn.addActionListener(new java.awt.event.ActionListener() {
+        RealizaPedidoBtn.setText("Realizar pedido");
+        RealizaPedidoBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                PedidoBtnActionPerformed(evt);
+                RealizaPedidoBtnActionPerformed(evt);
             }
         });
-        jPanel1.add(PedidoBtn);
-        PedidoBtn.setBounds(430, 290, 154, 40);
+        jPanel1.add(RealizaPedidoBtn);
+        RealizaPedidoBtn.setBounds(530, 290, 180, 40);
 
         CrearUsuarios.setText("Crear usuarios");
         CrearUsuarios.addActionListener(new java.awt.event.ActionListener() {
@@ -126,12 +133,12 @@ public class EmpleadoJFrame extends javax.swing.JFrame {
             }
         });
         jPanel1.add(CrearUsuarios);
-        CrearUsuarios.setBounds(40, 390, 194, 38);
+        CrearUsuarios.setBounds(40, 390, 210, 38);
 
         jLabel2.setFont(new java.awt.Font("Ubuntu", 3, 16)); // NOI18N
-        jLabel2.setText("Registro de nueva informacion");
+        jLabel2.setText("Ver y editar informacion");
         jPanel1.add(jLabel2);
-        jLabel2.setBounds(30, 190, 270, 44);
+        jLabel2.setBounds(290, 190, 210, 44);
 
         jLabel3.setText("Usuario:");
         jPanel1.add(jLabel3);
@@ -162,17 +169,49 @@ public class EmpleadoJFrame extends javax.swing.JFrame {
             }
         });
         jPanel1.add(ReporteBtn);
-        ReporteBtn.setBounds(430, 390, 160, 40);
+        ReporteBtn.setBounds(530, 390, 180, 40);
 
-        jButton2.setText("Agrega  Producto");
-        jPanel1.add(jButton2);
-        jButton2.setBounds(250, 340, 150, 40);
+        AnadeProducto.setText("Agrega  Producto");
+        jPanel1.add(AnadeProducto);
+        AnadeProducto.setBounds(310, 390, 170, 40);
+
+        EditaTienda.setText("Tienda");
+        EditaTienda.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                EditaTiendaActionPerformed(evt);
+            }
+        });
+        jPanel1.add(EditaTienda);
+        EditaTienda.setBounds(310, 240, 170, 40);
+
+        EditaEmpleado.setText("Empleado");
+        EditaEmpleado.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                EditaEmpleadoActionPerformed(evt);
+            }
+        });
+        jPanel1.add(EditaEmpleado);
+        EditaEmpleado.setBounds(310, 290, 170, 40);
+
+        jLabel5.setFont(new java.awt.Font("Ubuntu", 3, 16)); // NOI18N
+        jLabel5.setText("Registro de nueva informacion");
+        jPanel1.add(jLabel5);
+        jLabel5.setBounds(20, 190, 250, 44);
+
+        jButton1.setText("Cliente");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
+        jPanel1.add(jButton1);
+        jButton1.setBounds(310, 340, 170, 40);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 704, Short.MAX_VALUE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 752, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -217,9 +256,10 @@ public class EmpleadoJFrame extends javax.swing.JFrame {
 
     }//GEN-LAST:event_CrearUsuariosActionPerformed
 
-    private void PedidoBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_PedidoBtnActionPerformed
-
-    }//GEN-LAST:event_PedidoBtnActionPerformed
+    private void RealizaPedidoBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RealizaPedidoBtnActionPerformed
+        RealizarPedido pedido=new RealizarPedido(CODIGOTIENDA);
+        pedido.setVisible(true);
+    }//GEN-LAST:event_RealizaPedidoBtnActionPerformed
 
     private void EntregaBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_EntregaBtnActionPerformed
         // TODO add your handling code here:
@@ -234,22 +274,46 @@ public class EmpleadoJFrame extends javax.swing.JFrame {
         reportes.setVisible(true);
     }//GEN-LAST:event_ReporteBtnActionPerformed
 
+    private void EditaTiendaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_EditaTiendaActionPerformed
+        // TODO add your handling code here:
+        EditaTienda editaEmpleado=new EditaTienda();
+        editaEmpleado.setVisible(true);
+    }//GEN-LAST:event_EditaTiendaActionPerformed
+
+    private void EditaEmpleadoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_EditaEmpleadoActionPerformed
+
+        
+        EditaEmpleado editatienda=new EditaEmpleado();
+        editatienda.setVisible(true);
+        
+    }//GEN-LAST:event_EditaEmpleadoActionPerformed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        // TODO add your handling code here:
+        EditaCliente editCliente=new EditaCliente();
+        editCliente.setVisible(true);
+    }//GEN-LAST:event_jButton1ActionPerformed
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton AgregarNuevosProductos;
     private javax.swing.JButton AgregarTienda;
+    private javax.swing.JButton AnadeProducto;
     private javax.swing.JButton CrearUsuarios;
+    private javax.swing.JButton EditaEmpleado;
+    private javax.swing.JButton EditaTienda;
     private javax.swing.JButton EntregaBtn;
-    private javax.swing.JButton PedidoBtn;
+    private javax.swing.JButton RealizaPedidoBtn;
     private javax.swing.JButton ReporteBtn;
     private javax.swing.JButton TiempoEntreTiendas;
     private javax.swing.JLabel TiendaLabel;
     private javax.swing.JLabel UsuarioLabel;
     private javax.swing.JButton VenderBtn;
-    private javax.swing.JButton jButton2;
+    private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JButton salirBtn;
     // End of variables declaration//GEN-END:variables

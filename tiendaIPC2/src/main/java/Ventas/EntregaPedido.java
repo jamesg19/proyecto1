@@ -260,7 +260,7 @@ public class EntregaPedido extends javax.swing.JFrame {
             preSt.close();
 
         } catch (SQLException e) {
-            System.out.println("Error:" + e.getMessage());
+            JOptionPane.showMessageDialog(this, "El NIT que has ingresado no existe en la Base de datos");
         }
 
         //buscar2();
@@ -456,7 +456,7 @@ public class EntregaPedido extends javax.swing.JFrame {
         for(int j=0;j<productoN.size();j++){
 
    
-        String query = "INSERT INTO ventas VALUES (?,?,?,?,?,?,?)";
+        String query = "INSERT INTO ventas VALUES (?,?,?,?,?,?,?,?)";
 
         try (PreparedStatement preSt = getConnection().prepareStatement(query)) {
 
@@ -467,6 +467,7 @@ public class EntregaPedido extends javax.swing.JFrame {
             preSt.setInt(5, cantidadN.get(j));
             preSt.setDouble(6, (totalN.get(j)/ cantidadN.get(j)));
             preSt.setDouble(7, totalN.get(j));
+            preSt.setString(7, FECHA);
             
             preSt.executeUpdate();
             
