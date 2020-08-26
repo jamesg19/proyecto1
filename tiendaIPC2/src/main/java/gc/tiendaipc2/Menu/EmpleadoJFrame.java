@@ -9,6 +9,7 @@ package gc.tiendaipc2.Menu;
 import EditarInformacion.EditaCliente;
 import EditarInformacion.EditaTienda;
 import EditarInformacion.EditaEmpleado;
+import EditarInformacion.EditaProducto;
 import Reportes.ReporteJFrame;
 import Ventas.EntregaPedido;
 import Ventas.RealizarPedido;
@@ -48,7 +49,6 @@ public class EmpleadoJFrame extends javax.swing.JFrame {
         EntregaBtn = new javax.swing.JButton();
         TiempoEntreTiendas = new javax.swing.JButton();
         RealizaPedidoBtn = new javax.swing.JButton();
-        CrearUsuarios = new javax.swing.JButton();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         salirBtn = new javax.swing.JButton();
@@ -129,15 +129,6 @@ public class EmpleadoJFrame extends javax.swing.JFrame {
         });
         jPanel1.add(RealizaPedidoBtn);
         RealizaPedidoBtn.setBounds(610, 290, 180, 40);
-
-        CrearUsuarios.setText("Crear Cliente");
-        CrearUsuarios.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                CrearUsuariosActionPerformed(evt);
-            }
-        });
-        jPanel1.add(CrearUsuarios);
-        CrearUsuarios.setBounds(40, 390, 210, 38);
 
         jLabel2.setFont(new java.awt.Font("Ubuntu", 3, 16)); // NOI18N
         jLabel2.setText("Actividades de la tienda");
@@ -223,7 +214,7 @@ public class EmpleadoJFrame extends javax.swing.JFrame {
             }
         });
         jPanel1.add(jButton2);
-        jButton2.setBounds(40, 440, 210, 40);
+        jButton2.setBounds(40, 390, 210, 40);
 
         jButton3.setText("Crear Cliente");
         jButton3.addActionListener(new java.awt.event.ActionListener() {
@@ -232,7 +223,7 @@ public class EmpleadoJFrame extends javax.swing.JFrame {
             }
         });
         jPanel1.add(jButton3);
-        jButton3.setBounds(40, 490, 210, 40);
+        jButton3.setBounds(40, 440, 210, 40);
 
         jLabel6.setFont(new java.awt.Font("Ubuntu", 3, 16)); // NOI18N
         jLabel6.setText("Ver y editar informacion");
@@ -284,10 +275,6 @@ public class EmpleadoJFrame extends javax.swing.JFrame {
         nuevo_producto.setVisible(true);
     }//GEN-LAST:event_AgregarNuevosProductosActionPerformed
 
-    private void CrearUsuariosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CrearUsuariosActionPerformed
-
-    }//GEN-LAST:event_CrearUsuariosActionPerformed
-
     private void RealizaPedidoBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RealizaPedidoBtnActionPerformed
         RealizarPedido pedido=new RealizarPedido(CODIGOTIENDA);
         pedido.setVisible(true);
@@ -328,6 +315,8 @@ public class EmpleadoJFrame extends javax.swing.JFrame {
 
     private void AnadeProductoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AnadeProductoActionPerformed
         // TODO add your handling code here:
+        EditaProducto pro=new EditaProducto();
+        pro.setVisible(true);
     }//GEN-LAST:event_AnadeProductoActionPerformed
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
@@ -347,7 +336,6 @@ public class EmpleadoJFrame extends javax.swing.JFrame {
     private javax.swing.JButton AgregarNuevosProductos;
     private javax.swing.JButton AgregarTienda;
     private javax.swing.JButton AnadeProducto;
-    private javax.swing.JButton CrearUsuarios;
     private javax.swing.JButton EditaEmpleado;
     private javax.swing.JButton EditaTienda;
     private javax.swing.JButton EntregaBtn;
